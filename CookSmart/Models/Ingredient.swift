@@ -8,8 +8,9 @@
 import Foundation
 
 struct Ingredient {
-    var amount: Int
-    var nameOfIngredient: String
+    let amount: Float
+    let metric: String?
+    let nameOfIngredient: String
 }
 
 

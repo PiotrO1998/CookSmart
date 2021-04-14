@@ -10,10 +10,12 @@ import UIKit
 
 struct Recipe {
     var name: String
-    var image: UIImageView
-    var cookTime: Int
+    var image: UIImage
+    var cookTime: String
     var level: String
-    var Servers: Int //For how many people
+    var Servings: Int //For how many people
+    var ingredietnsImportant: [Ingredient]
     var ingredietns: [Ingredient]
     var cookingInstruction: String
+    var source: String 
     }

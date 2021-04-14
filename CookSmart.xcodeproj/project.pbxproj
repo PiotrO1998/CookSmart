@@ -15,6 +15,8 @@
 		AE7C72A026264D3400889E2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7C729E26264D3400889E2A /* LaunchScreen.storyboard */; };
 		AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72AC262716AB00889E2A /* Recipe.swift */; };
 		AE7C72B026271FE600889E2A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72AF26271FE600889E2A /* Ingredient.swift */; };
+		AE7C72B42627239600889E2A /* RecipesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72B32627239600889E2A /* RecipesData.swift */; };
+		AE7C72B72627997700889E2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72B62627997600889E2A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		AE7C72A126264D3400889E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE7C72AC262716AB00889E2A /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		AE7C72AF26271FE600889E2A /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		AE7C72B32627239600889E2A /* RecipesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesData.swift; sourceTree = "<group>"; };
+		AE7C72B62627997600889E2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 				AE7C72A82626535900889E2A /* Models */,
 				AE7C72A92626536000889E2A /* Views */,
 				AE7C72AA2626537900889E2A /* Controllers */,
+				AE7C72B62627997600889E2A /* Constants.swift */,
 				AE7C729C26264D3400889E2A /* Assets.xcassets */,
 				AE7C729E26264D3400889E2A /* LaunchScreen.storyboard */,
 				AE7C72A126264D3400889E2A /* Info.plist */,
@@ -77,6 +82,7 @@
 			children = (
 				AE7C72AC262716AB00889E2A /* Recipe.swift */,
 				AE7C72AF26271FE600889E2A /* Ingredient.swift */,
+				AE7C72B32627239600889E2A /* RecipesData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,8 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE7C729826264D2F00889E2A /* ViewController.swift in Sources */,
+				AE7C72B42627239600889E2A /* RecipesData.swift in Sources */,
 				AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */,
 				AE7C72B026271FE600889E2A /* Ingredient.swift in Sources */,
+				AE7C72B72627997700889E2A /* Constants.swift in Sources */,
 				AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */,
 				AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */,
 			);
