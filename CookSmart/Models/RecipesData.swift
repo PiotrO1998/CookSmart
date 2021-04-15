@@ -5,8 +5,9 @@
 //  Created by Piotr Obara on 14/04/2021.
 //
 
-import Foundation
 import UIKit
+
+struct RecipesData {
 
 let recipes: [Recipe] = [
     
@@ -27,7 +28,7 @@ let recipes: [Recipe] = [
        1 Tip the pasta shells into a pan of boiling, salted water. Cook according to packet instructions and drain. Steam chopped broccoli for 7 mins
        2 Once the broccoli is done, set aside a few of the smaller pieces. Squeeze the garlic from its skin, add to the blender along with the rest of the broccoli, pulse to a pesto and season well.
        3 Toss the pasta with the pesto. Add the reserved broccoli florets, split between two bowls and top with a little extra parmesan.
-""", source: "own"),
+""", source: "own", type: "Vegetarian"),
     
     Recipe(name: "Pizza Marinara", image: #imageLiteral(resourceName: "PizzaMarinara"), cookTime: "1.5 h", level: Constants.Basic.levelMedium, Servings: 1,
            ingredietnsImportant: [
@@ -53,9 +54,9 @@ let recipes: [Recipe] = [
        10 Next, scatter the slices of garlic evenly across the surface, followed by a sprinkling of oregano, and a drizzle of extra virgin olive oil, which should be applied in a circular motion, starting from the center outwards.
        11 Place the pizza on a pizza peel and then slide it into a wood-fired oven with a quick wrist motion, so the topping stays in place.
        12 Bake for 60-90 seconds in a wood-fired oven at a temperature of about 485°C, checking the doneness by carefully lifting the edges of the pizza.
-""", source: "https://www.tasteatlas.com/pizza-napoletana/recipe"),
+""", source: "https://www.tasteatlas.com/pizza-napoletana/recipe", type: "Vegetarian"),
     
-    Recipe(name: "Tomato Pasta 🍝", image: #imageLiteral(resourceName: "TomatoPasta"), cookTime: "25 min", level: Constants.Basic.levelEasy, Servings: 1,
+    Recipe(name: "Tomato Pasta", image: #imageLiteral(resourceName: "TomatoPasta"), cookTime: "25 min", level: Constants.Basic.levelEasy, Servings: 1,
         ingredietnsImportant: [
                             Ingredient(amount: 200, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
                             Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
@@ -75,5 +76,8 @@ let recipes: [Recipe] = [
        5 Add salt, pepper, oregano
        6 Mix al dente pasta with the source
        7 Drain the pasta and add it to the sauce. Toss gently to combine. toss once more
-""", source: "own"),
+""", source: "own", type: "Vegetarian"),
 ]
+
+    
+}

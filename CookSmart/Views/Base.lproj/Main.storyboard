@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="-370" y="106"/>
         </scene>
-        <!--Item-->
+        <!--Recipes-->
         <scene sceneID="PGY-6e-0zn">
             <objects>
                 <navigationController id="JYO-ao-kte" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RKP-Yc-6lX"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="book" catalog="system" id="RKP-Yc-6lX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uH1-lA-DlQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-1164" y="852"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipes-->
         <scene sceneID="HsY-Dk-9vb">
             <objects>
-                <viewController id="fdm-yo-Blj" sceneMemberID="viewController">
+                <viewController id="fdm-yo-Blj" customClass="RecipesViewController" customModule="CookSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cw7-8S-Afg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,28 +56,21 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wGc-qo-5ut">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wGc-qo-5ut" id="aRE-Tl-SIQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yJH-T8-kSt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jB8-I3-KsR"/>
+                    <navigationItem key="navigationItem" title="Recipes" id="jB8-I3-KsR"/>
+                    <connections>
+                        <outlet property="tableView" destination="Yi2-Ny-Cav" id="7Ig-aD-80Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoU-B2-pmB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1165.217391304348" y="1607.8125"/>
         </scene>
-        <!--View Controller-->
+        <!--My Meal Plan-->
         <scene sceneID="DR1-Bb-u3V">
             <objects>
                 <viewController id="NM5-3U-NWt" sceneMemberID="viewController">
@@ -87,13 +80,13 @@
                         <viewLayoutGuide key="safeArea" id="DBm-4Q-uvk"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HLG-Cw-V8F"/>
+                    <navigationItem key="navigationItem" title="My Meal Plan" id="HLG-Cw-V8F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kO4-dT-FYq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-371" y="1608"/>
         </scene>
-        <!--View Controller-->
+        <!--Newspaper-->
         <scene sceneID="Jp4-Q8-oD0">
             <objects>
                 <viewController id="XQ2-dM-BtX" sceneMemberID="viewController">
@@ -103,17 +96,17 @@
                         <viewLayoutGuide key="safeArea" id="s2Z-aJ-OMo"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9OF-Ne-pCZ"/>
+                    <navigationItem key="navigationItem" title="Newspaper" id="9OF-Ne-pCZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j04-r9-kGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="416" y="1608"/>
         </scene>
-        <!--Item-->
+        <!--Newspaper-->
         <scene sceneID="1jZ-xW-LDj">
             <objects>
                 <navigationController id="qnv-q8-0Kf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nxc-8M-Oyz"/>
+                    <tabBarItem key="tabBarItem" title="Newspaper" image="lineweight" catalog="system" id="Nxc-8M-Oyz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ige-IY-f9M">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -126,11 +119,11 @@
             </objects>
             <point key="canvasLocation" x="416" y="852"/>
         </scene>
-        <!--Item-->
+        <!--My Meal Plan-->
         <scene sceneID="pre-bI-yzn">
             <objects>
                 <navigationController id="Jdp-bN-XNE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0GU-7x-RdZ"/>
+                    <tabBarItem key="tabBarItem" title="My Meal Plan" image="heart" catalog="system" id="0GU-7x-RdZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xns-sQ-dlj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,6 +138,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="lineweight" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

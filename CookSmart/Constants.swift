@@ -78,5 +78,10 @@ struct Metrics {
     static let ml = "ml"
     static let oz = "oz"
 }
+    
+    struct AppNames {
+        static let recipeCellNibName = "RecipeCell"
+        static let recipeCellIndentifier = "RecipeReusableCell"
+    }
 
 }
