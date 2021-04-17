@@ -11,7 +11,7 @@ struct RecipesData {
 
 let recipes: [Recipe] = [
     
-    Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: "20 min", level: Constants.Basic.levelEasy, Servings: 1,
+    Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: "Cook time: 20 min", level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
             Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
             Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
@@ -24,13 +24,12 @@ let recipes: [Recipe] = [
             Ingredient(amount: 0.25, metric: "teaspoon", nameOfIngredient: Constants.Ingrediant.salt),
             Ingredient(amount: 0.25, metric: "teaspoon", nameOfIngredient: Constants.Ingrediant.pepper)],
        cookingInstruction:"""
-       Instructions:
        1 Tip the pasta shells into a pan of boiling, salted water. Cook according to packet instructions and drain. Steam chopped broccoli for 7 mins
        2 Once the broccoli is done, set aside a few of the smaller pieces. Squeeze the garlic from its skin, add to the blender along with the rest of the broccoli, pulse to a pesto and season well.
        3 Toss the pasta with the pesto. Add the reserved broccoli florets, split between two bowls and top with a little extra parmesan.
 """, source: "own", type: "Vegetarian"),
     
-    Recipe(name: "Pizza Marinara", image: #imageLiteral(resourceName: "PizzaMarinara"), cookTime: "1.5 h", level: Constants.Basic.levelMedium, Servings: 1,
+    Recipe(name: "Pizza Marinara", image: #imageLiteral(resourceName: "PizzaMarinara"), cookTime: "Cook time: 1.5 h", level: Constants.Basic.levelMedium, servings: 1,
            ingredietnsImportant: [
             Ingredient(amount: 3.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.freshYeast),
             Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
@@ -56,7 +55,7 @@ let recipes: [Recipe] = [
        12 Bake for 60-90 seconds in a wood-fired oven at a temperature of about 485°C, checking the doneness by carefully lifting the edges of the pizza.
 """, source: "https://www.tasteatlas.com/pizza-napoletana/recipe", type: "Vegetarian"),
     
-    Recipe(name: "Tomato Pasta", image: #imageLiteral(resourceName: "TomatoPasta"), cookTime: "25 min", level: Constants.Basic.levelEasy, Servings: 1,
+    Recipe(name: "Tomato Pasta", image: #imageLiteral(resourceName: "TomatoPasta"), cookTime: "Cook time: 25 min", level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
                             Ingredient(amount: 200, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
                             Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),

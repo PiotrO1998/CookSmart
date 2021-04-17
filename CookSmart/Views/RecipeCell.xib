@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeReusableCell" rowHeight="125" id="KGk-i7-Jjw" customClass="RecipeCell" customModule="CookSmart" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="RecipeReusableCell" rowHeight="125" id="KGk-i7-Jjw" customClass="RecipeCell" customModule="CookSmart" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="286" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -17,25 +17,29 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZW-hD-Cet">
-                        <rect key="frame" x="0.0" y="0.0" width="286" height="125"/>
+                        <rect key="frame" x="0.0" y="0.0" width="286" height="120"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yj-7x-8QN">
-                        <rect key="frame" x="118" y="50" width="50" height="25.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="107.5" y="60.5" width="71.5" height="34.5"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.38466639234530214" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
+                        <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="dZW-hD-Cet" secondAttribute="trailing" id="6sV-SV-1CE"/>
                     <constraint firstItem="dZW-hD-Cet" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="El9-jn-pSY"/>
-                    <constraint firstItem="8yj-7x-8QN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IKr-k2-bPc"/>
+                    <constraint firstAttribute="bottom" secondItem="8yj-7x-8QN" secondAttribute="bottom" constant="30" id="Uwb-bb-3s2"/>
+                    <constraint firstItem="8yj-7x-8QN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aSI-26-KHT"/>
                     <constraint firstItem="dZW-hD-Cet" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eaK-Ne-QgD"/>
-                    <constraint firstAttribute="bottom" secondItem="dZW-hD-Cet" secondAttribute="bottom" id="pJx-Zw-agh"/>
-                    <constraint firstItem="8yj-7x-8QN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="sbe-Q9-MeF"/>
+                    <constraint firstAttribute="bottom" secondItem="dZW-hD-Cet" secondAttribute="bottom" constant="5" id="pJx-Zw-agh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="recipeImage" destination="dZW-hD-Cet" id="Q0I-Df-ZGo"/>
                 <outlet property="recipeName" destination="8yj-7x-8QN" id="sB5-1R-Gae"/>

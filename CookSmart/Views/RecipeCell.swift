@@ -11,9 +11,12 @@ class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        recipeImage.contentMode = .scaleToFill
         // Initialization code
     }
 

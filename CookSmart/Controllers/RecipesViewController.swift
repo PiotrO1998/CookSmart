@@ -48,6 +48,10 @@ extension RecipesViewController: UITableViewDataSource {
         cell.recipeName.text = recipesData.recipes[indexPath.row].name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 215
+    }
 }
 
 //User click on sell
@@ -55,5 +59,24 @@ extension RecipesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //return clicked sell
         print(indexPath.row)
+        
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "RecipeViewController") as! RecipeViewController
+        
+        vc.rImage = recipesData.recipes[indexPath.row].image
+        vc.rName = recipesData.recipes[indexPath.row].name
+        vc.rCookingTime = recipesData.recipes[indexPath.row].cookTime
+        vc.rLevel = recipesData.recipes[indexPath.row].level
+        vc.rServings = String(recipesData.recipes[indexPath.row].servings)
+        vc.rIngredients = recipesData.recipes[indexPath.row].getIngredients()
+        vc.rCookingInstructions = recipesData.recipes[indexPath.row].cookingInstruction
+        
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+        
+        //let recipeViewController = RecipeViewController() as! RecipeViewController
+        //recipeViewController.name = recipesData.recipes[indexPath.row].name
+        //self.present(vc, animated: true, completion: nil)
+        
     }
 }

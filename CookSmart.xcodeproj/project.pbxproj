@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1F46B52628AAB000B41A18 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46B42628AAB000B41A18 /* RecipeViewController.swift */; };
+		AE1F46B8262B242A00B41A18 /* MyMealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */; };
+		AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */; };
 		AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729326264D2F00889E2A /* AppDelegate.swift */; };
 		AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729526264D2F00889E2A /* SceneDelegate.swift */; };
 		AE7C729826264D2F00889E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729726264D2F00889E2A /* ViewController.swift */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE1F46B42628AAB000B41A18 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealPlanViewController.swift; sourceTree = "<group>"; };
+		AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealPlanViewController.swift; sourceTree = "<group>"; };
 		AE7C729026264D2F00889E2A /* CookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7C729326264D2F00889E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7C729526264D2F00889E2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +114,9 @@
 			children = (
 				AE7C729726264D2F00889E2A /* ViewController.swift */,
 				AE7C72BA2627B23700889E2A /* RecipesViewController.swift */,
+				AE1F46B42628AAB000B41A18 /* RecipeViewController.swift */,
+				AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */,
+				AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,9 +196,12 @@
 				AE7C729826264D2F00889E2A /* ViewController.swift in Sources */,
 				AE7C72B42627239600889E2A /* RecipesData.swift in Sources */,
 				AE7C72BF2627B37500889E2A /* RecipeCell.swift in Sources */,
+				AE1F46B52628AAB000B41A18 /* RecipeViewController.swift in Sources */,
 				AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */,
+				AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */,
 				AE7C72B026271FE600889E2A /* Ingredient.swift in Sources */,
 				AE7C72B72627997700889E2A /* Constants.swift in Sources */,
+				AE1F46B8262B242A00B41A18 /* MyMealPlanViewController.swift in Sources */,
 				AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */,
 				AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */,
 			);

@@ -2,9 +2,9 @@ struct Constants {
     
 
 struct Basic {
-    static let levelEasy = "easy"
-    static let levelMedium = "medium"
-    static let levelHard = "hard"
+    static let levelEasy = "Level: easy"
+    static let levelMedium = "Level: medium"
+    static let levelHard = "Level: hard"
 }
 
 struct Ingrediant {
