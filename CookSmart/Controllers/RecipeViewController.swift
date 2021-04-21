@@ -11,6 +11,7 @@ class RecipeViewController: UIViewController {
 
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
+    @IBOutlet weak var recipeType: UILabel!
     @IBOutlet weak var recipeCookingTime: UILabel!
     @IBOutlet weak var recipeLevel: UILabel!
     @IBOutlet weak var recipeServing: UILabel!
@@ -23,6 +24,7 @@ class RecipeViewController: UIViewController {
     
     var rImage = #imageLiteral(resourceName: "Broccoli Pasta")
     var rName: String?
+    var rType: String?
     var rCookingTime: String?
     var rLevel: String?
     var rServings: String?
@@ -42,14 +44,15 @@ class RecipeViewController: UIViewController {
         //label.frame = CGRect.init(x: 0, y: 0, width: 100, height: 100)
         //view.addSubview(label)
         
-        if let text = rName, let cookingTime = rCookingTime, let level = rLevel, let servings = rServings, let ingredients = rIngredients, let cokingInstructions = rCookingInstructions {
+        if let text = rName, let cookingTime = rCookingTime, let level = rLevel, let servings = rServings, let ingredients = rIngredients, let cokingInstructions = rCookingInstructions, let type = rType {
             self.recipeImage.image = rImage
             self.recipeName.text = text
-            self.recipeCookingTime.text = cookingTime
+            self.recipeCookingTime.text = "COOKING TIME: " + cookingTime + " min"
             self.recipeLevel.text = level
-            self.recipeServing.text = "Servings: " + servings
+            self.recipeServing.text = "SERVINGS: " + servings + "\n"
             self.recipeIngredients.text = ingredients
             self.recipeCookingInstructions.text = cokingInstructions
+            self.recipeType.text = "TYPE: " + type
         }
 
         //recipeName.text = ""

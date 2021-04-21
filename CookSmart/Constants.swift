@@ -2,9 +2,12 @@ struct Constants {
     
 
 struct Basic {
-    static let levelEasy = "Level: easy"
+    static let levelEasy = "LEVEL: easy"
     static let levelMedium = "Level: medium"
     static let levelHard = "Level: hard"
+    
+    static let vegetarian = "Vegetarian"
+    static let nonVegetarian = "Non Vegetarian"
 }
 
 struct Ingrediant {
@@ -82,6 +85,9 @@ struct Metrics {
     struct AppNames {
         static let recipeCellNibName = "RecipeCell"
         static let recipeCellIndentifier = "RecipeReusableCell"
+        static let createMyMealPlanCellIndentifier = "CreateMealPlanReusableCell"
+        
+        static let colorOrange = "ColorOrange"
     }
 
 }

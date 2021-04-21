@@ -69,6 +69,7 @@ extension RecipesViewController: UITableViewDelegate {
         vc.rServings = String(recipesData.recipes[indexPath.row].servings)
         vc.rIngredients = recipesData.recipes[indexPath.row].getIngredients()
         vc.rCookingInstructions = recipesData.recipes[indexPath.row].cookingInstruction
+        vc.rType = recipesData.recipes[indexPath.row].type
         
         
         navigationController?.pushViewController(vc, animated: true)
