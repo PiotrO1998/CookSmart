@@ -34,4 +34,14 @@ class ChoseNumberOfServingsViewController: UIViewController {
         labelNumberOfServings.text = String(format: "%.f", stepper.value)
     }
     
+    @IBAction func buttonNextPressed(_ sender: UIButton) {
+        
+        ConfigureMealPlan.numberOfServings = Int(stepper.value)
+        
+        self.performSegue(withIdentifier: Constants.AppNames.sequeToIngredientsIndentifier, sender: self)
+        
+        
+    }
+    
+    
 }

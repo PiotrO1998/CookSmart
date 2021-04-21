@@ -86,6 +86,15 @@ struct Metrics {
         static let recipeCellNibName = "RecipeCell"
         static let recipeCellIndentifier = "RecipeReusableCell"
         static let createMyMealPlanCellIndentifier = "CreateMealPlanReusableCell"
+        static let ingredientCellIndentifier = "ingredientReusableCell"
+        
+        static let sequeToCookingTimeIndentifier = "SegueToCookingTimeIndentifier"
+        static let sequeToLevelIndentifier = "SequeToLevelIndentifier"
+        static let sequeToNumberOfServingsIndentifier = "SequeToNumberOfServingsIndentifier"
+        static let sequeToIngredientsIndentifier = "SequeToIngredientsIndentifier"
+        
+        
+        
         
         static let colorOrange = "ColorOrange"
     }

@@ -2,7 +2,7 @@
 //  RecipesData.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 14/04/2021.
+//  Created by Piotr Obara 
 //
 
 import UIKit
@@ -11,7 +11,7 @@ struct RecipesData {
 
 let recipes: [Recipe] = [
     
-    Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: "20", level: Constants.Basic.levelEasy, servings: 1,
+    Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
             Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
             Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
@@ -29,7 +29,7 @@ let recipes: [Recipe] = [
        3 Toss the pasta with the pesto. Add the reserved broccoli florets, split between two bowls and top with a little extra parmesan.
 """, source: "own", type: Constants.Basic.vegetarian),
     
-    Recipe(name: "Pizza Marinara", image: #imageLiteral(resourceName: "PizzaMarinara"), cookTime: "180", level: Constants.Basic.levelMedium, servings: 1,
+    Recipe(name: "Pizza Marinara", image: #imageLiteral(resourceName: "PizzaMarinara"), cookTime: 180, level: Constants.Basic.levelMedium, servings: 1,
            ingredietnsImportant: [
             Ingredient(amount: 3.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.freshYeast),
             Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
@@ -55,7 +55,7 @@ let recipes: [Recipe] = [
        12 Bake for 60-90 seconds in a wood-fired oven at a temperature of about 485°C, checking the doneness by carefully lifting the edges of the pizza.
 """, source: "https://www.tasteatlas.com/pizza-napoletana/recipe", type: Constants.Basic.vegetarian),
     
-    Recipe(name: "Tomato Pasta", image: #imageLiteral(resourceName: "TomatoPasta"), cookTime: "25", level: Constants.Basic.levelEasy, servings: 1,
+    Recipe(name: "Tomato Pasta", image: #imageLiteral(resourceName: "TomatoPasta"), cookTime: 25, level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
                             Ingredient(amount: 200, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
                             Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
@@ -77,7 +77,7 @@ let recipes: [Recipe] = [
        7 Drain the pasta and add it to the sauce. Toss gently to combine. toss once more
 """, source: "own", type: Constants.Basic.vegetarian),
     
-    Recipe(name: "Broccoli Pasta Chicken", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: "20", level: Constants.Basic.levelEasy, servings: 1,
+    Recipe(name: "Broccoli Pasta Chicken", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
             Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
             Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
@@ -125,6 +125,144 @@ let recipes: [Recipe] = [
             }
         }
         return nonVegeterianIngredients
+    }
+    
+    func getVegRecipe() -> [Recipe] {
+        var vegRecipes: [Recipe] = []
+        for recipe in recipes {
+            if recipe.type == "Vegetarian" {
+                vegRecipes.append(recipe)
+                }
+            }
+        return vegRecipes
+        }
+    
+    func getNonVegRecipe() -> [Recipe] {
+        var nonVegRecipes: [Recipe] = []
+        for recipe in recipes {
+            if recipe.type == "Non Vegetarian" {
+                nonVegRecipes.append(recipe)
+                }
+            }
+        return nonVegRecipes
+        }
+    
+    func getRecipes30Filter(recipesToFilter: [Recipe]) -> [Recipe] {
+        var recipes30: [Recipe] = []
+        for r in recipesToFilter {
+            if r.cookTime <= 30 {
+                recipes30.append(r)
+            }
+        }
+        return recipes30
+    }
+    
+    func getRecipes1Filter(recipesToFilter: [Recipe]) -> [Recipe] {
+        var recipes1: [Recipe] = []
+        for r in recipesToFilter {
+            if r.cookTime <= 60 {
+                recipes1.append(r)
+            }
+        }
+        return recipes1
+    }
+    
+    func getRecipes15Filter(recipesToFilter: [Recipe]) -> [Recipe] {
+        var recipes15: [Recipe] = []
+        for r in recipesToFilter {
+            if r.cookTime <= 180 {
+                recipes15.append(r)
+            }
+        }
+        return recipes15
+    }
+    
+    func getRecipeLevelEasyFilter(recipesToFilter: [Recipe]) -> [Recipe] {
+        var recipesEasy: [Recipe] = []
+        for r in recipesToFilter {
+            if r.level == Constants.Basic.levelEasy {
+                recipesEasy.append(r)
+            }
+        }
+        return recipesEasy
+    }
+    
+    //level Medium adds medium and easy
+    func getRecipeLevelMediumFilter(recipesToFilter: [Recipe]) -> [Recipe] {
+        var recipesMedium: [Recipe] = []
+        for r in recipesToFilter {
+            if r.level == Constants.Basic.levelMedium ||  r.level == Constants.Basic.levelEasy {
+                recipesMedium.append(r)
+            }
+        }
+        return recipesMedium
+    }
+    
+    
+    //level hard add hard, medium and easy
+    func getRecipeLevelHardFilter(recipesToFilter: [Recipe]) -> [Recipe] {
+        var recipesHard: [Recipe] = []
+        for r in recipesToFilter {
+            if r.level == Constants.Basic.levelHard || r.level == Constants.Basic.levelMedium ||  r.level == Constants.Basic.levelEasy {
+                recipesHard.append(r)
+            }
+        }
+        return recipesHard
+    }
+    
+    func getIngredientsString(recipesToIngredientsString: [Recipe]) -> [String] {
+        var ingrediensString: [String] = []
+        for r in recipesToIngredientsString {
+            for ingredientInRecipe in r.getIngredientsArray() {
+                if !ingrediensString.contains(ingredientInRecipe) {
+                    ingrediensString.append(ingredientInRecipe)
+                }
+            }
+        }
+        return ingrediensString
+    }
+    
+    func getIngredientsBasedOnFilters(vegIngredients: Bool, nonVegIngredients: Bool, time30: Bool, time1: Bool, time15: Bool, levelEasy: Bool, levelMedium: Bool, levelHard: Bool) -> [String] {
+        
+        print("from dataApp:" + String(time30))
+        
+        var ingredients: [Recipe] = []
+        
+        var ingredientsBasedOnFilters: [String] = []
+        
+        print("from dataApp:" + String(time30))
+        
+        if vegIngredients {
+            ingredients += getVegRecipe()
+        }
+        
+        if nonVegIngredients {
+            ingredients += getNonVegRecipe()
+        }
+        
+        
+        if time15 {
+            print("from data:" + String(time30))
+            //print("from data:" + String(ingredients.count))
+            ingredients = getRecipes15Filter(recipesToFilter: ingredients)
+        } else if time1 {
+            ingredients = getRecipes1Filter(recipesToFilter: ingredients)
+        } else if time30 {
+            ingredients = getRecipes30Filter(recipesToFilter: ingredients)
+        }
+        
+        if levelHard {
+            ingredients = getRecipeLevelHardFilter(recipesToFilter: ingredients)
+        } else if levelMedium {
+            ingredients = getRecipeLevelMediumFilter(recipesToFilter: ingredients)
+        } else if levelEasy {
+            ingredients = getRecipeLevelEasyFilter(recipesToFilter: ingredients)
+        }
+        
+        
+        ingredientsBasedOnFilters = getIngredientsString(recipesToIngredientsString: ingredients)
+        
+        return ingredientsBasedOnFilters
     }
 
     

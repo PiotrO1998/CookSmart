@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChoseLevelViewController: UIViewController {
+class ChoseCookingTimeViewController: UIViewController {
     
     @IBOutlet weak var button30: UIButton!
     @IBOutlet weak var button1: UIButton!
@@ -75,6 +75,30 @@ class ChoseLevelViewController: UIViewController {
             b15Pressed = false
         }
     }
+    
+    @IBAction func buttonNextPressed(_ sender: UIButton) {
+        
+        if !b30Pressed && !b1Pressed && !b15Pressed {
+            
+            let alert = UIAlertController(title: "You Need To Chose At Leat One Option", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                
+                ConfigureMealPlan.min30 = b30Pressed
+                ConfigureMealPlan.h1 = b1Pressed
+                ConfigureMealPlan.h15 = b15Pressed
+                
+                self.performSegue(withIdentifier: Constants.AppNames.sequeToLevelIndentifier, sender: self)
+                }
+            
+        }
+        
+    
+    
     
     /*
     // MARK: - Navigation

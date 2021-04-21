@@ -64,7 +64,7 @@ extension RecipesViewController: UITableViewDelegate {
         
         vc.rImage = recipesData.recipes[indexPath.row].image
         vc.rName = recipesData.recipes[indexPath.row].name
-        vc.rCookingTime = recipesData.recipes[indexPath.row].cookTime
+        vc.rCookingTime = String(recipesData.recipes[indexPath.row].cookTime)
         vc.rLevel = recipesData.recipes[indexPath.row].level
         vc.rServings = String(recipesData.recipes[indexPath.row].servings)
         vc.rIngredients = recipesData.recipes[indexPath.row].getIngredients()

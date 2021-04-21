@@ -2,7 +2,7 @@
 //  Ingredient.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 14/04/2021.
+//  Created by Piotr Obara 
 //
 
 import Foundation

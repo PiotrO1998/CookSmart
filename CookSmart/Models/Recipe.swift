@@ -2,7 +2,7 @@
 //  Recipe.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 14/04/2021.
+//  Created by Piotr Obara 
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 struct Recipe {
     let name: String
     let image: UIImage
-    let cookTime: String
+    let cookTime: Int
     let level: String
     let servings: Int //For how many people
     let ingredietnsImportant: [Ingredient]

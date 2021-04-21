@@ -16,6 +16,10 @@ class CreateMealPlanViewController: UIViewController {
     var buttonVegPressed = false
     var buttonNonVegPressed = false
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("View did apper " + String(buttonVegPressed))
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,8 @@ class CreateMealPlanViewController: UIViewController {
         buttonNonVegetarian.layer.borderWidth = 1
         buttonNonVegetarian.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
         // Do any additional setup after loading the view.
+        
+        print("View did load " + String(buttonVegPressed))
     }
     
     @IBAction func buttonVegetarianPressed(_ sender: UIButton) {
@@ -37,10 +43,12 @@ class CreateMealPlanViewController: UIViewController {
             buttonVegetarian.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
             buttonVegetarian.setTitleColor(UIColor.white, for: .normal)
             buttonVegPressed = true
+            print("func " + String(buttonVegPressed))
         } else {
             buttonVegetarian.backgroundColor = .clear
             buttonVegetarian.setTitleColor(UIColor(named: "ColorOrange"), for: .normal)
             buttonVegPressed = false
+            print("func " + String(buttonVegPressed))
         }
         
     }
@@ -58,7 +66,25 @@ class CreateMealPlanViewController: UIViewController {
     }
     
     @IBAction func buttonNextPressed(_ sender: UIButton) {
-    }
+        
+        if !buttonVegPressed && !buttonNonVegPressed {
+        
+        let alert = UIAlertController(title: "You Need To Chose At Leat One Type", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            ConfigureMealPlan.vegetarian = buttonVegPressed
+            ConfigureMealPlan.nonVegetarian = buttonNonVegPressed
+            
+            self.performSegue(withIdentifier: Constants.AppNames.sequeToCookingTimeIndentifier, sender: self)
+            }
+        }
+    
+  
     
     
     /*
