@@ -73,7 +73,7 @@ class ChoseIngredientsViewController: UIViewController {
             print("recipe " + i.name)
         }
         
-        let destinationVC = segue.destination as! SelectedRecipesViewController
+        let destinationVC = segue.destination as! SelectedMealPlansViewController
         destinationVC.ingredients = ingredietnsString
         destinationVC.recipes = recipes
         

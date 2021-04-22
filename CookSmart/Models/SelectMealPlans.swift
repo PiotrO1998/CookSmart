@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SelectRecipes {
+struct SelectMealPlans {
     
     var recipes: [Recipe]
     var ingredietns: [String]
@@ -16,10 +16,14 @@ struct SelectRecipes {
     func getMealPlans() -> [[Recipe]] {
         var evaluatedValidSetsOfRecipes: [SetEvalaute] = evaluateSetOfValidRecipes()
         var validRecipes = getEvaluatedValidRecipes()
-        var mealPlans: [[Recipe]] = [[]]
+        var mealPlans: [[Recipe]] = []
         
         for evaluatedSet in evaluatedValidSetsOfRecipes {
             mealPlans.append([validRecipes[evaluatedSet.set.0].recipe,validRecipes[evaluatedSet.set.1].recipe,validRecipes[evaluatedSet.set.2].recipe])
+        }
+        
+        for x in mealPlans {
+        //    print(x[0].name)
         }
         
         return mealPlans
@@ -32,7 +36,9 @@ struct SelectRecipes {
         for recipe in recipes {
             for ingredient in ingredietns {
                 if recipe.getIngredientsImportantArray().contains(ingredient) {
+                    if !validRecipes.contains { $0.name == recipe.name && $0.cookingInstruction == recipe.cookingInstruction } {
                     validRecipes.append(recipe)
+                    }
                 }
             }
         }
@@ -70,9 +76,19 @@ struct SelectRecipes {
         var evaluationsOfSetsToReturn: [SetEvalaute] = []
         
         switch size {
-        case 0...3:
+        case 0:
+            print("nothing to return")
+        case 1:
             //return recipes/set
-            print("TODO")
+            print("return one meal plan")
+            var setEvaluate: SetEvalaute = SetEvalaute(set: (0,0,0), evaluation: 1)
+            evaluationsOfSets.append(setEvaluate)
+        case 2:
+            var setEvaluate: SetEvalaute = SetEvalaute(set: (0,1,1), evaluation: 1)
+            evaluationsOfSets.append(setEvaluate)
+        case 3:
+            var setEvaluate: SetEvalaute = SetEvalaute(set: (0,1,2), evaluation: 1)
+            evaluationsOfSets.append(setEvaluate)
         case 4:
             for set in CombinationsData.combinations4 {
                 evaluationsOfSets.append(evaluateSet(recipe1: evaluatedRecipes[set.0].recipe, recipe2: evaluatedRecipes[set.1].recipe, recipe3: evaluatedRecipes[set.2].recipe, set: set))
@@ -176,19 +192,19 @@ struct SelectRecipes {
         //1 because they matter in termo of usage
         //2 I dont want to create meal plan contating same not important ingredient (everyday pasta)
         for ingredientInRecipe1 in recipe1.getIngredientsImportantArray() {
-            if !ingredietns.contains(ingredientInRecipe1) {
+            if !ingredientsInSet.contains(ingredientInRecipe1) {
                 ingredientsInSet.append(ingredientInRecipe1)
             }
         }
         
         for ingredientInRecipe2 in recipe2.getIngredientsImportantArray() {
-            if !ingredietns.contains(ingredientInRecipe2) {
+            if !ingredientsInSet.contains(ingredientInRecipe2) {
                 ingredientsInSet.append(ingredientInRecipe2)
             }
         }
         
         for ingredientInRecipe3 in recipe3.getIngredientsImportantArray() {
-            if !ingredietns.contains(ingredientInRecipe3) {
+            if !ingredientsInSet.contains(ingredientInRecipe3) {
                 ingredientsInSet.append(ingredientInRecipe3)
             }
         }

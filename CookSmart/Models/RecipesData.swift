@@ -18,11 +18,11 @@ let recipes: [Recipe] = [
             Ingredient(amount: 15.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parmesan),
             Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.basilLeaves)],
         ingredietns: [
-            Ingredient(amount: 2.0, metric: "tbsp", nameOfIngredient: Constants.Ingrediant.oliveOil),
-            Ingredient(amount: 70.0, metric: "g", nameOfIngredient: Constants.Ingrediant.pasta),
-            Ingredient(amount: 10.0, metric: "g", nameOfIngredient: Constants.Ingrediant.pineNuts),
-            Ingredient(amount: 0.25, metric: "teaspoon", nameOfIngredient: Constants.Ingrediant.salt),
-            Ingredient(amount: 0.25, metric: "teaspoon", nameOfIngredient: Constants.Ingrediant.pepper)],
+            Ingredient(amount: 2.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+            Ingredient(amount: 70.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
+            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pineNuts),
+            Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+            Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)],
        cookingInstruction:"""
        1 Tip the pasta shells into a pan of boiling, salted water. Cook according to packet instructions and drain. Steam chopped broccoli for 7 mins
        2 Once the broccoli is done, set aside a few of the smaller pieces. Squeeze the garlic from its skin, add to the blender along with the rest of the broccoli, pulse to a pesto and season well.
