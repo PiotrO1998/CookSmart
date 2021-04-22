@@ -92,6 +92,7 @@ struct Metrics {
         static let sequeToLevelIndentifier = "SequeToLevelIndentifier"
         static let sequeToNumberOfServingsIndentifier = "SequeToNumberOfServingsIndentifier"
         static let sequeToIngredientsIndentifier = "SequeToIngredientsIndentifier"
+        static let sequeToSelectedRecipesIndentifier = "SequeToSelectedRecipesIndentifier"
         
         
         

@@ -16,6 +16,9 @@
 		AE1F46B52628AAB000B41A18 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46B42628AAB000B41A18 /* RecipeViewController.swift */; };
 		AE1F46B8262B242A00B41A18 /* MyMealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */; };
 		AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */; };
+		AE2264EB2631CF9A007B4B71 /* CombinationsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264EA2631CF99007B4B71 /* CombinationsData.swift */; };
+		AE7193472630D3F90064D59E /* SelectRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193462630D3F90064D59E /* SelectRecipes.swift */; };
+		AE71934A2630E1F70064D59E /* SelectedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193492630E1F70064D59E /* SelectedRecipesViewController.swift */; };
 		AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729326264D2F00889E2A /* AppDelegate.swift */; };
 		AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729526264D2F00889E2A /* SceneDelegate.swift */; };
 		AE7C729826264D2F00889E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729726264D2F00889E2A /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 		AE1F46B42628AAB000B41A18 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealPlanViewController.swift; sourceTree = "<group>"; };
 		AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealPlanViewController.swift; sourceTree = "<group>"; };
+		AE2264EA2631CF99007B4B71 /* CombinationsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationsData.swift; sourceTree = "<group>"; };
+		AE7193462630D3F90064D59E /* SelectRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRecipes.swift; sourceTree = "<group>"; };
+		AE7193492630E1F70064D59E /* SelectedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRecipesViewController.swift; sourceTree = "<group>"; };
 		AE7C729026264D2F00889E2A /* CookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7C729326264D2F00889E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE7C729526264D2F00889E2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 				AE7C72B32627239600889E2A /* RecipesData.swift */,
 				AE09B4E0262FCC880065F9FF /* ConfigureMealPlan.swift */,
 				AE09B4E82630B3270065F9FF /* IngredientModel.swift */,
+				AE7193462630D3F90064D59E /* SelectRecipes.swift */,
+				AE2264EA2631CF99007B4B71 /* CombinationsData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 				AE09B4E3262FD8C70065F9FF /* ChoseCookingLevelViewController.swift */,
 				AE09B4D6262FC3590065F9FF /* ChoseNumberOfServingsViewController.swift */,
 				AE09B4D9262FC5EE0065F9FF /* ChoseIngredientsViewController.swift */,
+				AE7193492630E1F70064D59E /* SelectedRecipesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +224,7 @@
 				AE7C729826264D2F00889E2A /* ViewController.swift in Sources */,
 				AE7C72B42627239600889E2A /* RecipesData.swift in Sources */,
 				AE7C72BF2627B37500889E2A /* RecipeCell.swift in Sources */,
+				AE7193472630D3F90064D59E /* SelectRecipes.swift in Sources */,
 				AE09B4E4262FD8C70065F9FF /* ChoseCookingLevelViewController.swift in Sources */,
 				AE1F46B52628AAB000B41A18 /* RecipeViewController.swift in Sources */,
 				AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */,
@@ -222,10 +232,12 @@
 				AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */,
 				AE09B4D7262FC35A0065F9FF /* ChoseNumberOfServingsViewController.swift in Sources */,
 				AE7C72B026271FE600889E2A /* Ingredient.swift in Sources */,
+				AE2264EB2631CF9A007B4B71 /* CombinationsData.swift in Sources */,
 				AE7C72B72627997700889E2A /* Constants.swift in Sources */,
 				AE1F46B8262B242A00B41A18 /* MyMealPlanViewController.swift in Sources */,
 				AE09B4E92630B3270065F9FF /* IngredientModel.swift in Sources */,
 				AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */,
+				AE71934A2630E1F70064D59E /* SelectedRecipesViewController.swift in Sources */,
 				AE09B4E1262FCC880065F9FF /* ConfigureMealPlan.swift in Sources */,
 				AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */,
 			);

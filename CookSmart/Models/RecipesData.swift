@@ -213,7 +213,7 @@ let recipes: [Recipe] = [
     func getIngredientsString(recipesToIngredientsString: [Recipe]) -> [String] {
         var ingrediensString: [String] = []
         for r in recipesToIngredientsString {
-            for ingredientInRecipe in r.getIngredientsArray() {
+            for ingredientInRecipe in r.getIngredientsImportantArray() {
                 if !ingrediensString.contains(ingredientInRecipe) {
                     ingrediensString.append(ingredientInRecipe)
                 }
@@ -222,47 +222,84 @@ let recipes: [Recipe] = [
         return ingrediensString
     }
     
-    func getIngredientsBasedOnFilters(vegIngredients: Bool, nonVegIngredients: Bool, time30: Bool, time1: Bool, time15: Bool, levelEasy: Bool, levelMedium: Bool, levelHard: Bool) -> [String] {
+    //function return array of IngredientRecipe that is used in ingredients selection
+    //array is created from user selected options
+    func getIngredientsBasedOnFilters(vegIngredients: Bool, nonVegIngredients: Bool, time30: Bool, time1: Bool, time15: Bool, levelEasy: Bool, levelMedium: Bool, levelHard: Bool) -> [IngredientModel] {
         
-        print("from dataApp:" + String(time30))
-        
-        var ingredients: [Recipe] = []
-        
+        var recipes: [Recipe] = []
         var ingredientsBasedOnFilters: [String] = []
-        
-        print("from dataApp:" + String(time30))
+        var ingredientsModelBasedOnFilters: [IngredientModel] = []
         
         if vegIngredients {
-            ingredients += getVegRecipe()
+            recipes += getVegRecipe()
         }
         
         if nonVegIngredients {
-            ingredients += getNonVegRecipe()
+            recipes += getNonVegRecipe()
         }
         
-        
         if time15 {
-            print("from data:" + String(time30))
-            //print("from data:" + String(ingredients.count))
-            ingredients = getRecipes15Filter(recipesToFilter: ingredients)
+            recipes = getRecipes15Filter(recipesToFilter: recipes)
         } else if time1 {
-            ingredients = getRecipes1Filter(recipesToFilter: ingredients)
+            recipes = getRecipes1Filter(recipesToFilter: recipes)
         } else if time30 {
-            ingredients = getRecipes30Filter(recipesToFilter: ingredients)
+            recipes = getRecipes30Filter(recipesToFilter: recipes)
         }
         
         if levelHard {
-            ingredients = getRecipeLevelHardFilter(recipesToFilter: ingredients)
+            recipes = getRecipeLevelHardFilter(recipesToFilter: recipes)
         } else if levelMedium {
-            ingredients = getRecipeLevelMediumFilter(recipesToFilter: ingredients)
+            recipes = getRecipeLevelMediumFilter(recipesToFilter: recipes)
         } else if levelEasy {
-            ingredients = getRecipeLevelEasyFilter(recipesToFilter: ingredients)
+            recipes = getRecipeLevelEasyFilter(recipesToFilter: recipes)
         }
         
         
-        ingredientsBasedOnFilters = getIngredientsString(recipesToIngredientsString: ingredients)
+        ingredientsBasedOnFilters = getIngredientsString(recipesToIngredientsString: recipes)
+        ingredientsModelBasedOnFilters = getIngredientsModel(ingredients: ingredientsBasedOnFilters)
         
-        return ingredientsBasedOnFilters
+        return ingredientsModelBasedOnFilters
+    }
+    
+    //function return selected recipes based on user filters
+    func getIngredientsModel(ingredients: [String]) -> [IngredientModel] {
+        var ingredientsModel: [IngredientModel] = []
+        for ingredient in ingredients {
+            var ingredientModel = IngredientModel(name: ingredient, checkmark: false)
+            ingredientsModel.append(ingredientModel)
+        }
+        return ingredientsModel
+    }
+    
+    func getRecipesBasedOnFilters(vegIngredients: Bool, nonVegIngredients: Bool, time30: Bool, time1: Bool, time15: Bool, levelEasy: Bool, levelMedium: Bool, levelHard: Bool) -> [Recipe] {
+        
+        var recipes: [Recipe] = []
+        
+        if vegIngredients {
+            recipes += getVegRecipe()
+        }
+        
+        if nonVegIngredients {
+            recipes += getNonVegRecipe()
+        }
+        
+        if time15 {
+            recipes = getRecipes15Filter(recipesToFilter: recipes)
+        } else if time1 {
+            recipes = getRecipes1Filter(recipesToFilter: recipes)
+        } else if time30 {
+            recipes = getRecipes30Filter(recipesToFilter: recipes)
+        }
+        
+        if levelHard {
+            recipes = getRecipeLevelHardFilter(recipesToFilter: recipes)
+        } else if levelMedium {
+            recipes = getRecipeLevelMediumFilter(recipesToFilter: recipes)
+        } else if levelEasy {
+            recipes = getRecipeLevelEasyFilter(recipesToFilter: recipes)
+        }
+        
+         return recipes
     }
 
     

@@ -11,7 +11,7 @@ class ChoseIngredientsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var ingredients: [String] = []
+    var ingredients: [IngredientModel] = []
     
     
     let recipesData = RecipesData()
@@ -20,23 +20,18 @@ class ChoseIngredientsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Testing
-        //print("non veg form table view: " + String(ConfigureMealPlan.vegetarian))
-        
-        //ingredients = recipesData.getVegeterianIngredients() + recipesData.getNonVegeterianIngredients()
-        
         
         //test
-        print("vegIng: " + String(ConfigureMealPlan.vegetarian))
-        print(" nonVeg :" + String(ConfigureMealPlan.nonVegetarian))
+        //print("vegIng: " + String(ConfigureMealPlan.vegetarian))
+        //print(" nonVeg :" + String(ConfigureMealPlan.nonVegetarian))
         
-        print("min30: " + String(ConfigureMealPlan.min30))
-        print(" h1: " + String(ConfigureMealPlan.h1))
-        print("15h: " + String(ConfigureMealPlan.h15))
+        //print("min30: " + String(ConfigureMealPlan.min30))
+        //print(" h1: " + String(ConfigureMealPlan.h1))
+        //print("15h: " + String(ConfigureMealPlan.h15))
         
-        print("minEasy: " + String(ConfigureMealPlan.easy))
-        print(" minMedium; " + String(ConfigureMealPlan.medium))
-        print("ha " + String(ConfigureMealPlan.hard))
+        //print("minEasy: " + String(ConfigureMealPlan.easy))
+        //print(" minMedium; " + String(ConfigureMealPlan.medium))
+        //print("ha " + String(ConfigureMealPlan.hard))
         
         
         
@@ -61,7 +56,31 @@ class ChoseIngredientsViewController: UIViewController {
         ingredients = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
     }
     
-
+    @IBAction func buttonNextPressed(_ sender: UIButton) {
+        
+        
+        
+        self.performSegue(withIdentifier: Constants.AppNames.sequeToSelectedRecipesIndentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let ingredietnsString = getIngredientsString()
+        let recipes = recipesData.getRecipesBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
+        for i in ingredietnsString {
+            print("ingredient " + i)
+        }
+        for i in recipes {
+            print("recipe " + i.name)
+        }
+        
+        let destinationVC = segue.destination as! SelectedRecipesViewController
+        destinationVC.ingredients = ingredietnsString
+        destinationVC.recipes = recipes
+        
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -71,6 +90,16 @@ class ChoseIngredientsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getIngredientsString() -> [String] {
+        var ingredietnsString: [String] = []
+        for ingredient in ingredients {
+            if ingredient.checkmark == true {
+                ingredietnsString.append(ingredient.name)
+            }
+        }
+        return ingredietnsString
+    }
 
 }
 
@@ -81,7 +110,8 @@ extension ChoseIngredientsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.ingredientCellIndentifier, for: indexPath)
-        cell.textLabel?.text = ingredients[indexPath.row]
+        cell.textLabel?.text = ingredients[indexPath.row].name
+        //cell.textLabel?.textColor = UIColor(named: Constants.AppNames.colorOrange)
         return cell
     }
     
@@ -91,15 +121,16 @@ extension ChoseIngredientsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath) {
-                        cell.accessoryType = .checkmark
-                    }
-
+            cell.accessoryType = .checkmark
+            ingredients[indexPath.row].checkmark = true
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-                        cell.accessoryType = .none
-                    }
+            cell.accessoryType = .none
+            ingredients[indexPath.row].checkmark = false
+        }
     }
     
     

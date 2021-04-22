@@ -47,6 +47,15 @@ struct Recipe {
         return ingredientsArray
     }
     
+    func getIngredientsImportantArray() -> [String] {
+        var ingredientsArray: [String] = []
+        
+        for ingredientImportant in ingredietnsImportant {
+            ingredientsArray.append(ingredientImportant.nameOfIngredient)
+        }
+        return ingredientsArray
+    }
+    
     
 }
 

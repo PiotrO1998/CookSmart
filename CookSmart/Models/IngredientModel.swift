@@ -9,5 +9,5 @@ import Foundation
 
 struct IngredientModel {
     let name: String
-    let checkmark: Bool
+    var checkmark: Bool
 }

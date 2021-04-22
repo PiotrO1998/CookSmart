@@ -37,6 +37,8 @@ class RecipeViewController: UIViewController {
         super.viewDidLoad()
         
         recipeImage.contentMode = .scaleToFill
+        recipeImage.layer.cornerRadius = 5
+        
         
         //view.backgroundColor = .blue
         //let label = UILabel()

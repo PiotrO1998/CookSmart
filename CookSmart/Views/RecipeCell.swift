@@ -17,6 +17,7 @@ class RecipeCell: UITableViewCell {
         super.awakeFromNib()
         
         recipeImage.contentMode = .scaleToFill
+        //recipeImage.layer.cornerRadius = 5
         // Initialization code
     }
 
