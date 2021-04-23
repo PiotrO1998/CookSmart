@@ -17,6 +17,8 @@
 		AE1F46B8262B242A00B41A18 /* MyMealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */; };
 		AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */; };
 		AE2264EB2631CF9A007B4B71 /* CombinationsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264EA2631CF99007B4B71 /* CombinationsData.swift */; };
+		AE2264F1263234F7007B4B71 /* MealPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264EF263234F7007B4B71 /* MealPlanCell.swift */; };
+		AE2264F2263234F7007B4B71 /* MealPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2264F0263234F7007B4B71 /* MealPlanCell.xib */; };
 		AE7193472630D3F90064D59E /* SelectMealPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193462630D3F90064D59E /* SelectMealPlans.swift */; };
 		AE71934A2630E1F70064D59E /* SelectedMealPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193492630E1F70064D59E /* SelectedMealPlansViewController.swift */; };
 		AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729326264D2F00889E2A /* AppDelegate.swift */; };
@@ -45,6 +47,8 @@
 		AE1F46B7262B242900B41A18 /* MyMealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealPlanViewController.swift; sourceTree = "<group>"; };
 		AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealPlanViewController.swift; sourceTree = "<group>"; };
 		AE2264EA2631CF99007B4B71 /* CombinationsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationsData.swift; sourceTree = "<group>"; };
+		AE2264EF263234F7007B4B71 /* MealPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanCell.swift; sourceTree = "<group>"; };
+		AE2264F0263234F7007B4B71 /* MealPlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealPlanCell.xib; sourceTree = "<group>"; };
 		AE7193462630D3F90064D59E /* SelectMealPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealPlans.swift; sourceTree = "<group>"; };
 		AE7193492630E1F70064D59E /* SelectedMealPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMealPlansViewController.swift; sourceTree = "<group>"; };
 		AE7C729026264D2F00889E2A /* CookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,8 @@
 				AE7C729926264D2F00889E2A /* Main.storyboard */,
 				AE7C72BD2627B37500889E2A /* RecipeCell.swift */,
 				AE7C72BE2627B37500889E2A /* RecipeCell.xib */,
+				AE2264EF263234F7007B4B71 /* MealPlanCell.swift */,
+				AE2264F0263234F7007B4B71 /* MealPlanCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2264F2263234F7007B4B71 /* MealPlanCell.xib in Resources */,
 				AE7C72A026264D3400889E2A /* LaunchScreen.storyboard in Resources */,
 				AE7C729D26264D3400889E2A /* Assets.xcassets in Resources */,
 				AE7C729B26264D2F00889E2A /* Main.storyboard in Resources */,
@@ -238,6 +245,7 @@
 				AE09B4E92630B3270065F9FF /* IngredientModel.swift in Sources */,
 				AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */,
 				AE71934A2630E1F70064D59E /* SelectedMealPlansViewController.swift in Sources */,
+				AE2264F1263234F7007B4B71 /* MealPlanCell.swift in Sources */,
 				AE09B4E1262FCC880065F9FF /* ConfigureMealPlan.swift in Sources */,
 				AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */,
 			);

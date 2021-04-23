@@ -13,7 +13,8 @@ class SelectedMealPlansViewController: UIViewController {
     
     var recipes: [Recipe] = []
     var ingredients: [String] = []
-    var selectedMealPlans: [[Recipe]] = [[]]
+    var selectedMealPlans: [[Recipe]] = []
+    var savedMealPlans: [[Recipe]] = []
     
 
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class SelectedMealPlansViewController: UIViewController {
         tableView.dataSource = self
         
         //Register Table View
-        //tableView.register(UINib(nibName: Constants.AppNames.recipeCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.recipeCellIndentifier)
+        tableView.register(UINib(nibName: Constants.AppNames.mealPlanCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.selectedMealPlanCellIndentifier)
 
         var selectMealPlans: SelectMealPlans = SelectMealPlans(recipes: recipes, ingredietns: ingredients)
         selectedMealPlans = selectMealPlans.getMealPlans()
@@ -35,6 +36,15 @@ class SelectedMealPlansViewController: UIViewController {
         selectedMealPlans = selectMealPlans.getMealPlans()
     }
     
+    @IBAction func buttonDonePressed(_ sender: UIButton) {
+        
+        for r in savedMealPlans {
+            print("-----")
+            print(r)
+            print("-----")
+        }
+        
+    }
     
 
     /*
@@ -46,7 +56,7 @@ class SelectedMealPlansViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
 extension SelectedMealPlansViewController: UITableViewDataSource {
@@ -55,17 +65,58 @@ extension SelectedMealPlansViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.selectedMealPlansCellIndentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.selectedMealPlanCellIndentifier, for: indexPath) as! MealPlanCell
+        
+        cell.imageLeft.image = selectedMealPlans[indexPath.row][0].image
+        cell.nameLeft.text = selectedMealPlans[indexPath.row][0].name
+        
+        cell.imageMiddle.image = selectedMealPlans[indexPath.row][1].image
+        cell.nameMiddle.text = selectedMealPlans[indexPath.row][1].name
+        
+        cell.imageRight.image = selectedMealPlans[indexPath.row][2].image
+        cell.nameRight.text = selectedMealPlans[indexPath.row][2].name
+        
         //cell.recipeImage.image = recipesData.recipes[indexPath.row].image
         //cell.recipeName.text = recipesData.recipes[indexPath.row].name
         
-        cell.textLabel?.text = selectedMealPlans[indexPath.row][0].name
+        //cell.textLabel?.text = selectedMealPlans[indexPath.row][0].name
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
     
     
 }
 
 extension SelectedMealPlansViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let add = UIContextualAction(style: .normal, title: "Add") { (action, view, completitionHandler) in self.savedMealPlans.append(self.selectedMealPlans[indexPath.row])
+            completitionHandler(true)
+        }
+        
+        add.image = UIImage(systemName: "bookmark.circle.fill")
+        add.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
+        
+        //swipe action
+        let swipe = UISwipeActionsConfiguration(actions: [add])
+        return swipe
+        
+    }
+    
+   
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    
+    
+    
 }
