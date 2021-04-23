@@ -8,18 +8,29 @@
 import UIKit
 
 struct Recipe {
-    let name: String
-    let image: UIImage
-    let cookTime: Int
-    let level: String
-    let servings: Int //For how many people
-    let ingredietnsImportant: [Ingredient]
-    let ingredietns: [Ingredient]
-    let cookingInstruction: String
-    let source: String
-    let type: String
+    var name: String
+    var image: UIImage
+    var cookTime: Int
+    var level: String
+    var servings: Int //For how many people
+    var ingredietnsImportant: [Ingredient]
+    var ingredietns: [Ingredient]
+    var cookingInstruction: String
+    var source: String?
+    var type: String?
     
-
+    
+    
+    //func multipleIngredients(number: Float) {
+        
+        //for var i in ingredietns {
+          //  i.amount *= 100
+        //}
+        //for var ii in ingredietnsImportant {
+        //    ii.amount *= number
+        //}
+   // }
+    
     func getIngredients() -> String {
         var ingredientsString: String = ""
     
@@ -55,6 +66,18 @@ struct Recipe {
         }
         return ingredientsArray
     }
+    
+    mutating func multipleIngredients(value: Float) {
+        for var ingredient in ingredietnsImportant {
+            ingredient.multiplyAmount(value: value)
+        }
+        
+        for var ingredient in ingredietns {
+            ingredient.multiplyAmount(value: value)
+        }
+        
+    }
+    
     
     
 }

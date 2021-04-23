@@ -62,14 +62,16 @@ extension RecipesViewController: UITableViewDelegate {
         
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "RecipeViewController") as! RecipeViewController
         
-        vc.rImage = recipesData.recipes[indexPath.row].image
-        vc.rName = recipesData.recipes[indexPath.row].name
-        vc.rCookingTime = String(recipesData.recipes[indexPath.row].cookTime)
-        vc.rLevel = recipesData.recipes[indexPath.row].level
-        vc.rServings = String(recipesData.recipes[indexPath.row].servings)
-        vc.rIngredients = recipesData.recipes[indexPath.row].getIngredients()
-        vc.rCookingInstructions = recipesData.recipes[indexPath.row].cookingInstruction
-        vc.rType = recipesData.recipes[indexPath.row].type
+        vc.recipe = recipesData.recipes[indexPath.row]
+        
+        //vc.rImage = recipesData.recipes[indexPath.row].image
+        //vc.rName = recipesData.recipes[indexPath.row].name
+        //vc.rCookingTime = String(recipesData.recipes[indexPath.row].cookTime)
+        //vc.rLevel = recipesData.recipes[indexPath.row].level
+        //vc.rServings = String(recipesData.recipes[indexPath.row].servings)
+       // vc.rIngredients = recipesData.recipes[indexPath.row].getIngredients()
+        //vc.rCookingInstructions = recipesData.recipes[indexPath.row].cookingInstruction
+        //vc.rType = recipesData.recipes[indexPath.row].type
         
         
         navigationController?.pushViewController(vc, animated: true)

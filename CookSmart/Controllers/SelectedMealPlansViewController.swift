@@ -14,7 +14,8 @@ class SelectedMealPlansViewController: UIViewController {
     var recipes: [Recipe] = []
     var ingredients: [String] = []
     var selectedMealPlans: [[Recipe]] = []
-    var savedMealPlans: [[Recipe]] = []
+    var savedMealPlans: [[String]] = []
+    //let defaults = UserDefaults.standard
     
 
     override func viewDidLoad() {
@@ -28,7 +29,8 @@ class SelectedMealPlansViewController: UIViewController {
 
         var selectMealPlans: SelectMealPlans = SelectMealPlans(recipes: recipes, ingredietns: ingredients)
         selectedMealPlans = selectMealPlans.getMealPlans()
-        // Do any additional setup after loading the view.
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,26 +38,60 @@ class SelectedMealPlansViewController: UIViewController {
         selectedMealPlans = selectMealPlans.getMealPlans()
     }
     
+    //function is called when user pressed button
+    //function save mealPlans on the phone
     @IBAction func buttonDonePressed(_ sender: UIButton) {
         
-        for r in savedMealPlans {
-            print("-----")
-            print(r)
-            print("-----")
-        }
+        if UserDefaults.standard.object(forKey: "savedMealPlans") != nil {
+            var allMealsPlans: [[String]] = UserDefaults.standard.object(forKey: "savedMealPlans") as! [[String]]
+            
+            allMealsPlans += savedMealPlans
+            UserDefaults.standard.set(allMealsPlans, forKey: "savedMealPlans")
+            print("added old")
+            for i in allMealsPlans {
+                print(i)
+            }
+        } else {
+            UserDefaults.standard.set(savedMealPlans, forKey: "savedMealPlans")
+            print("added new")
+            for i in savedMealPlans {
+                print(i)
+            }
+        }}
+    
+    // function add mealPlan to array of saved meal plan if not aleardy in array
+    func addToSavedMealPlansIfNotAdded(mealPlan: [String]) {
         
+        if UserDefaults.standard.object(forKey: "savedMealPlans") != nil {
+            var allMealsPlans: [[String]] = UserDefaults.standard.object(forKey: "savedMealPlans") as! [[String]]
+            
+            if allMealsPlans.count == 0 {
+                allMealsPlans.append(mealPlan)
+            } else {
+                for meal in allMealsPlans {
+                if !allMealsPlans.contains(mealPlan) {
+                    allMealsPlans.append(mealPlan)
+                    }
+                }
+            }
+                
+            UserDefaults.standard.set(allMealsPlans, forKey: "savedMealPlans")
+            print("added old")
+            for i in allMealsPlans {
+                print(i)
+            }
+        } else {
+            var arrayOfMealsToSave: [[String]] = []
+            arrayOfMealsToSave.append(mealPlan)
+            UserDefaults.standard.set(arrayOfMealsToSave, forKey: "savedMealPlans")
+            print("added new")
+            for i in arrayOfMealsToSave {
+                print(i)
+            }
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }
 
@@ -95,7 +131,8 @@ extension SelectedMealPlansViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let add = UIContextualAction(style: .normal, title: "Add") { (action, view, completitionHandler) in self.savedMealPlans.append(self.selectedMealPlans[indexPath.row])
+        let add = UIContextualAction(style: .normal, title: "Add") { (action, view, completitionHandler) in
+             self.addToSavedMealPlansIfNotAdded(mealPlan: [self.selectedMealPlans[indexPath.row][0].name, self.selectedMealPlans[indexPath.row][1].name, self.selectedMealPlans[indexPath.row][2].name])
             completitionHandler(true)
         }
         

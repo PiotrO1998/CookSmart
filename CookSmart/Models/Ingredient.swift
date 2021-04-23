@@ -8,19 +8,23 @@
 import Foundation
 
 struct Ingredient {
-    let amount: Float
-    let metric: String?
-    let nameOfIngredient: String
-
+    var amount: Float
+    var metric: String?
+    var nameOfIngredient: String
+    
     func getIngredientString() -> String {
         var metric1 = ""
         
         if let m = metric {
-            metric1 = m
+             metric1 = m
         }
         
-        var ingredientString = String(amount) + " " + String(metric1) + " " + nameOfIngredient
+        var ingredientString = String(amount) + " " + String(metric1) + " " + nameOfIngredient 
         return ingredientString
+    }
+    
+    mutating func multiplyAmount(value: Float) {
+        amount = amount * value
     }
     
 }

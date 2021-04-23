@@ -19,6 +19,9 @@
 		AE2264EB2631CF9A007B4B71 /* CombinationsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264EA2631CF99007B4B71 /* CombinationsData.swift */; };
 		AE2264F1263234F7007B4B71 /* MealPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264EF263234F7007B4B71 /* MealPlanCell.swift */; };
 		AE2264F2263234F7007B4B71 /* MealPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2264F0263234F7007B4B71 /* MealPlanCell.xib */; };
+		AE2264F526328A16007B4B71 /* MyMealPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264F426328A16007B4B71 /* MyMealPlansViewController.swift */; };
+		AE2264F926329946007B4B71 /* SavedMealPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2264F726329945007B4B71 /* SavedMealPlanCell.swift */; };
+		AE2264FA26329946007B4B71 /* SavedMealPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2264F826329945007B4B71 /* SavedMealPlanCell.xib */; };
 		AE7193472630D3F90064D59E /* SelectMealPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193462630D3F90064D59E /* SelectMealPlans.swift */; };
 		AE71934A2630E1F70064D59E /* SelectedMealPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193492630E1F70064D59E /* SelectedMealPlansViewController.swift */; };
 		AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729326264D2F00889E2A /* AppDelegate.swift */; };
@@ -49,6 +52,9 @@
 		AE2264EA2631CF99007B4B71 /* CombinationsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationsData.swift; sourceTree = "<group>"; };
 		AE2264EF263234F7007B4B71 /* MealPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanCell.swift; sourceTree = "<group>"; };
 		AE2264F0263234F7007B4B71 /* MealPlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealPlanCell.xib; sourceTree = "<group>"; };
+		AE2264F426328A16007B4B71 /* MyMealPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealPlansViewController.swift; sourceTree = "<group>"; };
+		AE2264F726329945007B4B71 /* SavedMealPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMealPlanCell.swift; sourceTree = "<group>"; };
+		AE2264F826329945007B4B71 /* SavedMealPlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedMealPlanCell.xib; sourceTree = "<group>"; };
 		AE7193462630D3F90064D59E /* SelectMealPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealPlans.swift; sourceTree = "<group>"; };
 		AE7193492630E1F70064D59E /* SelectedMealPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMealPlansViewController.swift; sourceTree = "<group>"; };
 		AE7C729026264D2F00889E2A /* CookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +139,8 @@
 				AE7C72BE2627B37500889E2A /* RecipeCell.xib */,
 				AE2264EF263234F7007B4B71 /* MealPlanCell.swift */,
 				AE2264F0263234F7007B4B71 /* MealPlanCell.xib */,
+				AE2264F726329945007B4B71 /* SavedMealPlanCell.swift */,
+				AE2264F826329945007B4B71 /* SavedMealPlanCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 				AE09B4D6262FC3590065F9FF /* ChoseNumberOfServingsViewController.swift */,
 				AE09B4D9262FC5EE0065F9FF /* ChoseIngredientsViewController.swift */,
 				AE7193492630E1F70064D59E /* SelectedMealPlansViewController.swift */,
+				AE2264F426328A16007B4B71 /* MyMealPlansViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 				AE2264F2263234F7007B4B71 /* MealPlanCell.xib in Resources */,
 				AE7C72A026264D3400889E2A /* LaunchScreen.storyboard in Resources */,
 				AE7C729D26264D3400889E2A /* Assets.xcassets in Resources */,
+				AE2264FA26329946007B4B71 /* SavedMealPlanCell.xib in Resources */,
 				AE7C729B26264D2F00889E2A /* Main.storyboard in Resources */,
 				AE7C72C02627B37500889E2A /* RecipeCell.xib in Resources */,
 			);
@@ -247,7 +257,9 @@
 				AE71934A2630E1F70064D59E /* SelectedMealPlansViewController.swift in Sources */,
 				AE2264F1263234F7007B4B71 /* MealPlanCell.swift in Sources */,
 				AE09B4E1262FCC880065F9FF /* ConfigureMealPlan.swift in Sources */,
+				AE2264F526328A16007B4B71 /* MyMealPlansViewController.swift in Sources */,
 				AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */,
+				AE2264F926329946007B4B71 /* SavedMealPlanCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

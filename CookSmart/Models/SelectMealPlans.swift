@@ -29,7 +29,7 @@ struct SelectMealPlans {
         return mealPlans
     }
     
-//function check which recipes contains chosen ingredients
+    //function check which recipes contains chosen ingredients by user
     func getValidRecipes() -> [Recipe] {
         var validRecipes: [Recipe] = []
         
@@ -62,11 +62,19 @@ struct SelectMealPlans {
             evaluatedRecipes.append(recipeEvaluated)
         }
         
-        evaluatedRecipes.sort { $0.evaluation > $1.evaluation }
+        evaluatedRecipes.sort { $0.evaluation > $1.evaluation } //sort recipes if more points (more ingredients form user prefernce) first
         
         return evaluatedRecipes
     }
     
+    
+    //function using prepreed combinations (CombinationsData) chosing best sets of recipes
+    //1 Functions takes recipes that cointains mosta ingredients from user selection
+    //2 Fuction using prepared combinations data, checing all possible combinations
+    //of 3 recipes and evaluated it based on which set contains most commons ingredients
+    //3 Functions return best sets (those that contains most common ingredients)
+    //What is worth to metion function take in to resposibility only important ingredients, the one that have short time
+    //In case of 21 recipes function check 1330 combinations of recipes (set)
     func evaluateSetOfValidRecipes() -> [SetEvalaute] {
         
         var evaluatedRecipes = getEvaluatedValidRecipes()
@@ -183,7 +191,8 @@ struct SelectMealPlans {
         
     }
     
-    //it will be better to give array of valid recipes and set to evaluate
+    //it will be better to give array of valid recipes and set to evaluate ?
+    //function evaluate set of recipe (for example (1,5,18)-corespond to recipe 1, 5 and 18
     func evaluateSet(recipe1: Recipe, recipe2: Recipe, recipe3: Recipe, set: (Int,Int,Int)) -> SetEvalaute {
         var ingredientsInSet: [String] = []
         var evaluate: Int = 0

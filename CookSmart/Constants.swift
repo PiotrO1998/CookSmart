@@ -91,6 +91,9 @@ struct Metrics {
         static let mealPlanCellNibName = "MealPlanCell"
         static let selectedMealPlanCellIndentifier = "SelectedMealPlanCellIndentifier"
         
+        static let savedMealPlanCellNibName = "SavedMealPlanCell"
+        static let savedMealPlanCellIndentifier = "SavedMealPlanCellIndentifier"
+        
         static let sequeToCookingTimeIndentifier = "SegueToCookingTimeIndentifier"
         static let sequeToLevelIndentifier = "SequeToLevelIndentifier"
         static let sequeToNumberOfServingsIndentifier = "SequeToNumberOfServingsIndentifier"

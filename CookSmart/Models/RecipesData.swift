@@ -9,9 +9,9 @@ import UIKit
 
 struct RecipesData {
 
-let recipes: [Recipe] = [
+var recipes: [Recipe] = [
     
-    Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
+   Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
             Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
             Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
@@ -302,5 +302,23 @@ let recipes: [Recipe] = [
          return recipes
     }
 
+    func getRecipesByArrayOfNames(names: [[String]]) -> [[Recipe]] {
+        var recipesToReturn: [[Recipe]] = []
+        
+        for name in names {
+            recipesToReturn.append([getRecipeByName(name: name[0]), getRecipeByName(name: name[1]), getRecipeByName(name: name[2])])
+        }
+        return recipesToReturn
+    }
+    
+    func getRecipeByName(name: String) -> Recipe {
+        var recipeToReturn: Recipe?
+        for recipe in recipes {
+            if recipe.name == name {
+                recipeToReturn = recipe
+            }
+        }
+        return recipeToReturn!
+    }
     
 }

@@ -94,7 +94,7 @@ class ChoseCookingLevelViewController: UIViewController {
                 ConfigureMealPlan.medium = bMediumPressed
                 ConfigureMealPlan.hard = bHardPressed
                 
-                self.performSegue(withIdentifier: Constants.AppNames.sequeToNumberOfServingsIndentifier, sender: self)
+                self.performSegue(withIdentifier: Constants.AppNames.sequeToIngredientsIndentifier, sender: self)
                 }
         
     }
