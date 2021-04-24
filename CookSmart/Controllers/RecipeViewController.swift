@@ -105,7 +105,7 @@ class RecipeViewController: UIViewController {
             recipeIngredients.text! += "\n" + i.getIngredientString()
         }
         
-        recipeServing.text = "Servings: " + String(stepper.value)
+        recipeServing.text = "Servings: " + String(format: "%.f", stepper.value)
         
         //viewDidLoad()
     }

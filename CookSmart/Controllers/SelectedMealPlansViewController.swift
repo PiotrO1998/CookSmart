@@ -10,6 +10,8 @@ import UIKit
 class SelectedMealPlansViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonDone: UIButton!
+    
     
     var recipes: [Recipe] = []
     var ingredients: [String] = []
@@ -20,6 +22,13 @@ class SelectedMealPlansViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
+        
+        buttonDone.backgroundColor = .clear
+        buttonDone.layer.cornerRadius = 5
+        buttonDone.layer.borderWidth = 1
+        buttonDone.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,22 +51,14 @@ class SelectedMealPlansViewController: UIViewController {
     //function save mealPlans on the phone
     @IBAction func buttonDonePressed(_ sender: UIButton) {
         
-        if UserDefaults.standard.object(forKey: "savedMealPlans") != nil {
-            var allMealsPlans: [[String]] = UserDefaults.standard.object(forKey: "savedMealPlans") as! [[String]]
-            
-            allMealsPlans += savedMealPlans
-            UserDefaults.standard.set(allMealsPlans, forKey: "savedMealPlans")
-            print("added old")
-            for i in allMealsPlans {
-                print(i)
-            }
-        } else {
-            UserDefaults.standard.set(savedMealPlans, forKey: "savedMealPlans")
-            print("added new")
-            for i in savedMealPlans {
-                print(i)
-            }
-        }}
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "MyMealPlansViewController") as! MyMealPlansViewController
+        
+        //vc.recipe = recipesData.recipes[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    
+    
+    
+}
     
     // function add mealPlan to array of saved meal plan if not aleardy in array
     func addToSavedMealPlansIfNotAdded(mealPlan: [String]) {

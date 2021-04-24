@@ -12,6 +12,7 @@ class ChoseCookingLevelViewController: UIViewController {
     @IBOutlet weak var buttonEasy: UIButton!
     @IBOutlet weak var buttonMedium: UIButton!
     @IBOutlet weak var buttonHard: UIButton!
+    @IBOutlet weak var buttonNext: UIButton!
     
     
     var bEasyPressed = false
@@ -36,6 +37,11 @@ class ChoseCookingLevelViewController: UIViewController {
         buttonHard.layer.cornerRadius = 5
         buttonHard.layer.borderWidth = 1
         buttonHard.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
+        
+        buttonNext.backgroundColor = .clear
+        buttonNext.layer.cornerRadius = 5
+        buttonNext.layer.borderWidth = 1
+        buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
 
         // Do any additional setup after loading the view.
     }

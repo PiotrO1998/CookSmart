@@ -17,9 +17,10 @@ class MyMealPlansViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.hidesBackButton = true
         navigationItem.title = "My Meal Plans"
-            
+        navigationItem.hidesBackButton = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        
         
         if let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]] {
             mealPlans = recipesData.getRecipesByArrayOfNames(names: mealPlansData)
@@ -45,38 +46,18 @@ class MyMealPlansViewController: UIViewController {
     func deleteFromDefaults(at: Int) {
         let recipeToDelete: [String] = [mealPlans[at][0].name, mealPlans[at][1].name, mealPlans[at][2].name]
         if let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]] {
-            var mealsToStay: [[String]] = []
+        var mealsToStay: [[String]] = []
             
-            print(recipeToDelete)
-            print("====")
-            for i in mealPlansData {
-                print(i)
+        if mealPlansData.contains(recipeToDelete) {
+            for meal in mealPlansData {
+                if meal != recipeToDelete {
+                    mealsToStay.append(meal)
+                }
             }
-            
-            print(mealPlansData.contains(recipeToDelete))
-            
-            if mealPlansData.contains(recipeToDelete) {
-                for meal in mealPlansData {
-                    if meal != recipeToDelete {
-                        mealsToStay.append(meal)
-                    }
-                }
-                print(";;;;;;;;;")
-                for i in mealsToStay {
-                    print(i)
-                }
-                UserDefaults.standard.set(mealsToStay, forKey: "savedMealPlans")
-                let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]]
-                print("^^^^^")
-                for i in mealPlansData! {
-                    print(i)
-                }
-                
-                
+            UserDefaults.standard.set(mealsToStay, forKey: "savedMealPlans")
+            let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]]
             }
         }
-        
-        
     }
 
     /*
@@ -148,10 +129,10 @@ extension MyMealPlansViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        
-    }
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "MealPlanViewController") as! MealPlanViewController
+        vc.recipes = mealPlans[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+     }
     
     
     

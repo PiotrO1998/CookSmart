@@ -33,6 +33,12 @@ class CreateMealPlanViewController: UIViewController {
         buttonNonVegetarian.layer.cornerRadius = 5
         buttonNonVegetarian.layer.borderWidth = 1
         buttonNonVegetarian.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
+        
+        buttonNext.backgroundColor = .clear
+        buttonNext.layer.cornerRadius = 5
+        buttonNext.layer.borderWidth = 1
+        buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        
         // Do any additional setup after loading the view.
         
         print("View did load " + String(buttonVegPressed))

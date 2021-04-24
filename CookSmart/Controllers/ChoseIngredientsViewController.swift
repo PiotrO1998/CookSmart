@@ -10,6 +10,7 @@ import UIKit
 class ChoseIngredientsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonNext: UIButton!
     
     var ingredients: [IngredientModel] = []
     
@@ -19,6 +20,13 @@ class ChoseIngredientsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        buttonNext.backgroundColor = .clear
+        buttonNext.layer.cornerRadius = 5
+        buttonNext.layer.borderWidth = 1
+        buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
         
         //test
@@ -54,6 +62,10 @@ class ChoseIngredientsViewController: UIViewController {
     //TODO overwrite
     override func viewWillAppear(_ animated: Bool) {
         ingredients = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
+        
+        
+        
+        
     }
     
     @IBAction func buttonNextPressed(_ sender: UIButton) {

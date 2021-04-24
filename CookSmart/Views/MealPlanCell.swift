@@ -41,8 +41,7 @@ class MealPlanCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func saveMealPlanPressed(_ sender: UIButton) {
-    }
+    
     
     
 }

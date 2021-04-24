@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Ingredient {
+struct Ingredient: Equatable {
     var amount: Float
     var metric: String?
     var nameOfIngredient: String
