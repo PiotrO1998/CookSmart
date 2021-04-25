@@ -43,7 +43,7 @@ class RecipeViewController: UIViewController {
         recipeImage.contentMode = .scaleToFill
         recipeImage.layer.cornerRadius = 5
         
-        if var recipe = recipe {
+        if let recipe = recipe {
             recipeImage.image = recipe.image
             recipeName.text = recipe.name
             recipeCookingTime.text = "COOKING TIME: " + String(recipe.cookTime) + "min"
@@ -51,7 +51,7 @@ class RecipeViewController: UIViewController {
             //recipeIngredients.text = getIngredients(recipe: recipe)
             recipeCookingInstructions.text = recipe.cookingInstruction
             recipeType.text = "TYPE: " + recipe.type!
-            recipeServing.text = "Servings: " + String(stepper.value)
+            recipeServing.text = "Servings: " + String(format: "%.f", stepper.value)
             
             ingredients = recipe.ingredietnsImportant + recipe.ingredietns
             for i in ingredients {
@@ -95,19 +95,12 @@ class RecipeViewController: UIViewController {
             ingredientsToMultiple.append(ingredient)
         }
         
-        
-        
-        //for i in recipe. {
-            
-        //}
-        
         for i in ingredientsToMultiple {
             recipeIngredients.text! += "\n" + i.getIngredientString()
         }
         
         recipeServing.text = "Servings: " + String(format: "%.f", stepper.value)
         
-        //viewDidLoad()
     }
     
     
