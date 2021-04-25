@@ -19,12 +19,16 @@ struct Ingredient: Equatable {
              metric1 = m
         }
         
-        var ingredientString = String(amount) + " " + String(metric1) + " " + nameOfIngredient 
+        let ingredientString = String(amount) + " " + String(metric1) + " " + nameOfIngredient 
         return ingredientString
     }
     
     mutating func multiplyAmount(value: Float) {
         amount = amount * value
+    }
+    
+    mutating func addAmount(value: Float) {
+        amount = amount + value
     }
     
 }

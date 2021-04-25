@@ -19,7 +19,7 @@ class MyMealPlansViewController: UIViewController {
         
         navigationItem.title = "My Meal Plans"
         navigationItem.hidesBackButton = true
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         
         
         if let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]] {
@@ -95,10 +95,7 @@ extension MyMealPlansViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
-    }
-    
+        
     
 }
 
@@ -133,6 +130,11 @@ extension MyMealPlansViewController: UITableViewDelegate {
         vc.recipes = mealPlans[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
      }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+
     
     
     

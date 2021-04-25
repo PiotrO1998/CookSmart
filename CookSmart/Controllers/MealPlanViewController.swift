@@ -28,7 +28,6 @@ class MealPlanViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -70,9 +69,7 @@ extension MealPlanViewController: UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
+    
     
     
 }
@@ -84,5 +81,9 @@ extension MealPlanViewController: UITableViewDelegate {
         vc.recipe = recipes[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
 }

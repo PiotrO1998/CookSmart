@@ -28,6 +28,9 @@ class ChoseIngredientsViewController: UIViewController {
         buttonNext.layer.borderWidth = 1
         buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
+        //Register Table View
+        //tableView.register(UINib(nibName: Constants.AppNames.ingredientCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.ingredientCellIndentifier)
+        
         
         //test
         //print("vegIng: " + String(ConfigureMealPlan.vegetarian))
@@ -53,7 +56,7 @@ class ChoseIngredientsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.allowsMultipleSelection = true
+        //tableView.allowsMultipleSelectionDuringEditing = true
 
         // Do any additional setup after loading the view.
     }
@@ -62,10 +65,10 @@ class ChoseIngredientsViewController: UIViewController {
     //TODO overwrite
     override func viewWillAppear(_ animated: Bool) {
         ingredients = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
-        
-        
-        
-        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     @IBAction func buttonNextPressed(_ sender: UIButton) {
@@ -88,32 +91,18 @@ class ChoseIngredientsViewController: UIViewController {
         let destinationVC = segue.destination as! SelectedMealPlansViewController
         destinationVC.ingredients = ingredietnsString
         destinationVC.recipes = recipes
-        
-        
-    }
+        }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func getIngredientsString() -> [String] {
+   func getIngredientsString() -> [String] {
         var ingredietnsString: [String] = []
         for ingredient in ingredients {
-            if ingredient.checkmark == true {
+            if ingredient.isSelected == true {
                 ingredietnsString.append(ingredient.name)
             }
         }
         return ingredietnsString
+        }
     }
-
-}
 
 extension ChoseIngredientsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,30 +110,37 @@ extension ChoseIngredientsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.ingredientCellIndentifier, for: indexPath)
-        cell.textLabel?.text = ingredients[indexPath.row].name
-        //cell.textLabel?.textColor = UIColor(named: Constants.AppNames.colorOrange)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.ingredientCellIndentifier, for: indexPath) as! IngredientCell
+        cell.ingredientName.text = ingredients[indexPath.row].name
+        
+        cell.circle.image = ingredients[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
+      
         return cell
     }
     
 }
 
+
 extension ChoseIngredientsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath) as? IngredientCell else {return}
         
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
-            ingredients[indexPath.row].checkmark = true
+        if ingredients[indexPath.row].isSelected == false {
+            ingredients[indexPath.row].isSelected = true
+        } else {
+            ingredients[indexPath.row].isSelected = false
         }
+        
+        cell.circle.image = ingredients[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
+       }
     }
+  
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .none
-            ingredients[indexPath.row].checkmark = false
-        }
-    }
-    
-    
-}
+
 

@@ -20,6 +20,7 @@ class SavedMealPlanCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // Initialization code
         imageLeft.contentMode = .scaleToFill
         imageLeft.layer.cornerRadius = 5
         
@@ -29,7 +30,7 @@ class SavedMealPlanCell: UITableViewCell {
         imageRight.contentMode = .scaleToFill
         imageRight.layer.cornerRadius = 5
         
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

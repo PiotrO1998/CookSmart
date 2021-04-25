@@ -10,24 +10,29 @@ import UIKit
 struct RecipesData {
 
 var recipes: [Recipe] = [
-    
-   Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
-        ingredietnsImportant: [
-            Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
-            Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
-            Ingredient(amount: 15.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parmesan),
-            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.basilLeaves)],
-        ingredietns: [
-            Ingredient(amount: 2.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
-            Ingredient(amount: 70.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
-            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pineNuts),
-            Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
-            Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)],
-       cookingInstruction:"""
-       1 Tip the pasta shells into a pan of boiling, salted water. Cook according to packet instructions and drain. Steam chopped broccoli for 7 mins
-       2 Once the broccoli is done, set aside a few of the smaller pieces. Squeeze the garlic from its skin, add to the blender along with the rest of the broccoli, pulse to a pesto and season well.
-       3 Toss the pasta with the pesto. Add the reserved broccoli florets, split between two bowls and top with a little extra parmesan.
-""", source: "own", type: Constants.Basic.vegetarian),
+    Recipe(name: "Risotto", image: #imageLiteral(resourceName: "Risotto"), cookTime: 40, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 230, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.chickenBroth),
+                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
+                Ingredient(amount: 30.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parmesan),
+                Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley)],
+            ingredietns: [
+                Ingredient(amount: 50, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.rice),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.butter),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oil),
+                Ingredient(amount: 100, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.drywhiteWine),
+                Ingredient(amount: 0.10, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt)],
+           cookingInstruction:"""
+           1 Gather the ingredients.
+           2 In a medium saucepan, heat the stock to a simmer. Lower the heat so the stock stays hot while you cook the risotto.
+           3 In a large, heavy-bottomed saucepan, heat the oil and 1 tablespoon of the butter over medium heat. When the butter has melted, add the chopped shallot or onion. Sauté for 2 to 3 minutes or until slightly translucent.
+           4 Add the rice to the pot and stir it briskly with a wooden spoon so that the grains are coated with the oil and melted butter. Sauté for another minute or so, until there is a slightly nutty aroma. But don't let the rice turn brown.
+           5 Add the vermouth or wine and cook while stirring, until the liquid is fully absorbed.
+           6 Add a ladle of hot chicken stock to the rice and stir until the liquid is fully absorbed. When the rice appears almost dry, add another ladle of stock and repeat the process.
+           7 Continue adding stock, a ladle at a time, for 20 to 30 minutes or until the grains are tender but still firm to the bite, without being crunchy (al dente).
+           8 Stir in the remaining 2 tablespoons of butter and the Parmesan cheese and parsley. Season to taste with salt.
+           9 Serve in bowls and enjoy.
+    """, source: "own", type: Constants.Basic.nonVegetarian),
     
     Recipe(name: "Pizza Marinara", image: #imageLiteral(resourceName: "PizzaMarinara"), cookTime: 180, level: Constants.Basic.levelMedium, servings: 1,
            ingredietnsImportant: [
@@ -62,8 +67,8 @@ var recipes: [Recipe] = [
                             Ingredient(amount: 5.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.basilLeaves),
                             Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parmesan)],
         ingredietns: [
-                     Ingredient(amount: 2.0, metric: "tbsp", nameOfIngredient: Constants.Ingrediant.oliveOil),
-                     Ingredient(amount: 70.0, metric: "g", nameOfIngredient: Constants.Ingrediant.pasta),
+                     Ingredient(amount: 2.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                     Ingredient(amount: 70.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
                      Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
                      Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
                      Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.oregano)],
@@ -77,24 +82,234 @@ var recipes: [Recipe] = [
        7 Drain the pasta and add it to the sauce. Toss gently to combine. toss once more
 """, source: "own", type: Constants.Basic.vegetarian),
     
-    Recipe(name: "Broccoli Pasta Chicken", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
+    Recipe(name: "Broccoli Pasta", image: #imageLiteral(resourceName: "Broccoli Pasta"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
         ingredietnsImportant: [
             Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
-            Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
+            Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
             Ingredient(amount: 15.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parmesan),
-            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.basilLeaves),
-            Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast)],
+            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.basilLeaves)],
         ingredietns: [
-            Ingredient(amount: 2.0, metric: "tbsp", nameOfIngredient: Constants.Ingrediant.oliveOil),
-            Ingredient(amount: 70.0, metric: "g", nameOfIngredient: Constants.Ingrediant.pasta),
-            Ingredient(amount: 10.0, metric: "g", nameOfIngredient: Constants.Ingrediant.pineNuts),
-            Ingredient(amount: 0.25, metric: "teaspoon", nameOfIngredient: Constants.Ingrediant.salt),
-            Ingredient(amount: 0.25, metric: "teaspoon", nameOfIngredient: Constants.Ingrediant.pepper)],
+            Ingredient(amount: 2.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+            Ingredient(amount: 70.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
+            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pineNuts),
+            Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+            Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)],
        cookingInstruction:"""
        1 Tip the pasta shells into a pan of boiling, salted water. Cook according to packet instructions and drain. Steam chopped broccoli for 7 mins
        2 Once the broccoli is done, set aside a few of the smaller pieces. Squeeze the garlic from its skin, add to the blender along with the rest of the broccoli, pulse to a pesto and season well.
        3 Toss the pasta with the pesto. Add the reserved broccoli florets, split between two bowls and top with a little extra parmesan.
-""", source: "own", type: Constants.Basic.nonVegetarian)
+""", source: "own", type: Constants.Basic.vegetarian),
+    
+    Recipe(name: "Curry chicken salad", image: #imageLiteral(resourceName: "Curry chicken salad"), cookTime: 15, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 0.125, metric: "", nameOfIngredient: Constants.Ingrediant.lemon),
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
+                Ingredient(amount: 0.125, metric: "", nameOfIngredient: Constants.Ingrediant.apple),
+                Ingredient(amount: 0.125, metric: "", nameOfIngredient: Constants.Ingrediant.celeryRib),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
+                Ingredient(amount: 1, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.cilantro)],
+            ingredietns: [
+                Ingredient(amount: 32.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.mayonnaise),
+                Ingredient(amount: 0.375, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.curryPowder),
+                Ingredient(amount: 0.1, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 8.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.raisins),
+                Ingredient(amount: 8.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.roastedCashews)],
+           cookingInstruction:"""
+           1 In a medium bowl mix together the mayonnaise, curry powder, lime juice, and salt.
+           2 Next add the cooked chicken, diced apple, celery, and onions and stir until well combined.
+           3 Fold in the raisins, cashews, and cilantro.
+           4 Serve in a lettuce wrap, on a bed of greens or in a tortilla wrap or between slices of your favorite bread.
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Tuna Pasta", image: #imageLiteral(resourceName: "Tuna Pasta"), cookTime: 15, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
+                Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.cannedTuna),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.lemon),
+                Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley)],
+            ingredietns: [
+                Ingredient(amount: 1, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                Ingredient(amount: 0.125, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.125, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
+                Ingredient(amount: 60.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta)],
+           cookingInstruction:"""
+           1 Boil a salted pot of water for your pasta and cook it al dente according to package directions. Prep your other ingredients while it cooks.
+           2 When the pasta is close to being ready, add the oil to a small pan over medium heat. Once the oil is hot, add the garlic and cook it for 30 seconds.
+           3 Stir in the tuna, lemon juice, and parsley. Let it heat through.
+           4 Once the pasta is done, add some of the pasta water (a couple tablespoons) to the sauce and then drain the pasta and toss with the sauce. Season with salt & pepper as needed. Optional: serve pasta with freshly grated parmesan cheese and lemon zest.
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+
+    Recipe(name: "Salmon salad", image: #imageLiteral(resourceName: "Salmon salad"), cookTime: 40, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 225.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.salmon),
+                Ingredient(amount: 12.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.scallions),
+                Ingredient(amount: 12.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.dill),
+                Ingredient(amount: 12.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.celery),
+                Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.lemon)
+                ],
+            ingredietns: [
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.smokedPapricaPowder),
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.chiliPowder),
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
+                Ingredient(amount: 7.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.mayonnaise),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.mustard)
+                ],
+           cookingInstruction:"""
+           1 Start by cooking the salmon using your preferred method. Much of the time I use my method from Baked Salmon, baking in a 425F oven for 12-15 minutes, but you can also cook in a skillet over medium high heat, which takes about 5-10 minutes depending on the thickness of your salmon. You may also grill it, poach it, etc. When the salmon is cooked through to 140 degrees F, flake the salmon with a fork (and discard any skin).
+           2 In a big bowl, combine the rest of the ingredients and mix well.
+           3 Add the salmon to the dressing, and toss. Taste and check for seasoning.
+           4 It is now ready to be enjoyed warm, or you can pop it into the fridge until fully chilled. Enjoy!
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Chicken tortilla", image: #imageLiteral(resourceName: "Chicken tortilla"), cookTime: 35, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
+                Ingredient(amount: 2.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
+                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.cream),
+                Ingredient(amount: 105.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
+                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.zucchini),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.bellPepper),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.mushrooms)],
+            ingredietns: [
+                Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.sugar),
+                Ingredient(amount: 75.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.tacoSauce),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.oliveOil)],
+    cookingInstruction: """
+           1 Combine the chicken and taco sauce in a medium bowl. Cover with plastic wrap and place in the fridge for 5-10 minutes to marinate.
+           2 Heat the oil in a large frying pan over medium heat. Add the onion and zucchini and cook, stirring, for 5 minutes or until the onion begins to brown. Add the capsicum, mushroom and sugar. Cook, stirring, for 5 minutes or until the sugar dissolves and begins to caramelise.
+           3 Meanwhile, heat a large non-stick frying pan over high heat. Add the chicken mixture and cook, stirring occasionally, for 10 minutes or until cooked through.
+           4 Place the refried beans in a small saucepan over low heat and cook, stirring, for 5 minutes or until heated through.
+           5 Top the tortilla wraps with the onion mixture and the chicken mixture. Serve with sour cream and refried beans.
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Burrito", image:  #imageLiteral(resourceName: "Burrito"), cookTime: 30, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 80.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.beefGround),
+                Ingredient(amount: 75.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
+                Ingredient(amount: 21.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees),
+                Ingredient(amount: 0.2, metric: "", nameOfIngredient: Constants.Ingrediant.cream),
+                Ingredient(amount: 0.2, metric: "", nameOfIngredient: Constants.Ingrediant.salsa)
+                ],
+            ingredietns: [
+                Ingredient(amount: 1.0, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.tacoSeasoning),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oil)],
+           cookingInstruction:"""
+           1 In a large cast-iron or other heavy skillet, cook beef over medium heat until no longer pink; drain. Stir in taco seasoning; remove from skillet and set aside. Wipe skillet clean.
+           2 In a small saucepan, cook refried beans over medium-low heat until heated through, 2-3 minutes.
+           3 Spoon about 1/3 cup of beans off-center on each tortilla; top with 1/4 cup beef mixture. Sprinkle with cheese. Fold sides and ends of tortillas over filling and roll up.
+           4 In same skillet over medium-high heat, brown burritos in oil on all sides. Serve with sour cream and salsa.
+    Freeze option: Individually wrap cooled burritos in paper towels and foil; freeze in a freezer container. To use, remove foil; place paper towel-wrapped burrito on a microwave-safe plate. Microwave on high until heated through, turning once, 3-4 minutes. Let stand 20 seconds.
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Fish and chips ", image:  #imageLiteral(resourceName: "Fish and chips "), cookTime: 55, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 225.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.potatoes),
+                Ingredient(amount: 56.25, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.whiteFishFillets),
+                Ingredient(amount: 0.125, metric: "", nameOfIngredient: Constants.Ingrediant.lemon),
+                Ingredient(amount: 31.25, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.poddedPeas)
+                ],
+            ingredietns: [
+                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.oil),
+                Ingredient(amount: 71.25, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.beer),
+                Ingredient(amount: 0.75, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.bakingPowder),
+                Ingredient(amount: 1.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.butter),
+                Ingredient(amount: 56.25, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.flour)],
+           cookingInstruction:"""
+           1 Preheat the oven to 180°C/350°F/gas 4.
+           2 Peel and slice the potatoes into chips.
+           3 To make the mushy peas, pick and finely chop the mint leaves. Place the butter in a pan over a medium-low heat, add the peas and mint, pop the lid on and simmer gently for 10 minutes.
+           4 Add a squeeze of lemon juice and season to taste with sea salt and black pepper – you can either mush the peas up in a food processor, or mash them by hand until stodgy, thick and perfect for dipping your fish into. Keep them warm until needed.
+           5 Pour the sunflower oil into a deep fat fryer or a large sturdy pan and heat it to 190°C/375°F.
+           6 Mix ½ a teaspoon of salt and 1 teaspoon of pepper together, then use it to season the fish fillets on both sides – this will help to remove any excess water, making the fish really meaty.
+           7 Whisk the flour, beer and baking powder together until nice and shiny – the texture should be like semi-whipped double cream (i.e. it should stick to whatever you're coating).
+           8 Dust each fish fillet in a little of the extra flour, then dip into the batter and allow any excess to drip off. Holding one end, gently lower the fish into the oil one by one, working carefully so you don't get splashed – it will depend on the size of your fryer or pan how many fish you can cook at once.
+           9 Cook for 4 minutes, or until the fish is cooked through and the batter is golden and crisp, then remove to kitchen paper to drain.
+           10 Meanwhile, parboil the chips in boiling salted water for 4 to 5 minutes, or until softened but still retaining their shape, then drain and steam dry.
+           11 When the chips are nice and dry, fry in the oil that the fish were cooked in at 180°C/350°F until golden and crisp.
+           12 While the chips are frying, transfer the fish from the kitchen paper to a baking tray. Place in the oven for a few minutes to finish cooking – this way they will stay crisp while you finish off the chips.
+           13 When the chips are done, drain them on kitchen paper, season with salt, and serve with the fish and mushy peas. Other things to have on the table are some crunchy sweet pickled gherkins, some pickled onions (if your other half isn't around!) – and pickled chillies are good, too. Then you want to douse it all with some cheap malt vinegar and nothing other than Heinz tomato ketchup.
+
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Korean Chicken", image:  #imageLiteral(resourceName: "Korean Chicken"), cookTime: 25, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 125.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chickenThings),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.ginger),
+                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove)
+                ],
+            ingredietns: [
+                Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oil),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.sesameOil),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.soySouce),
+                Ingredient(amount: 0.375, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.sugar)
+                ],
+           cookingInstruction:"""
+           1 Slice the chicken thighs horizontally to make thinner pieces of meat. Slice each piece of chicken thigh (depends on its thickness) into 2 or 3 horizontal pieces. Set aside.
+           2 Combine all the ingredients in the Marinade in a bowl, whisk it to make sure the Korean chili paste (gochujang) is completely dissolved. Marinate the chicken for at least 30 minutes or best for two hours.
+           3 Grill the chicken until slightly charred and completely cooked through. You may also pan-fried the chicken on a skillet or pan, or bake in the oven at 400°F (207°C) for about 20 minutes. Serve immediately with steamed rice.
+
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "jambalaya", image:  #imageLiteral(resourceName: "jambalaya"), cookTime: 60, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+                Ingredient(amount: 30.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chorizoSousage),
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
+                Ingredient(amount: 100.0, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.chickenBroth),
+                Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley),
+                Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.bellPepper),
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.tomatoPaste)
+                ],
+            ingredietns: [
+                Ingredient(amount: 30.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.rice),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.turmeric),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.smokedPapricaPowder),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.cumin)],
+           cookingInstruction:"""
+           1 Slice the sausage, chicken breast, pepper, onion into slices and tomato.
+           2 Add paprika and onion to the hot fat, fry for 5 minutes.
+           3 Add chorizo and chicken seasoned with salt and pepper.
+           4 Fry for 3-4 minutes. Then add a handful of raw rice and spices, as well as the tomato.
+           5 Mix everything together and add the broth - cook, covered, 15-20 minutes. stirring occasionally.
+           6 After cooking, season with salt and pepper and sprinkle with parsley, add a tablespoon of tomato paste.
+
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Meatballs Pasta", image:  #imageLiteral(resourceName: "Meatballs Pasta"), cookTime: 60, level: Constants.Basic.levelEasy, servings: 1,
+            ingredietnsImportant: [
+            Ingredient(amount: 125.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.beefGround),
+            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley),
+            Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parmesan),
+                Ingredient(amount: 200.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
+                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.egg),
+            Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
+            Ingredient(amount: 0.125, metric: "", nameOfIngredient: Constants.Ingrediant.onion)
+                ],
+            ingredietns: [
+                Ingredient(amount: 125.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
+                Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.breadCrumbs),
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.redPepperFlakes),
+                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                
+                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)],
+           cookingInstruction:"""
+           1 In a large pot of boiling salted water, cook spaghetti according to package instructions. Drain.
+           2 In a large bowl, combine beef with bread crumbs, parsley, Parmesan, egg, garlic, 1 teaspoon salt, and red pepper flakes. Mix until just combined then form into 16 balls.
+           3 In a large pot over medium heat, heat oil. Add meatballs and cook, turning occasionally, until browned on all sides, about 10 minutes. Transfer meatballs to a plate.
+           4 Add onion to pot and cook until soft, 5 minutes. Add crushed tomatoes and bay leaf. Season with salt and pepper and bring to a simmer. Return meatballs to pot and cover. Simmer until sauce has thickened, 8 to 10 minutes.
+           5 Serve pasta with a healthy scoop of meatballs and sauce. Top with Parmesan before serving.
+
+    """, source: "own", type: Constants.Basic.nonVegetarian),
+    
+    
 ]
     
     func getVegeterianIngredients() -> [String] {
@@ -265,7 +480,7 @@ var recipes: [Recipe] = [
     func getIngredientsModel(ingredients: [String]) -> [IngredientModel] {
         var ingredientsModel: [IngredientModel] = []
         for ingredient in ingredients {
-            var ingredientModel = IngredientModel(name: ingredient, checkmark: false)
+            let ingredientModel = IngredientModel(name: ingredient, isSelected: false)
             ingredientsModel.append(ingredientModel)
         }
         return ingredientsModel

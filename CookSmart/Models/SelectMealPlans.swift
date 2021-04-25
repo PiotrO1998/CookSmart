@@ -22,9 +22,7 @@ struct SelectMealPlans {
             mealPlans.append([validRecipes[evaluatedSet.set.0].recipe,validRecipes[evaluatedSet.set.1].recipe,validRecipes[evaluatedSet.set.2].recipe])
         }
         
-        for x in mealPlans {
-        //    print(x[0].name)
-        }
+    
         
         return mealPlans
     }

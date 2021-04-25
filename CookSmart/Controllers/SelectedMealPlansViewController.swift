@@ -23,7 +23,7 @@ class SelectedMealPlansViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.hidesBackButton = true
+        //navigationItem.hidesBackButton = true
         
         buttonDone.backgroundColor = .clear
         buttonDone.layer.cornerRadius = 5
@@ -36,14 +36,14 @@ class SelectedMealPlansViewController: UIViewController {
         //Register Table View
         tableView.register(UINib(nibName: Constants.AppNames.mealPlanCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.selectedMealPlanCellIndentifier)
 
-        var selectMealPlans: SelectMealPlans = SelectMealPlans(recipes: recipes, ingredietns: ingredients)
+        let selectMealPlans: SelectMealPlans = SelectMealPlans(recipes: recipes, ingredietns: ingredients)
         selectedMealPlans = selectMealPlans.getMealPlans()
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        var selectMealPlans: SelectMealPlans = SelectMealPlans(recipes: recipes, ingredietns: ingredients)
+        let selectMealPlans: SelectMealPlans = SelectMealPlans(recipes: recipes, ingredietns: ingredients)
         selectedMealPlans = selectMealPlans.getMealPlans()
     }
     
@@ -55,10 +55,7 @@ class SelectedMealPlansViewController: UIViewController {
         
         //vc.recipe = recipesData.recipes[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
-    
-    
-    
-}
+   }
     
     // function add mealPlan to array of saved meal plan if not aleardy in array
     func addToSavedMealPlansIfNotAdded(mealPlan: [String]) {
@@ -69,12 +66,10 @@ class SelectedMealPlansViewController: UIViewController {
             if allMealsPlans.count == 0 {
                 allMealsPlans.append(mealPlan)
             } else {
-                for meal in allMealsPlans {
                 if !allMealsPlans.contains(mealPlan) {
                     allMealsPlans.append(mealPlan)
                     }
                 }
-            }
                 
             UserDefaults.standard.set(allMealsPlans, forKey: "savedMealPlans")
             print("added old")
@@ -88,13 +83,10 @@ class SelectedMealPlansViewController: UIViewController {
             print("added new")
             for i in arrayOfMealsToSave {
                 print(i)
+                }
             }
         }
     }
-    
-
-    
-}
 
 extension SelectedMealPlansViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,20 +105,9 @@ extension SelectedMealPlansViewController: UITableViewDataSource {
         cell.imageRight.image = selectedMealPlans[indexPath.row][2].image
         cell.nameRight.text = selectedMealPlans[indexPath.row][2].name
         
-        //cell.recipeImage.image = recipesData.recipes[indexPath.row].image
-        //cell.recipeName.text = recipesData.recipes[indexPath.row].name
-        
-        //cell.textLabel?.text = selectedMealPlans[indexPath.row][0].name
-        
         return cell
+        }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
-    }
-    
-    
-}
 
 extension SelectedMealPlansViewController: UITableViewDelegate {
     
@@ -143,18 +124,15 @@ extension SelectedMealPlansViewController: UITableViewDelegate {
         //swipe action
         let swipe = UISwipeActionsConfiguration(actions: [add])
         return swipe
-        
     }
     
-   
-    
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "MealPlanViewController") as! MealPlanViewController
+        vc.recipes = selectedMealPlans[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-    
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
 }

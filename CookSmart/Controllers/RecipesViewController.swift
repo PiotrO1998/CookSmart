@@ -48,10 +48,6 @@ extension RecipesViewController: UITableViewDataSource {
         cell.recipeName.text = recipesData.recipes[indexPath.row].name
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 215
-    }
 }
 
 //User click on sell
@@ -81,5 +77,9 @@ extension RecipesViewController: UITableViewDelegate {
         //recipeViewController.name = recipesData.recipes[indexPath.row].name
         //self.present(vc, animated: true, completion: nil)
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 215
     }
 }

@@ -18,21 +18,34 @@ struct Ingrediant {
     static let soySouce = "soy souce"
     static let sesameOil = "sesame oil"
     static let breadCrumbs = "bread crumbs"
+    static let tortillaWraps = "tortilla wraps"
     
     static let rice = "rice"
-    static let potato = "potato"
+    static let potatoes = "potatoes"
     static let pasta = "pasta"
     static let milk = "milk"
     static let butter = "butter"
     static let cream = "cream"
+    static let mayonnaise = "mayonnaise"
+    static let mustard = "mustard"
+    static let tacoSauce = "taco sauce"
+    static let chees = "chees"
+    static let salsa = "salsa"
+    static let beer  = "beer"
     
-    static let broth = "chicken broth"
+    
+    static let raisins = "raisins"
+    static let roastedCashews = "roasted cashews"
+    
+    static let drywhiteWine = "dry white wine"
+    
+    static let chickenBroth = "chicken broth"
     
     static let garlicClove = "garlic clove"
     static let broccoli = "broccoli"
     static let cannedTomatoes = "canned tomatoes"
     static let onion = "onion"
-    static let bellPapper = "bell pepper"
+    static let bellPepper = "bell pepper"
     static let basilLeaves = "basil leaves"
     static let zucchini = "zucchini"
     static let parsley = "parsley"
@@ -41,6 +54,15 @@ struct Ingrediant {
     static let cannedBlackBeans = "canned black beans"
     static let ginger = "ginger"
     static let asparagus = "asparagus"
+    static let apple = "apple"
+    static let celeryRib = "celery rib"
+    static let cilantro = "cilantro"
+    static let scallions = "scallions"
+    static let dill = "dill"
+    static let celery = "celery"
+    static let lemon = "lemon"
+    static let freshMint  = "fresh mint"
+    static let poddedPeas  = "podded peas"
     
     static let parmesan = "parmesan"
     
@@ -62,9 +84,17 @@ struct Ingrediant {
     static let smokedPapricaPowder = "smoked paprica powder"
     static let cumin = "cumin"
     static let chiliPowder = "chilli powder"
+    static let curryPowder = "curry powder"
+    static let tacoSeasoning = "taco seasoning"
+    static let redPepperFlakes = "red pepper flakes"
+    
     
     
     static let chorizoSousage = "chorizo sousage"
+    
+    static let salmon = "salmon"
+    static let whiteFishFillets  = "white fish fillets"
+    static let cannedTuna = "canned tuna"
     
     static let chickenBreast = "chicken breast"
     static let beefSteak = "beef steak"
@@ -86,7 +116,9 @@ struct Metrics {
         static let recipeCellNibName = "RecipeCell"
         static let recipeCellIndentifier = "RecipeReusableCell"
         static let createMyMealPlanCellIndentifier = "CreateMealPlanReusableCell"
-        static let ingredientCellIndentifier = "ingredientReusableCell"
+        
+        static let ingredientCellNibName = "IngredientCell"
+        static let ingredientCellIndentifier = "IngredientReusableCell"
         
         static let mealPlanCellNibName = "MealPlanCell"
         static let selectedMealPlanCellIndentifier = "SelectedMealPlanCellIndentifier"
@@ -96,6 +128,9 @@ struct Metrics {
         
         static let MealCellNibName = "MealCell"
         static let MealCellIndentifier = "MealReusableCell"
+        
+        static let newspaperCellNibName = "NewspaperCell"
+        static let newspaperCellIndentifier = "NewspaperReusableCell"
         
         static let sequeToCookingTimeIndentifier = "SegueToCookingTimeIndentifier"
         static let sequeToLevelIndentifier = "SequeToLevelIndentifier"

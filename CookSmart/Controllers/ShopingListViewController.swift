@@ -15,7 +15,7 @@ class ShopingListViewController: UIViewController {
     
     var recipes: [Recipe] = []
     var ingredientsAll: [Ingredient] = []
-    
+    //var ingredients: [Ingredient] = []
     
 
     override func viewDidLoad() {
@@ -32,26 +32,34 @@ class ShopingListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    //function return sum up ingredients without duplicate
     func getAllIngredients(recipes: [Recipe]) -> [Ingredient] {
-        var ingredients: [Ingredient] = []
+        var ingredientsFromAllRecipes: [Ingredient] = []
+        var contactedIngredients: [String: Ingredient] = [:]
+        var ingredientsFromAllRecipesFinal: [Ingredient] = []
+        
         for recipe in recipes {
-            ingredientsAll += recipe.ingredietnsImportant + recipe.ingredietns
+            ingredientsFromAllRecipes.append(contentsOf: recipe.ingredietnsImportant)
+            ingredientsFromAllRecipes.append(contentsOf: recipe.ingredietns)
         }
         
-        for ingredient in ingredientsAll {
-            if !ingredients.contains(ingredient) {
-                ingredients.append(ingredient)
+        for ingredient in ingredientsFromAllRecipes {
+            if let existedIngredient = contactedIngredients[ingredient.nameOfIngredient] {
+                let summaryAmount = existedIngredient.amount + ingredient.amount
+                var newIngredient = existedIngredient
+                newIngredient.amount = summaryAmount
+                contactedIngredients[ingredient.nameOfIngredient] = newIngredient
             } else {
-                for var ing in ingredients {
-                    if ing == ingredient {
-                        ing.amount += ingredient.amount
-                    }
-                }
+                contactedIngredients[ingredient.nameOfIngredient] = ingredient
             }
         }
         
-        return ingredients
+        for ingredient in contactedIngredients {
+            ingredientsFromAllRecipesFinal.append(ingredient.value)
+        }
         
+        return ingredientsFromAllRecipesFinal
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
@@ -72,19 +80,7 @@ class ShopingListViewController: UIViewController {
         
         labelServings.text = "Servings: " + String(format: "%.f", stepper.value)
         
-        
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
