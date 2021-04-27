@@ -17,9 +17,8 @@ class SelectedMealPlansViewController: UIViewController {
     var ingredients: [String] = []
     var selectedMealPlans: [[Recipe]] = []
     var savedMealPlans: [[String]] = []
-    //let defaults = UserDefaults.standard
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

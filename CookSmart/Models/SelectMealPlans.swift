@@ -14,8 +14,8 @@ struct SelectMealPlans {
     
     
     func getMealPlans() -> [[Recipe]] {
-        var evaluatedValidSetsOfRecipes: [SetEvalaute] = evaluateSetOfValidRecipes()
-        var validRecipes = getEvaluatedValidRecipes()
+        let evaluatedValidSetsOfRecipes: [SetEvalaute] = evaluateSetOfValidRecipes()
+        let validRecipes = getEvaluatedValidRecipes()
         var mealPlans: [[Recipe]] = []
         
         for evaluatedSet in evaluatedValidSetsOfRecipes {
@@ -46,7 +46,7 @@ struct SelectMealPlans {
     
     //function return evaluated recipes (valid) based on how many ingredietns they have from selected ingredients
     func getEvaluatedValidRecipes() -> [RecipeEvaluate] {
-        var validRecipes = getValidRecipes()
+        let validRecipes = getValidRecipes()
         var evaluatedRecipes: [RecipeEvaluate] = []
         
         for recipe in validRecipes {
@@ -56,7 +56,7 @@ struct SelectMealPlans {
                     evaluation += 1
                 }
             }
-            var recipeEvaluated: RecipeEvaluate = RecipeEvaluate(recipe: recipe, evaluation: evaluation)
+            let recipeEvaluated: RecipeEvaluate = RecipeEvaluate(recipe: recipe, evaluation: evaluation)
             evaluatedRecipes.append(recipeEvaluated)
         }
         
@@ -75,8 +75,8 @@ struct SelectMealPlans {
     //In case of 21 recipes function check 1330 combinations of recipes (set)
     func evaluateSetOfValidRecipes() -> [SetEvalaute] {
         
-        var evaluatedRecipes = getEvaluatedValidRecipes()
-        var size = evaluatedRecipes.count
+        let evaluatedRecipes = getEvaluatedValidRecipes()
+        let size = evaluatedRecipes.count
         
         var evaluationsOfSets: [SetEvalaute] = []
         var evaluationsOfSetsToReturn: [SetEvalaute] = []
@@ -87,13 +87,13 @@ struct SelectMealPlans {
         case 1:
             //return recipes/set
             print("return one meal plan")
-            var setEvaluate: SetEvalaute = SetEvalaute(set: (0,0,0), evaluation: 1)
+            let setEvaluate: SetEvalaute = SetEvalaute(set: (0,0,0), evaluation: 1)
             evaluationsOfSets.append(setEvaluate)
         case 2:
-            var setEvaluate: SetEvalaute = SetEvalaute(set: (0,1,1), evaluation: 1)
+            let setEvaluate: SetEvalaute = SetEvalaute(set: (0,1,1), evaluation: 1)
             evaluationsOfSets.append(setEvaluate)
         case 3:
-            var setEvaluate: SetEvalaute = SetEvalaute(set: (0,1,2), evaluation: 1)
+            let setEvaluate: SetEvalaute = SetEvalaute(set: (0,1,2), evaluation: 1)
             evaluationsOfSets.append(setEvaluate)
         case 4:
             for set in CombinationsData.combinations4 {
@@ -227,7 +227,7 @@ struct SelectMealPlans {
             }
         }
         
-        var setEvaluate: SetEvalaute = SetEvalaute(set: set, evaluation: evaluate)
+        let setEvaluate: SetEvalaute = SetEvalaute(set: set, evaluation: evaluate)
         
         return setEvaluate
     }
