@@ -17,3 +17,5 @@ struct ConfigureMealPlan {
     static var medium = false
     static var hard = false
     }
+
+

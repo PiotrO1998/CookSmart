@@ -12,44 +12,22 @@ class ChoseIngredientsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonNext: UIButton!
     
-    var ingredientsModel: [IngredientModel] = []
-    
-    
     let recipesData = RecipesData()
+    var ingredientsModel: [IngredientModel] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         buttonNext.backgroundColor = .clear
         buttonNext.layer.cornerRadius = 5
         buttonNext.layer.borderWidth = 1
         buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
-        //Register Table View
-        //tableView.register(UINib(nibName: Constants.AppNames.ingredientCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.ingredientCellIndentifier)
+        //function po
+       ingredientsModel = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
         
         
-        //test
-        //print("vegIng: " + String(ConfigureMealPlan.vegetarian))
-        //print(" nonVeg :" + String(ConfigureMealPlan.nonVegetarian))
-        
-        //print("min30: " + String(ConfigureMealPlan.min30))
-        //print(" h1: " + String(ConfigureMealPlan.h1))
-        //print("15h: " + String(ConfigureMealPlan.h15))
-        
-        //print("minEasy: " + String(ConfigureMealPlan.easy))
-        //print(" minMedium; " + String(ConfigureMealPlan.medium))
-        //print("ha " + String(ConfigureMealPlan.hard))
-        
-        
-        
-        
-        ingredientsModel = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
-        
-        //ingredients.map
         
         print(ingredientsModel.count)
         
@@ -88,15 +66,8 @@ class ChoseIngredientsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let ingredietnsString = getIngredientsString()
-        let recipes = recipesData.getRecipesBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
-        for i in ingredietnsString {
-            print("ingredient " + i)
-        }
-        for i in recipes {
-            print("recipe " + i.name)
-        }
-        
+        let ingredietnsString: [String] = getIngredientsString()
+        let recipes: [Recipe] = recipesData.getRecipesBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
         let destinationVC = segue.destination as! SelectedMealPlansViewController
         destinationVC.ingredients = ingredietnsString
         destinationVC.recipes = recipes
@@ -153,10 +124,10 @@ extension ChoseIngredientsViewController: UITableViewDelegate {
         } else {
             ingredientsModel[indexPath.row].isSelected = false
         }
-        
         cell.circle.image = ingredientsModel[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
-       }
     }
+    
+}
   
     
 

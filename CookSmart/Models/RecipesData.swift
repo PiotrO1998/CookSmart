@@ -469,7 +469,6 @@ var recipes: [Recipe] = [
             recipes = getRecipeLevelEasyFilter(recipesToFilter: recipes)
         }
         
-        
         ingredientsBasedOnFilters = getIngredientsString(recipesToIngredientsString: recipes)
         ingredientsModelBasedOnFilters = getIngredientsModel(ingredients: ingredientsBasedOnFilters)
         
