@@ -13,6 +13,7 @@ struct SelectMealPlans {
     var ingredietns: [String]
     
     
+    //
     func getMealPlans() -> [[Recipe]] {
         let evaluatedValidSetsOfRecipes: [SetEvalaute] = evaluateSetOfValidRecipes()
         let validRecipes = getEvaluatedValidRecipes()
@@ -25,6 +26,27 @@ struct SelectMealPlans {
     
         
         return mealPlans
+    }
+    
+    
+    //function return evaluated recipes based on how many ingredients they contains from selected ingredients
+    func getEvaluatedValidRecipes() -> [RecipeEvaluate] {
+        let validRecipes = getValidRecipes()
+        var evaluatedRecipes: [RecipeEvaluate] = []
+        
+        for recipe in validRecipes {
+            var evaluation = 0
+            for ingredient in ingredietns {
+                if recipe.getIngredientsImportantArray().contains(ingredient) {
+                    evaluation += 1
+                }
+            }
+            let recipeEvaluated: RecipeEvaluate = RecipeEvaluate(recipe: recipe, evaluation: evaluation)
+            evaluatedRecipes.append(recipeEvaluated)
+        }
+        evaluatedRecipes.sort { $0.evaluation > $1.evaluation } //sort recipes by number of ingredients (by descending order)
+        
+        return evaluatedRecipes
     }
     
     //function check which recipes contains chosen ingredients by user
@@ -40,30 +62,9 @@ struct SelectMealPlans {
                 }
             }
         }
-        
         return validRecipes
     }
     
-    //function return evaluated recipes (valid) based on how many ingredietns they have from selected ingredients
-    func getEvaluatedValidRecipes() -> [RecipeEvaluate] {
-        let validRecipes = getValidRecipes()
-        var evaluatedRecipes: [RecipeEvaluate] = []
-        
-        for recipe in validRecipes {
-            var evaluation = 0
-            for ingredient in ingredietns {
-                if recipe.getIngredientsImportantArray().contains(ingredient) {
-                    evaluation += 1
-                }
-            }
-            let recipeEvaluated: RecipeEvaluate = RecipeEvaluate(recipe: recipe, evaluation: evaluation)
-            evaluatedRecipes.append(recipeEvaluated)
-        }
-        
-        evaluatedRecipes.sort { $0.evaluation > $1.evaluation } //sort recipes if more points (more ingredients form user prefernce) first
-        
-        return evaluatedRecipes
-    }
     
     
     //function using prepreed combinations (CombinationsData) chosing best sets of recipes
@@ -71,7 +72,7 @@ struct SelectMealPlans {
     //2 Fuction using prepared combinations data, checing all possible combinations
     //of 3 recipes and evaluated it based on which set contains most commons ingredients
     //3 Functions return best sets (those that contains most common ingredients)
-    //What is worth to metion function take in to resposibility only important ingredients, the one that have short time
+    //What is worth to metion function take in to resposibility only important ingredients, the one that have short expiration tdate
     //In case of 21 recipes function check 1330 combinations of recipes (set)
     func evaluateSetOfValidRecipes() -> [SetEvalaute] {
         
@@ -189,14 +190,14 @@ struct SelectMealPlans {
         
     }
     
-    //it will be better to give array of valid recipes and set to evaluate ?
-    //function evaluate set of recipe (for example (1,5,18)-corespond to recipe 1, 5 and 18
+    
+    //function evaluate set of recipes (for example (1,5,18)-corespond to recipe 1, 5 and 18
     func evaluateSet(recipe1: Recipe, recipe2: Recipe, recipe3: Recipe, set: (Int,Int,Int)) -> SetEvalaute {
         var ingredientsInSet: [String] = []
         var evaluate: Int = 0
         
         //creatting array of all ingredients in set of recipes, checking only important ingredients
-        //1 because they matter in termo of usage
+        //1 because they matter in termo of shoort expiration date
         //2 I dont want to create meal plan contating same not important ingredient (everyday pasta)
         for ingredientInRecipe1 in recipe1.getIngredientsImportantArray() {
             if !ingredientsInSet.contains(ingredientInRecipe1) {
@@ -243,8 +244,6 @@ struct RecipeEvaluate {
 }
 
 struct SetEvalaute {
-    
     var set: (Int,Int,Int)
     var evaluation: Int
-    
 }
