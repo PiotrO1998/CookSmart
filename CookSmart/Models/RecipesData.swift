@@ -168,7 +168,7 @@ var recipes: [Recipe] = [
                 Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
                 Ingredient(amount: 2.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
                 Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.cream),
-                Ingredient(amount: 105.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
+                Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
                 Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
                 Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.zucchini),
                 Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.bellPepper),
@@ -188,7 +188,7 @@ var recipes: [Recipe] = [
     Recipe(name: "Burrito", image:  #imageLiteral(resourceName: "Burrito"), cookTime: 30, level: Constants.Basic.levelEasy, servings: 1,
             ingredietnsImportant: [
                 Ingredient(amount: 80.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.beefGround),
-                Ingredient(amount: 75.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
+                Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
                 Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
                 Ingredient(amount: 21.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees),
                 Ingredient(amount: 0.2, metric: "", nameOfIngredient: Constants.Ingrediant.cream),

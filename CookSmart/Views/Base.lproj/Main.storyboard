@@ -48,7 +48,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGD-Tw-4L4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1164" y="852"/>
+            <point key="canvasLocation" x="-1116" y="831"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="HsY-Dk-9vb">
@@ -662,7 +662,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h58-dL-iYN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="852"/>
+            <point key="canvasLocation" x="306" y="830"/>
         </scene>
         <!--My Meal Plan-->
         <scene sceneID="pre-bI-yzn">
@@ -683,7 +683,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YF-DC-OV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371" y="852"/>
+            <point key="canvasLocation" x="-416" y="830"/>
         </scene>
         <!--Chose Ingredients View Controller-->
         <scene sceneID="Er2-AN-7Ty">

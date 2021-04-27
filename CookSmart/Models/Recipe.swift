@@ -19,19 +19,7 @@ struct Recipe {
     var source: String?
     var type: String?
     
-    
-    
-    //func multipleIngredients(number: Float) {
-        
-        //for var i in ingredietns {
-          //  i.amount *= 100
-        //}
-        //for var ii in ingredietnsImportant {
-        //    ii.amount *= number
-        //}
-   // }
-    
-    func getIngredients() -> String {
+   func getIngredients() -> String {
         var ingredientsString: String = ""
     
         for ingredient in ingredietns {
@@ -75,10 +63,7 @@ struct Recipe {
         for var ingredient in ingredietns {
             ingredient.multiplyAmount(value: value)
         }
-        
     }
-    
-    
     
 }
 

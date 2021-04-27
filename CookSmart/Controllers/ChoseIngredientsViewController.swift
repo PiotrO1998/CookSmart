@@ -12,7 +12,7 @@ class ChoseIngredientsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonNext: UIButton!
     
-    var ingredients: [IngredientModel] = []
+    var ingredientsModel: [IngredientModel] = []
     
     
     let recipesData = RecipesData()
@@ -47,11 +47,11 @@ class ChoseIngredientsViewController: UIViewController {
         
         
         
-        ingredients = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
+        ingredientsModel = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
         
         //ingredients.map
         
-        print(ingredients.count)
+        print(ingredientsModel.count)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -64,7 +64,7 @@ class ChoseIngredientsViewController: UIViewController {
     
     //TODO overwrite
     override func viewWillAppear(_ animated: Bool) {
-        ingredients = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
+        ingredientsModel = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -72,10 +72,19 @@ class ChoseIngredientsViewController: UIViewController {
     }
     
     @IBAction func buttonNextPressed(_ sender: UIButton) {
+        var numberOfSelectedIngredients = 0
         
+        for ingredientIsSelected in ingredientsModel {
+            if ingredientIsSelected.isSelected {
+                numberOfSelectedIngredients += 1
+            }
+        }
         
-        
+        if numberOfSelectedIngredients >= 3 {
         self.performSegue(withIdentifier: Constants.AppNames.sequeToSelectedRecipesIndentifier, sender: self)
+        } else {
+            presentAlert()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,25 +104,33 @@ class ChoseIngredientsViewController: UIViewController {
     
    func getIngredientsString() -> [String] {
         var ingredietnsString: [String] = []
-        for ingredient in ingredients {
+        for ingredient in ingredientsModel {
             if ingredient.isSelected == true {
                 ingredietnsString.append(ingredient.name)
             }
         }
         return ingredietnsString
         }
+    
+    func presentAlert() {
+        let alert = UIAlertController(title: "You Need To Chose At Leat Three Ingredients", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     }
 
 extension ChoseIngredientsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ingredients.count
+        ingredientsModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.ingredientCellIndentifier, for: indexPath) as! IngredientCell
-        cell.ingredientName.text = ingredients[indexPath.row].name
+        cell.ingredientName.text = ingredientsModel[indexPath.row].name
         
-        cell.circle.image = ingredients[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
+        cell.circle.image = ingredientsModel[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
       
         return cell
     }
@@ -131,13 +148,13 @@ extension ChoseIngredientsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) as? IngredientCell else {return}
         
-        if ingredients[indexPath.row].isSelected == false {
-            ingredients[indexPath.row].isSelected = true
+        if ingredientsModel[indexPath.row].isSelected == false {
+            ingredientsModel[indexPath.row].isSelected = true
         } else {
-            ingredients[indexPath.row].isSelected = false
+            ingredientsModel[indexPath.row].isSelected = false
         }
         
-        cell.circle.image = ingredients[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
+        cell.circle.image = ingredientsModel[indexPath.row].isSelected == true ? UIImage(named: "circle") : UIImage(named: "circleEmpty")
        }
     }
   
