@@ -1,12 +1,12 @@
-//
-//  ChoseCookingLevelViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 21/04/2021.
-//
 
 import UIKit
 
+/// struct represent ChoseCookingLevelViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class ChoseCookingLevelViewController: UIViewController {
     
     @IBOutlet weak var buttonEasy: UIButton!
@@ -46,6 +46,7 @@ class ChoseCookingLevelViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    ///function is called when button easy is pressed
     @IBAction func buttonEasyPressed(_ sender: UIButton) {
         if !bEasyPressed {
             buttonEasy.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -58,6 +59,7 @@ class ChoseCookingLevelViewController: UIViewController {
         }
     }
     
+    ///function is called when button medium is pressed
     @IBAction func buttonMediumPressed(_ sender: UIButton) {
         if !bMediumPressed {
             buttonMedium.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -70,6 +72,7 @@ class ChoseCookingLevelViewController: UIViewController {
         }
     }
     
+    ///function is called when button hard is pressed
     @IBAction func buttonHardPressed(_ sender: UIButton) {
         if !bHardPressed {
             buttonHard.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -82,11 +85,10 @@ class ChoseCookingLevelViewController: UIViewController {
         }
     }
     
-    
-    
+    ///function is called when button next is pressed
     @IBAction func buttonNextPressed(_ sender: Any) {
         if !bEasyPressed && !bMediumPressed && !bHardPressed {
-            let alert = UIAlertController(title: "You Need To Chose At Leat One Option", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "You Need To Choose At Leat One Option", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
             }))
@@ -99,16 +101,4 @@ class ChoseCookingLevelViewController: UIViewController {
                 self.performSegue(withIdentifier: Constants.AppNames.sequeToIngredientsIndentifier, sender: self)
                 }
          }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

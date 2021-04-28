@@ -1,12 +1,12 @@
-//
-//  ShopingListViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
 
 import UIKit
 
+/// struct represent ShopingListViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class ShopingListViewController: UIViewController {
     
     @IBOutlet weak var stepper: UIStepper!
@@ -15,7 +15,6 @@ class ShopingListViewController: UIViewController {
     
     var recipes: [Recipe] = []
     var ingredientsAll: [Ingredient] = []
-    //var ingredients: [Ingredient] = []
     
 
     override func viewDidLoad() {
@@ -28,12 +27,10 @@ class ShopingListViewController: UIViewController {
         }
         
         labelServings.text = "Servings: " + String(format: "%.f", stepper.value)
-
-        // Do any additional setup after loading the view.
     }
     
     
-    //function return sum up ingredients without duplicate
+    ///function return sum up ingredients without duplicate
     func getAllIngredients(recipes: [Recipe]) -> [Ingredient] {
         var ingredientsFromAllRecipes: [Ingredient] = []
         var contactedIngredients: [String: Ingredient] = [:]
@@ -58,10 +55,10 @@ class ShopingListViewController: UIViewController {
         for ingredient in contactedIngredients {
             ingredientsFromAllRecipesFinal.append(ingredient.value)
         }
-        
         return ingredientsFromAllRecipesFinal
     }
     
+    /// funcion is called when stepper get opressed
     @IBAction func stepperPressed(_ sender: UIStepper) {
         var ingredientsToMultiple: [Ingredient] = []
         

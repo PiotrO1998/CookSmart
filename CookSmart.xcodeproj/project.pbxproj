@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AE09B4D4262FB2EB0065F9FF /* ChoseCookingTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE09B4D3262FB2EB0065F9FF /* ChoseCookingTimeViewController.swift */; };
-		AE09B4D7262FC35A0065F9FF /* ChoseNumberOfServingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE09B4D6262FC3590065F9FF /* ChoseNumberOfServingsViewController.swift */; };
 		AE09B4DA262FC5EE0065F9FF /* ChoseIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE09B4D9262FC5EE0065F9FF /* ChoseIngredientsViewController.swift */; };
 		AE09B4E1262FCC880065F9FF /* ConfigureMealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE09B4E0262FCC880065F9FF /* ConfigureMealPlan.swift */; };
 		AE09B4E4262FD8C70065F9FF /* ChoseCookingLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE09B4E3262FD8C70065F9FF /* ChoseCookingLevelViewController.swift */; };
@@ -52,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		AE09B4D3262FB2EB0065F9FF /* ChoseCookingTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseCookingTimeViewController.swift; sourceTree = "<group>"; };
-		AE09B4D6262FC3590065F9FF /* ChoseNumberOfServingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseNumberOfServingsViewController.swift; sourceTree = "<group>"; };
 		AE09B4D9262FC5EE0065F9FF /* ChoseIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseIngredientsViewController.swift; sourceTree = "<group>"; };
 		AE09B4E0262FCC880065F9FF /* ConfigureMealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureMealPlan.swift; sourceTree = "<group>"; };
 		AE09B4E3262FD8C70065F9FF /* ChoseCookingLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseCookingLevelViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 				AE1F46BA262B2DA900B41A18 /* CreateMealPlanViewController.swift */,
 				AE09B4D3262FB2EB0065F9FF /* ChoseCookingTimeViewController.swift */,
 				AE09B4E3262FD8C70065F9FF /* ChoseCookingLevelViewController.swift */,
-				AE09B4D6262FC3590065F9FF /* ChoseNumberOfServingsViewController.swift */,
 				AE09B4D9262FC5EE0065F9FF /* ChoseIngredientsViewController.swift */,
 				AE7193492630E1F70064D59E /* SelectedMealPlansViewController.swift */,
 				AE2264F426328A16007B4B71 /* MyMealPlansViewController.swift */,
@@ -284,7 +281,6 @@
 				AE09B4DA262FC5EE0065F9FF /* ChoseIngredientsViewController.swift in Sources */,
 				AE22651126345F5A007B4B71 /* NewspaperViewController.swift in Sources */,
 				AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */,
-				AE09B4D7262FC35A0065F9FF /* ChoseNumberOfServingsViewController.swift in Sources */,
 				AE22650126337F7C007B4B71 /* MealPlanViewController.swift in Sources */,
 				AE4CD53C2634A44A0046919B /* NewsViewController.swift in Sources */,
 				AE7C72B026271FE600889E2A /* Ingredient.swift in Sources */,

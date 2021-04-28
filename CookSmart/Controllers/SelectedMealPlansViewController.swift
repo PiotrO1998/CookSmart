@@ -1,12 +1,12 @@
-//
-//  SelectedRecipesViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 22/04/2021.
-//
 
 import UIKit
 
+/// struct represent SelectedMealPlansViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class SelectedMealPlansViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -92,6 +92,7 @@ extension SelectedMealPlansViewController: UITableViewDataSource {
         selectedMealPlans.count
     }
     
+    ///Delegate method that populate table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.selectedMealPlanCellIndentifier, for: indexPath) as! MealPlanCell
         
@@ -109,6 +110,7 @@ extension SelectedMealPlansViewController: UITableViewDataSource {
     }
 
 extension SelectedMealPlansViewController: UITableViewDelegate {
+    ///delegate method that take action when table view row is swipe
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let add = UIContextualAction(style: .normal, title: "Add") { (action, view, completitionHandler) in
@@ -124,6 +126,7 @@ extension SelectedMealPlansViewController: UITableViewDelegate {
         return swipe
     }
     
+    ///Delegate method that managed action when user click table view cell
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "MealPlanViewController") as! MealPlanViewController
         vc.recipes = selectedMealPlans[indexPath.row]

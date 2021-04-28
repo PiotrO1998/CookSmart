@@ -1,13 +1,12 @@
-//
-//  NewsViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 5/04/2021.
-//
-//Class Represent Particular News View
 
 import UIKit
 
+/// struct represent NewsViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class NewsViewController: UIViewController {
 
     

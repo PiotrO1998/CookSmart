@@ -1,12 +1,13 @@
-//
-//  CreateMealPlanViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 17/04/2021.
-//
+
 
 import UIKit
 
+/// struct represent CreateMealPlanViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class CreateMealPlanViewController: UIViewController {
     
     @IBOutlet weak var buttonVegetarian: UIButton!
@@ -40,10 +41,9 @@ class CreateMealPlanViewController: UIViewController {
         buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
         // Do any additional setup after loading the view.
-        
-        print("View did load " + String(buttonVegPressed))
     }
     
+    ///setting value in ConfigureMealPlan that is set in vegetarian button
     @IBAction func buttonVegetarianPressed(_ sender: UIButton) {
         if !buttonVegPressed {
             buttonVegetarian.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -59,6 +59,7 @@ class CreateMealPlanViewController: UIViewController {
         
     }
     
+    ///setting value in ConfigureMealPlan that is set in nonVegetarian button
     @IBAction func buttonNonVegetarianPressed(_ sender: UIButton) {
         if !buttonNonVegPressed {
             buttonNonVegetarian.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -71,6 +72,7 @@ class CreateMealPlanViewController: UIViewController {
         }
     }
     
+    ///function is called when buuton next is pressed
     @IBAction func buttonNextPressed(_ sender: UIButton) {
         
         if !buttonVegPressed && !buttonNonVegPressed {
@@ -89,19 +91,6 @@ class CreateMealPlanViewController: UIViewController {
             self.performSegue(withIdentifier: Constants.AppNames.sequeToCookingTimeIndentifier, sender: self)
             }
         }
-    
-  
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
