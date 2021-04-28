@@ -1,12 +1,11 @@
-//
-//  RecipeCell.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 15/04/2021.
-//
 
 import UIKit
 
+// class represent RecipeCell
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var recipeImage: UIImageView!

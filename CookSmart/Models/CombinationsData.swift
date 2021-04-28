@@ -1,12 +1,12 @@
-//
-//  CombinationsData.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 22/04/2021.
-//
 
 import Foundation
 
+
+/// struct represent CombinationsData object
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 struct CombinationsData {
     
     static let combinations4: [(Int,Int,Int)] = [(0, 1, 2) ,

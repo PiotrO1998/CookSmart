@@ -1,12 +1,11 @@
-//
-//  Recipe.swift
-//  CookSmart
-//
-//  Created by Piotr Obara 
-//
 
 import UIKit
 
+/// struct represent Recipe object
+///
+///  - Author: Piotr Obara
+///  - Version: 1.3
+///
 struct Recipe {
     var name: String
     var image: UIImage
@@ -19,6 +18,10 @@ struct Recipe {
     var source: String?
     var type: String?
     
+    
+    /// Function return all ingredient stored in recipe as String
+    ///
+    /// - Returns: String of all ingredients in recipe
    func getIngredients() -> String {
         var ingredientsString: String = ""
     
@@ -32,6 +35,10 @@ struct Recipe {
         return ingredientsString
         }
     
+    ///
+    ///  Function return all ingredients stored in recipe as array of String
+    ///
+    ///  - Returns: array of String as all ingredients
     func getIngredientsArray() -> [String] {
         var ingredientsArray: [String] = []
         
@@ -46,6 +53,10 @@ struct Recipe {
         return ingredientsArray
     }
     
+    ///
+    /// Function return importants ingredients stored in recipe as array od String
+    ///
+    /// - Returns: array of String as important ingredients
     func getIngredientsImportantArray() -> [String] {
         var ingredientsArray: [String] = []
         
@@ -55,6 +66,10 @@ struct Recipe {
         return ingredientsArray
     }
     
+    ///
+    ///  Function mulitply all ingredients stored in recipe by value
+    ///
+    /// - Parameter value: value that multiple all ingredients
     mutating func multipleIngredients(value: Float) {
         for var ingredient in ingredietnsImportant {
             ingredient.multiplyAmount(value: value)

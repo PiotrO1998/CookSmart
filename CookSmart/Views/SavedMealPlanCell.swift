@@ -1,12 +1,11 @@
-//
-//  SavedMealPlanCell.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 23/04/2021.
-//
 
 import UIKit
 
+// class represent SavedMealPlanCell
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class SavedMealPlanCell: UITableViewCell {
     
     @IBOutlet weak var imageLeft: UIImageView!

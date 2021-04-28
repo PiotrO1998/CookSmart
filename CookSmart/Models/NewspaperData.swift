@@ -1,12 +1,13 @@
-//
-//  NewspaperData.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
+
 
 import Foundation
 
+/// struct represent NewspaperData object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 struct NewspaperData {
     
     var newspapers: [Newspaper] = [ Newspaper(image: #imageLiteral(resourceName: "oragizeFridge"), title: "How to organise your fridge", body:"""

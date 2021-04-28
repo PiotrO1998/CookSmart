@@ -85,9 +85,7 @@ class ChoseCookingLevelViewController: UIViewController {
     
     
     @IBAction func buttonNextPressed(_ sender: Any) {
-        
         if !bEasyPressed && !bMediumPressed && !bHardPressed {
-            
             let alert = UIAlertController(title: "You Need To Chose At Leat One Option", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
@@ -95,15 +93,12 @@ class ChoseCookingLevelViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
                 
             } else {
-                
                 ConfigureMealPlan.easy = bEasyPressed
                 ConfigureMealPlan.medium = bMediumPressed
                 ConfigureMealPlan.hard = bHardPressed
-                
                 self.performSegue(withIdentifier: Constants.AppNames.sequeToIngredientsIndentifier, sender: self)
                 }
-        
-    }
+         }
     
 
     /*

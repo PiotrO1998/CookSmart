@@ -624,7 +624,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mja-SS-Bau"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="ColorMain"/>
                         <constraints>
                             <constraint firstItem="D9c-wF-DfD" firstAttribute="bottom" secondItem="mja-SS-Bau" secondAttribute="bottom" id="PXI-vf-nv7"/>
                             <constraint firstItem="mja-SS-Bau" firstAttribute="trailing" secondItem="D9c-wF-DfD" secondAttribute="trailing" constant="20" id="PuB-eY-KrS"/>

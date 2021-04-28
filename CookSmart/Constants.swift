@@ -19,6 +19,10 @@ struct Ingrediant {
     static let sesameOil = "sesame oil"
     static let breadCrumbs = "bread crumbs"
     static let tortillaWraps = "tortilla wraps"
+    static let ciabattaLoaf = "ciabattaLoaf"
+    static let honey = "honey"
+    static let cornStrach = "cornStrach"
+    
     
     static let rice = "rice"
     static let potatoes = "potatoes"
@@ -36,6 +40,7 @@ struct Ingrediant {
     
     static let raisins = "raisins"
     static let roastedCashews = "roasted cashews"
+    static let sunTriedTomato = "sun-tried tomato"
     
     static let drywhiteWine = "dry white wine"
     
@@ -63,6 +68,10 @@ struct Ingrediant {
     static let lemon = "lemon"
     static let freshMint  = "fresh mint"
     static let poddedPeas  = "podded peas"
+    static let spinach = "spinach"
+    static let lettuce = "lettuce"
+    static let carrot = "carrot"
+    
     
     static let parmesan = "parmesan"
     

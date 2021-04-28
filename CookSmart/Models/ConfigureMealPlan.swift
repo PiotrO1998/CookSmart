@@ -1,12 +1,13 @@
-//
-//  ConfigureMealPlan.swift
-//  CookSmart
-//
-//  Created by Piotr Obara 
-//
+
 
 import Foundation
 
+/// struct represent ConfigureMealPlan
+/// struct is used for setting values while configure meal plan
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 struct ConfigureMealPlan {
     static var vegetarian = false
     static var nonVegetarian = false

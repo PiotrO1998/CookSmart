@@ -1,12 +1,12 @@
-//
-//  Newspaper.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
+
 
 import UIKit
 
+/// struct represent Newspaper obeject
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 struct Newspaper {
     
     var image: UIImage

@@ -1,19 +1,21 @@
-//
-//  SelectRecipes.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 21/04/2021.
-//
+
 
 import Foundation
 
+/// struct represent SelectMealPlan object
+/// Main alghortim
+///
+///  - Author: Piotr Obara
+///  - Version: 1.7
 struct SelectMealPlans {
     
     var recipes: [Recipe]
     var ingredietns: [String]
     
     
-    //
+    /// function returns up to 5 best evaluated meal plans
+    ///
+    /// - Returns: evaluated meal plans as recipe array
     func getMealPlans() -> [[Recipe]] {
         let evaluatedValidSetsOfRecipes: [SetEvalaute] = evaluateSetOfValidRecipes()
         let validRecipes = getEvaluatedValidRecipes()
@@ -22,14 +24,13 @@ struct SelectMealPlans {
         for evaluatedSet in evaluatedValidSetsOfRecipes {
             mealPlans.append([validRecipes[evaluatedSet.set.0].recipe,validRecipes[evaluatedSet.set.1].recipe,validRecipes[evaluatedSet.set.2].recipe])
         }
-        
-    
-        
         return mealPlans
     }
     
     
-    //function return evaluated recipes based on how many ingredients they contains from selected ingredients
+    /// function return evaluated recipes based on how many ingredients they contains from selected ingredients
+    ///
+    /// - Returns: array of RecipeEvaluate objects
     func getEvaluatedValidRecipes() -> [RecipeEvaluate] {
         let validRecipes = getValidRecipes()
         var evaluatedRecipes: [RecipeEvaluate] = []
@@ -49,7 +50,9 @@ struct SelectMealPlans {
         return evaluatedRecipes
     }
     
-    //function check which recipes contains chosen ingredients by user
+    /// function check which recipes contains chosen ingredients by user
+    ///
+    /// - Returns: array of Recipe objects
     func getValidRecipes() -> [Recipe] {
         var validRecipes: [Recipe] = []
         
@@ -67,13 +70,15 @@ struct SelectMealPlans {
     
     
     
-    //function using prepreed combinations (CombinationsData) chosing best sets of recipes
-    //1 Functions takes recipes that cointains mosta ingredients from user selection
-    //2 Fuction using prepared combinations data, checing all possible combinations
-    //of 3 recipes and evaluated it based on which set contains most commons ingredients
-    //3 Functions return best sets (those that contains most common ingredients)
-    //What is worth to metion function take in to resposibility only important ingredients, the one that have short expiration tdate
-    //In case of 21 recipes function check 1330 combinations of recipes (set)
+    ///function using prepreed combinations (CombinationsData) chosing best sets of recipes
+    ///1 Functions takes recipes that cointains mosta ingredients from user selection
+    ///2 Fuction using prepared combinations data, checing all possible combinations
+    ///of 3 recipes and evaluated it based on which set contains most commons ingredients
+    ///3 Functions return best sets (those that contains most common ingredients)
+    ///What is worth to metion function take in to resposibility only important ingredients, the one that have short expiration tdate
+    ///In case of 21 recipes function check 1330 combinations of recipes (set)
+    ///
+    /// - Returns: array of SetEvaluate objects
     func evaluateSetOfValidRecipes() -> [SetEvalaute] {
         
         let evaluatedRecipes = getEvaluatedValidRecipes()
@@ -191,7 +196,9 @@ struct SelectMealPlans {
     }
     
     
-    //function evaluate set of recipes (for example (1,5,18)-corespond to recipe 1, 5 and 18
+    ///function evaluate set of recipes (for example (1,5,18)-corespond to recipe 1, 5 and 18
+    ///
+    /// - Returns: SetEvaulate object
     func evaluateSet(recipe1: Recipe, recipe2: Recipe, recipe3: Recipe, set: (Int,Int,Int)) -> SetEvalaute {
         var ingredientsInSet: [String] = []
         var evaluate: Int = 0
@@ -232,17 +239,23 @@ struct SelectMealPlans {
         
         return setEvaluate
     }
-    
-    
 }
 
+/// struct represent RecipeEvaluate object
+///
+/// - Author: Piotr Obara
+/// - Version: 1.0
+///
 struct RecipeEvaluate {
-    
     var recipe: Recipe
     var evaluation: Int
-    
 }
 
+/// struct represent setEvaluate object
+///
+/// - Author: Piotr Obara
+/// - Version: 1.0
+///
 struct SetEvalaute {
     var set: (Int,Int,Int)
     var evaluation: Int

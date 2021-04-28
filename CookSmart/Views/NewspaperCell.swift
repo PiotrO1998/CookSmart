@@ -1,12 +1,12 @@
-//
-//  NewspaperCell.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
+
 
 import UIKit
 
+// class represent NewspaperCell
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class NewspaperCell: UITableViewCell {
     
     @IBOutlet weak var imageNewspaper: UIImageView!

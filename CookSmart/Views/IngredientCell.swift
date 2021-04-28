@@ -1,12 +1,12 @@
-//
-//  IngredientCell.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 25/04/2021.
-//
+
 
 import UIKit
 
+// class represent IngredientCell
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class IngredientCell: UITableViewCell {
     
     @IBOutlet weak var circle: UIImageView!

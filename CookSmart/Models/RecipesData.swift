@@ -1,12 +1,12 @@
-//
-//  RecipesData.swift
-//  CookSmart
-//
-//  Created by Piotr Obara 
-//
+
 
 import UIKit
 
+/// struct represent RecipesData object
+///  struct store all recipes in application
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
 struct RecipesData {
 
 var recipes: [Recipe] = [
@@ -125,7 +125,7 @@ var recipes: [Recipe] = [
             ingredietnsImportant: [
                 Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
                 Ingredient(amount: 1, metric: "", nameOfIngredient: Constants.Ingrediant.cannedTuna),
-                Ingredient(amount: 0.5, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.lemon),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.lemon),
                 Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley)],
             ingredietns: [
                 Ingredient(amount: 1, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
@@ -146,7 +146,7 @@ var recipes: [Recipe] = [
                 Ingredient(amount: 12.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.dill),
                 Ingredient(amount: 12.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.celery),
                 Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.parsley),
-                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.lemon)
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.lemon)
                 ],
             ingredietns: [
                 Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.smokedPapricaPowder),
@@ -172,7 +172,7 @@ var recipes: [Recipe] = [
                 Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
                 Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.zucchini),
                 Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.bellPepper),
-                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.mushrooms)],
+                Ingredient(amount: 50.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.mushrooms)],
             ingredietns: [
                 Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.sugar),
                 Ingredient(amount: 75.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.tacoSauce),
@@ -192,7 +192,7 @@ var recipes: [Recipe] = [
                 Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
                 Ingredient(amount: 21.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees),
                 Ingredient(amount: 0.2, metric: "", nameOfIngredient: Constants.Ingrediant.cream),
-                Ingredient(amount: 0.2, metric: "", nameOfIngredient: Constants.Ingrediant.salsa)
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.salsa)
                 ],
             ingredietns: [
                 Ingredient(amount: 1.0, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.tacoSeasoning),
@@ -254,7 +254,7 @@ var recipes: [Recipe] = [
 
     """, source: "own", type: Constants.Basic.nonVegetarian),
     
-    Recipe(name: "jambalaya", image:  #imageLiteral(resourceName: "jambalaya"), cookTime: 60, level: Constants.Basic.levelEasy, servings: 1,
+    Recipe(name: "Jambalaya", image:  #imageLiteral(resourceName: "jambalaya"), cookTime: 60, level: Constants.Basic.levelEasy, servings: 1,
             ingredietnsImportant: [
                 Ingredient(amount: 30.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chorizoSousage),
                 Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
@@ -295,11 +295,11 @@ var recipes: [Recipe] = [
             ingredietns: [
                 Ingredient(amount: 125.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
                 Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.breadCrumbs),
-                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
-                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.redPepperFlakes),
-                Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                Ingredient(amount: 0.2, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.2, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.redPepperFlakes),
+                Ingredient(amount: 2.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
                 
-                Ingredient(amount: 0.0625, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)],
+                Ingredient(amount: 0.2, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)],
            cookingInstruction:"""
            1 In a large pot of boiling salted water, cook spaghetti according to package instructions. Drain.
            2 In a large bowl, combine beef with bread crumbs, parsley, Parmesan, egg, garlic, 1 teaspoon salt, and red pepper flakes. Mix until just combined then form into 16 balls.
@@ -309,9 +309,173 @@ var recipes: [Recipe] = [
 
     """, source: "own", type: Constants.Basic.nonVegetarian),
     
+    Recipe(name: "Salmon with Asparagus", image:  #imageLiteral(resourceName: "SalmonAsparagus"), cookTime: 20, level: Constants.Basic.levelMedium, servings: 1,
+               ingredietnsImportant: [
+                Ingredient(amount: 1.0, metric:"" , nameOfIngredient: Constants.Ingrediant.salmon),
+                Ingredient(amount: 200.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.asparagus)],
+               ingredietns: [
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                Ingredient(amount: 0.25, metric:Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.25, metric:Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper)
+               ],
+           cookingInstruction:"""
+           1 Place salmon filets in a row down the center of your lined baking pan.
+           2 Arrange trimmed asparagus on the sides of the salmon.
+           3 Drizzle asparagus lightly with olive oil and roll to coat. Sprinkle both asparagus and salmon with salt and pepper.
+           4 Bake uncovered at 160˚C for 12-15 minutes
+    """, source: "https://natashaskitchen.com/one-pan-salmon-asparagus-recipe-video/", type: Constants.Basic.nonVegetarian),
     
+    Recipe(name: "Creamy Spinach and Mushroom Pasta", image:  #imageLiteral(resourceName: "ScremeSpinachAndMushrumsPasta"), cookTime: 30, level: Constants.Basic.levelMedium, servings: 1,
+              ingredietnsImportant: [
+               Ingredient(amount: 0.5, metric:"", nameOfIngredient: Constants.Ingrediant.onion),
+               Ingredient(amount: 150.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.mushrooms),
+               Ingredient(amount: 50, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.cream),
+               Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees),
+               Ingredient(amount: 50.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.spinach),
+               Ingredient(amount: 1.0, metric:"", nameOfIngredient: Constants.Ingrediant.garlicClove)],
+              ingredietns: [
+               Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+               Ingredient(amount: 50.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
+               Ingredient(amount: 1.0, metric: Constants.Metrics.teaspoon , nameOfIngredient: Constants.Ingrediant.butter),
+                Ingredient(amount: 0.25, metric:Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+               Ingredient(amount: 1, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.oregano),
+                Ingredient(amount: 0.25, metric:Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
+                      ],
+                 cookingInstruction:"""
+                 1 Bring a large saucepan of water to the boil and add the pasta, cook until the pasta is almost cooked.
+                 2 Cook the onions in olive oil, then add the butter and the mushrooms. Add the mushrooms to the pan in batches. Cook them until they are soft and a lovely brown colour.
+                 3 Stir in the garlic(minced) and thyme and cook for a minute. Then pour in the cream slowly. Once all the cream is added stir in the cheese.
+                 4 Add the spinach, again add this is batches too.
+                 5 Add the pasta to the sauce. Gently toss it then when the pasta is covered in the cream sauce add salt and pepper.
+                 6 Serve immediately with some grated cheese.
+                 
+          """, source: "https://www.thelastfoodblog.com/spinach-and-mushroom-pasta/", type: Constants.Basic.vegetarian),
+
+                
+    Recipe(name: "Sun-Dried Tomato Pasta with Spinach", image:  #imageLiteral(resourceName: "Sun-Dried Tomato Pasta with Spinach"), cookTime: 30, level: Constants.Basic.levelMedium, servings: 1,
+                ingredietnsImportant: [
+                Ingredient(amount: 0.40, metric:"", nameOfIngredient: Constants.Ingrediant.onion),
+                Ingredient(amount: 80, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.cream),
+                Ingredient(amount: 10.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees),
+                Ingredient(amount: 50.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.spinach),
+                Ingredient(amount: 1.0, metric:"", nameOfIngredient: Constants.Ingrediant.garlicClove),
+                Ingredient(amount: 6, metric:"", nameOfIngredient: Constants.Ingrediant.sunTriedTomato),
+                Ingredient(amount: 10, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.basilLeaves)],
+                    ingredietns: [
+                Ingredient(amount: 0.25, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                Ingredient(amount: 50.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),
+                Ingredient(amount: 1, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.oregano)
+                        ],
+            cookingInstruction:"""
+            1 Bring a saucepan of water to the boil and add the pasta, cook until the pasta is almost cooked.
+            2 Cook the onion until soft. Add the garlic and oregano, cook for a minute then stir in the sliced sun-dried tomatoes.
+            3 Pour in the cream, stirring all the time. Once all the cream has been incorporated add the grated cheese to the pan and stir well. Add a little grated nutmeg and season with salt and ground black pepper.
+            4 Add the spinach to the sauce, stir until the spinach is wilted.
+            5 Drain the pasta, then tip it into the sauce. Stir in the chopped basil.
+            6 Serve immediately with some grated cheese.
+        """, source: "https://www.thelastfoodblog.com/sun-dried-tomato-pasta/", type: Constants.Basic.vegetarian),
+    
+    Recipe(name: "Pancakes", image:  #imageLiteral(resourceName: "Pancakes"), cookTime: 15, level: Constants.Basic.levelMedium, servings: 1,
+               ingredietnsImportant: [
+                Ingredient(amount: 100.0, metric:Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.milk),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.lemon),
+                Ingredient(amount: 2.0, metric: "", nameOfIngredient: Constants.Ingrediant.egg)],
+               ingredietns: [
+                Ingredient(amount: 35.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.flour),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                Ingredient(amount: 15.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.sugar)
+                ],
+           cookingInstruction:"""
+           1 Put plain flour,large eggs, milk, oil and salt into a bowl or large jug, then whisk to a smooth batter.
+           2 Set a medium frying pan or crêpe pan over a medium heat and carefully wipe it with some oiled kitchen paper.
+           3 When hot, cook your pancakes for 1 min on each side until golden, keeping them warm in a low oven as you go.
+           4 Serve with lemon wedges and caster sugar (or your favourite filling). Once cold, you can layer the pancakes between baking parchment, then wrap in cling film and freeze for up to 2 months.
+          
+           
+    """, source: "https://www.bbcgoodfood.com/recipes/easy-pancakes", type: Constants.Basic.vegetarian),
+    
+    Recipe(name: "Chicken fajitas", image:  #imageLiteral(resourceName: "ChickenFajitas"), cookTime: 25, level: Constants.Basic.levelEasy, servings: 1,
+              ingredietnsImportant: [
+               Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
+               Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
+               Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.bellPepper),
+               Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
+               Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.lemon),
+               Ingredient(amount: 2.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
+               Ingredient(amount: 20, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.lettuce),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.salsa)],
+              ingredietns: [
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
+                Ingredient(amount: 1.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.sweetPaprikaPowder),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.chiliPowder)
+               ],
+          cookingInstruction:"""
+          1 Mix sweet paprika powder, chilli powder, salt, pepper, olive oil, crushed garlic cloves and the juice of lemon.
+          2 Stir finely sliced chicken breast, finely sliced onion and sliced red pepper.
+          3 Heat a griddle pan until smoking hot and add the chicken and marinade to the pan.
+          4 Keep everything moving over a high heat for about 5 mins using tongs until you get a nice charred effect.
+          5 Put the tortillas in the oven to heat up and serve with the cooked chicken, salad and fresh salsa.
+         
+          
+   """, source: "https://www.bbcgoodfood.com/recipes/easy-chicken-fajitas", type: Constants.Basic.nonVegetarian),
+
+    Recipe(name: "Chicken Caesar salad", image:  #imageLiteral(resourceName: "Chicken Caesar salad"), cookTime: 25, level: Constants.Basic.levelEasy, servings: 1,
+              ingredietnsImportant: [
+               Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
+               Ingredient(amount: 200, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.lettuce),
+               Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.ciabattaLoaf),
+               Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
+               Ingredient(amount: 70.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees)],
+              ingredietns: [
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.salt),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.pepper),
+               Ingredient(amount: 1.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+               Ingredient(amount: 1.0, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.drywhiteWine),
+               Ingredient(amount: 2.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.mayonnaise)],
+          cookingInstruction:"""
+          1 Heat oven to 200˚C. Tear ciabatta into big, ragged croutons. Spread over a large baking sheet or tray and sprinkle over olive oil. Bake for 8-10 mins
+          2 Rub chicken breast with olive oil, season. Place the pan over a medium heat for 1 min. Lay the chicken on the panand leave for 4 mins. Turn the chicken, then cook for 4 mins more.
+          3 Bash 1 garlic clove with the flat of a knife and peel off the skin. Crush with a garlic crusher.
+          4 Grate a handful of cheese and mix with the garlic, mayonnaise and white wine vinegar. Season to taste. It should be the consistency of yogurt – if yours is thicker, stir in a few tsps water to thin it.
+          5 Shave the cheese with a peeler. Tear the lettuce into large pieces and put in a large bowl. Pull chicken into bite-size strips and scatter half over the leaves, along with half the croutons.
+          6 Add most of the dressing and toss with your fingers. Scatter the rest of the chicken and croutons, then drizzle with the remaining dressing. Sprinkle the cheese on top and serve straight away.
+   """, source: "https://www.bbcgoodfood.com/recipes/chicken-caesar-salad", type: Constants.Basic.nonVegetarian),
+    
+    Recipe(name: "Chicken Stir Fry", image:  #imageLiteral(resourceName: "Chicken Stir Fry"), cookTime: 20, level: Constants.Basic.levelEasy, servings: 1,
+               ingredietnsImportant: [
+                Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.broccoli),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.bellPepper),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.carrot),
+                Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
+    Ingredient(amount: 1.0, metric: Constants.Metrics.teaspoon, nameOfIngredient: Constants.Ingrediant.ginger)],
+               ingredietns: [
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.oliveOil),
+               Ingredient(amount: 0.5, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.cornStrach),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.water),
+                Ingredient(amount: 75.0, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.chickenBroth),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.soySouce),
+                Ingredient(amount: 2.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.honey),
+                Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.sesameOil)],
+           cookingInstruction:"""
+            1 In a medium size bowl, whisk together corn starch and water. Add remaining ingredients (chicken broth, soy sauce, honey, and toasted sesame oi) and whisk to combine. Set aside.
+            2 Add one tablespoon of olive oil to a large skillet or wok and heat over medium high heat.
+            3 Add chicken and season with salt and pepper. Cook for 3 to 5 minutes or until cooked through. Remove from skillet.
+            4 Reduce heat to medium and add remaining tablespoon of oil to the skillet.
+            5 Add broccoli, bell pepper, and carrots and cook, stirring occasionally, just until crisp tender. Add ginger and garlic and cook for an additional minute.
+            6 Add chicken back into the skillet and stir to combine.
+            7 Whisk stir fry sauce and pour over chicken and vegetables and stir gently to combine.
+            8 Bring to a boil, stirring occasionally, and let boil for one minute.
+            9 Serve with rice.
+            """, source: "https://www.momontimeout.com/easy-chicken-stir-fry-recipe/", type: Constants.Basic.nonVegetarian)
 ]
     
+    
+    /// function return array of String vegeterian recipes
+    ///
+    /// - Returns: array of String
     func getVegeterianIngredients() -> [String] {
         var vegeterianIngredients: [String] = []
         
@@ -327,6 +491,9 @@ var recipes: [Recipe] = [
         return vegeterianIngredients
     }
     
+    /// function return array of String nonvegeterian recipes
+    ///
+    /// - Returns: array of String
     func getNonVegeterianIngredients() -> [String] {
         var nonVegeterianIngredients: [String] = []
         
@@ -342,6 +509,9 @@ var recipes: [Recipe] = [
         return nonVegeterianIngredients
     }
     
+    /// function return array of Recipe vegeterian recipes
+    ///
+    /// - Returns: array of Recipe
     func getVegRecipe() -> [Recipe] {
         var vegRecipes: [Recipe] = []
         for recipe in recipes {
@@ -352,6 +522,9 @@ var recipes: [Recipe] = [
         return vegRecipes
         }
     
+    /// function return array of Recipe nonvegeterian recipes
+    ///
+    /// - Returns: array of Recipe
     func getNonVegRecipe() -> [Recipe] {
         var nonVegRecipes: [Recipe] = []
         for recipe in recipes {
@@ -362,6 +535,9 @@ var recipes: [Recipe] = [
         return nonVegRecipes
         }
     
+    /// function return array of Recipe that cooking time is 30 min or less
+    ///
+    /// - Returns: array of Recipe
     func getRecipes30Filter(recipesToFilter: [Recipe]) -> [Recipe] {
         var recipes30: [Recipe] = []
         for r in recipesToFilter {
@@ -372,6 +548,10 @@ var recipes: [Recipe] = [
         return recipes30
     }
     
+    
+    /// function return array of Recipe that cooking time is 60 min or less
+    ///
+    /// - Returns: array of Recipe
     func getRecipes1Filter(recipesToFilter: [Recipe]) -> [Recipe] {
         var recipes1: [Recipe] = []
         for r in recipesToFilter {
@@ -382,6 +562,9 @@ var recipes: [Recipe] = [
         return recipes1
     }
     
+    /// function return array of Recipe that cooking time is 180 min or less
+    ///
+    /// - Returns: array of Recipe
     func getRecipes15Filter(recipesToFilter: [Recipe]) -> [Recipe] {
         var recipes15: [Recipe] = []
         for r in recipesToFilter {
@@ -392,6 +575,9 @@ var recipes: [Recipe] = [
         return recipes15
     }
     
+    /// function return array of Recipe that level is easy
+    ///
+    /// - Returns: array of Recipe
     func getRecipeLevelEasyFilter(recipesToFilter: [Recipe]) -> [Recipe] {
         var recipesEasy: [Recipe] = []
         for r in recipesToFilter {
@@ -402,6 +588,9 @@ var recipes: [Recipe] = [
         return recipesEasy
     }
     
+    /// function return array of Recipe that level is easy and medium
+    ///
+    /// - Returns: array of Recipe
     //level Medium adds medium and easy
     func getRecipeLevelMediumFilter(recipesToFilter: [Recipe]) -> [Recipe] {
         var recipesMedium: [Recipe] = []
@@ -414,7 +603,10 @@ var recipes: [Recipe] = [
     }
     
     
-    //level hard add hard, medium and easy
+    
+    /// function return recipes that level is easy, medium and hard
+    ///
+    /// - Returns: array of Recipe
     func getRecipeLevelHardFilter(recipesToFilter: [Recipe]) -> [Recipe] {
         var recipesHard: [Recipe] = []
         for r in recipesToFilter {
@@ -425,6 +617,9 @@ var recipes: [Recipe] = [
         return recipesHard
     }
     
+    /// function return array of important ingredients
+    ///
+    /// - Returns: array of String
     func getIngredientsString(recipesToIngredientsString: [Recipe]) -> [String] {
         var ingrediensString: [String] = []
         for r in recipesToIngredientsString {
@@ -437,8 +632,10 @@ var recipes: [Recipe] = [
         return ingrediensString
     }
     
-    //function return array of IngredientRecipe that is used in ingredients selection
-    //array is created from user selected options
+    ///function return array of IngredientRecipe that is used in ingredients selection
+    ///array is created from user selected options
+    ///
+    /// - Returns: array of IngredientModel
     func getIngredientsBasedOnFilters(vegIngredients: Bool, nonVegIngredients: Bool, time30: Bool, time1: Bool, time15: Bool, levelEasy: Bool, levelMedium: Bool, levelHard: Bool) -> [IngredientModel] {
         
         var recipes: [Recipe] = []
@@ -475,7 +672,10 @@ var recipes: [Recipe] = [
         return ingredientsModelBasedOnFilters
     }
     
-    //function return selected recipes based on user filters
+    
+    /// function return selected recipes based on user filters
+    ///
+    /// - Returns: array of IngredientModel
     func getIngredientsModel(ingredients: [String]) -> [IngredientModel] {
         var ingredientsModel: [IngredientModel] = []
         for ingredient in ingredients {
@@ -485,6 +685,9 @@ var recipes: [Recipe] = [
         return ingredientsModel
     }
     
+    /// function return selected recipes based on user filters
+    ///
+    /// - Returns: array of Recipe
     func getRecipesBasedOnFilters(vegIngredients: Bool, nonVegIngredients: Bool, time30: Bool, time1: Bool, time15: Bool, levelEasy: Bool, levelMedium: Bool, levelHard: Bool) -> [Recipe] {
         
         var recipes: [Recipe] = []

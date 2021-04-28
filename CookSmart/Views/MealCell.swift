@@ -1,12 +1,11 @@
-//
-//  MealCell.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
 
 import UIKit
 
+/// class represent MealCell
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class MealCell: UITableViewCell {
     
     @IBOutlet weak var imageMeal: UIImageView!

@@ -109,7 +109,6 @@ extension SelectedMealPlansViewController: UITableViewDataSource {
     }
 
 extension SelectedMealPlansViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let add = UIContextualAction(style: .normal, title: "Add") { (action, view, completitionHandler) in
