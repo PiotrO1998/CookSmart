@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// struct represent CreateMealPlanViewController object
+/// class represent CreateMealPlanViewController object
 ///
 ///
 ///  - Author: Piotr Obara

@@ -3,7 +3,7 @@
 import UIKit
 
 
-/// struct represent ViewController
+/// class represent ViewController
 ///
 ///
 ///  - Author: Piotr Obara

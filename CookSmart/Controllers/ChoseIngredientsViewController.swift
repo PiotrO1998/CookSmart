@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// struct represent ChoseIngredientsViewController object
+/// class represent ChoseIngredientsViewController object
 ///
 ///
 ///  - Author: Piotr Obara

@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// struct represent ChoseCookingTimeViewController object
+/// class represent ChoseCookingTimeViewController object
 ///
 ///
 ///  - Author: Piotr Obara

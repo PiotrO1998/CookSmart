@@ -2,7 +2,7 @@
 
 import UIKit
 
-/// struct represent RecipesViewController object
+/// class represent RecipesViewController object
 ///
 ///
 ///  - Author: Piotr Obara

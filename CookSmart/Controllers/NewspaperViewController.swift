@@ -1,7 +1,7 @@
 
 import UIKit
 
-/// struct represent NewspaperViewController object
+/// class represent NewspaperViewController object
 ///
 ///
 ///  - Author: Piotr Obara

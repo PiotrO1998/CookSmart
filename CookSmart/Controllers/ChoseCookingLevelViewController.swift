@@ -1,7 +1,7 @@
 
 import UIKit
 
-/// struct represent ChoseCookingLevelViewController object
+/// class represent ChoseCookingLevelViewController object
 ///
 ///
 ///  - Author: Piotr Obara

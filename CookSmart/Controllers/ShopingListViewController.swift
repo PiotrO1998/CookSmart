@@ -1,7 +1,7 @@
 
 import UIKit
 
-/// struct represent ShopingListViewController object
+/// class represent ShopingListViewController object
 ///
 ///
 ///  - Author: Piotr Obara
