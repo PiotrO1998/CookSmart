@@ -21,11 +21,12 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         
         imageNews.contentMode = .scaleToFill
+        imageNews.layer.cornerRadius = 5
         
         //additional setup after loading the view.
         imageNews.image = news?.image
         titleNews.text = news?.title
         body.text = "\n" + news!.body
-        source.text = "\n" + "source:" + news!.source + "\n"
+        source.text = "\n" + "source: " + news!.source + "\n"
     }
 }

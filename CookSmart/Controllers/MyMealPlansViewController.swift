@@ -41,6 +41,7 @@ class MyMealPlansViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    /// function deleting array sting ffrom defaults if array is in defaults
     func deleteFromDefaults(at: Int) {
         let recipeToDelete: [String] = [mealPlans[at][0].name, mealPlans[at][1].name, mealPlans[at][2].name]
         if let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]] {

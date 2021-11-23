@@ -167,7 +167,7 @@ var recipes: [Recipe] = [
             ingredietnsImportant: [
                 Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.chickenBreast),
                 Ingredient(amount: 2.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
-                Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.cream),
+                Ingredient(amount: 0.25, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.cream),
                 Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
                 Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.onion),
                 Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.zucchini),
@@ -191,7 +191,7 @@ var recipes: [Recipe] = [
                 Ingredient(amount: 100.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedBlackBeans),
                 Ingredient(amount: 1.0, metric: "", nameOfIngredient: Constants.Ingrediant.tortillaWraps),
                 Ingredient(amount: 21.5, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.chees),
-                Ingredient(amount: 0.2, metric: "", nameOfIngredient: Constants.Ingrediant.cream),
+                Ingredient(amount: 0.2, metric: Constants.Metrics.ml, nameOfIngredient: Constants.Ingrediant.cream),
                 Ingredient(amount: 1.0, metric: Constants.Metrics.tableSpoon, nameOfIngredient: Constants.Ingrediant.salsa)
                 ],
             ingredietns: [
@@ -290,7 +290,7 @@ var recipes: [Recipe] = [
                 Ingredient(amount: 200.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.cannedTomatoes),
                 Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.egg),
             Ingredient(amount: 0.5, metric: "", nameOfIngredient: Constants.Ingrediant.garlicClove),
-            Ingredient(amount: 0.125, metric: "", nameOfIngredient: Constants.Ingrediant.onion)
+            Ingredient(amount: 0.25, metric: "", nameOfIngredient: Constants.Ingrediant.onion)
                 ],
             ingredietns: [
                 Ingredient(amount: 125.0, metric: Constants.Metrics.gram, nameOfIngredient: Constants.Ingrediant.pasta),

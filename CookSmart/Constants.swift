@@ -1,3 +1,10 @@
+/// struct represent ShopingListViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
+
 struct Constants {
     
 
