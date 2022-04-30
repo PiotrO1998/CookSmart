@@ -1,0 +1,6 @@
+framework module Pods_CookSmart {
+  umbrella header "Pods-CookSmart-umbrella.h"
+
+  export *
+  module * { export * }
+}
