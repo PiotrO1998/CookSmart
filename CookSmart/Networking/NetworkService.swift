@@ -2,7 +2,6 @@
 //  NetworkService.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 30/04/2022.
 //
 
 import Foundation
@@ -27,7 +26,7 @@ struct NetworkService {
         
         // User
         case registerUser = "register"
-        case signIn = "sanctum/token"
+        case signInUser = "sanctum/token"
         case signOut = "sign-out"
         case getUserProfile = "user/profile"
         case updateUserProfile = "user/update-profile"
@@ -48,5 +47,9 @@ struct NetworkService {
         case deleteMealPlan = "mealplan/{mealplan}/delete"
         
     }
+}
+
+struct Token: Codable {
     
+    var token: String?
 }

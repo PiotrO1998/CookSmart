@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,7 @@
 		AE7C72BB2627B23700889E2A /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72BA2627B23700889E2A /* RecipesViewController.swift */; };
 		AE7C72BF2627B37500889E2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72BD2627B37500889E2A /* RecipeCell.swift */; };
 		AE7C72C02627B37500889E2A /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7C72BE2627B37500889E2A /* RecipeCell.xib */; };
+		AE97F211281DB8CB000831E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F210281DB8CB000831E6 /* User.swift */; };
 		EF7A62EBDFA6B7D1BE40A3C0 /* Pods_CookSmart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308C5827B6B91A8AB92691ED /* Pods_CookSmart.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		AE7C72BA2627B23700889E2A /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		AE7C72BD2627B37500889E2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		AE7C72BE2627B37500889E2A /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		AE97F210281DB8CB000831E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5255E37BF561A51322A9724 /* Pods-CookSmart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookSmart.release.xcconfig"; path = "Target Support Files/Pods-CookSmart/Pods-CookSmart.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +122,6 @@
 				49B09C28641E6DDC4A9C2399 /* Pods-CookSmart.debug.xcconfig */,
 				B5255E37BF561A51322A9724 /* Pods-CookSmart.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -187,6 +188,7 @@
 				AE2264EA2631CF99007B4B71 /* CombinationsData.swift */,
 				AE22651326346209007B4B71 /* Newspaper.swift */,
 				AE22651626346320007B4B71 /* NewspaperData.swift */,
+				AE97F210281DB8CB000831E6 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,6 +366,7 @@
 				AE09B4DA262FC5EE0065F9FF /* ChoseIngredientsViewController.swift in Sources */,
 				AE22651126345F5A007B4B71 /* NewspaperViewController.swift in Sources */,
 				AE1F46BB262B2DAA00B41A18 /* CreateMealPlanViewController.swift in Sources */,
+				AE97F211281DB8CB000831E6 /* User.swift in Sources */,
 				AE22650126337F7C007B4B71 /* MealPlanViewController.swift in Sources */,
 				AE4CD53C2634A44A0046919B /* NewsViewController.swift in Sources */,
 				AE7C72B026271FE600889E2A /* Ingredient.swift in Sources */,

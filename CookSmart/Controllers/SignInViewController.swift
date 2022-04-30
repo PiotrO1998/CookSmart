@@ -20,6 +20,20 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func butttonSignInTapped(_ sender: UIButton) {
         
+        let user = User(email: emailTextField.text, password: passwordTextField.text, device_name: UIDevice.current.name)
+        user.device_name = "iphone-xr-piotr"
+        
+        NetworkService().signInUser(user: user) { success in
+            
+            if success {
+                
+                print("Sucessfully login")
+                
+            }
+            
+        }
+        
+       
         
     }
     
