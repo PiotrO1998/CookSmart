@@ -1,12 +1,13 @@
-//
-//  ChoseIngredientsViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 21/04/2021.
-//
+
 
 import UIKit
 
+/// class represent ChoseIngredientsViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class ChoseIngredientsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,19 +25,12 @@ class ChoseIngredientsViewController: UIViewController {
         buttonNext.layer.borderWidth = 1
         buttonNext.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
-        //function po
        ingredientsModel = recipesData.getIngredientsBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
         
         
-        
-        print(ingredientsModel.count)
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
-        //tableView.allowsMultipleSelectionDuringEditing = true
 
-        // Do any additional setup after loading the view.
     }
     
     
@@ -49,6 +43,7 @@ class ChoseIngredientsViewController: UIViewController {
         tableView.reloadData()
     }
     
+    ///function is called when user pressed next button
     @IBAction func buttonNextPressed(_ sender: UIButton) {
         var numberOfSelectedIngredients = 0
         
@@ -65,6 +60,7 @@ class ChoseIngredientsViewController: UIViewController {
         }
     }
     
+    ///function is called when func perfomSegue is alled
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let ingredietnsString: [String] = getIngredientsString()
         let recipes: [Recipe] = recipesData.getRecipesBasedOnFilters(vegIngredients: ConfigureMealPlan.vegetarian, nonVegIngredients: ConfigureMealPlan.nonVegetarian, time30: ConfigureMealPlan.min30, time1: ConfigureMealPlan.h1, time15: ConfigureMealPlan.h15, levelEasy: ConfigureMealPlan.easy, levelMedium: ConfigureMealPlan.medium, levelHard: ConfigureMealPlan.hard)
@@ -83,8 +79,9 @@ class ChoseIngredientsViewController: UIViewController {
         return ingredietnsString
         }
     
+    ///funcion is called when no both buttons are false
     func presentAlert() {
-        let alert = UIAlertController(title: "You Need To Chose At Leat Three Ingredients", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "You Need To Choose At Leat Three Ingredients", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
         NSLog("The \"OK\" alert occured.")
         }))
@@ -97,6 +94,7 @@ extension ChoseIngredientsViewController: UITableViewDataSource {
         ingredientsModel.count
     }
     
+    ///Delegate method that populate table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.ingredientCellIndentifier, for: indexPath) as! IngredientCell
         cell.ingredientName.text = ingredientsModel[indexPath.row].name
@@ -115,6 +113,7 @@ extension ChoseIngredientsViewController: UITableViewDelegate {
         return 30
     }
     
+    ///Delegate method that managed action when user click table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) as? IngredientCell else {return}

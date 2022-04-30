@@ -1,12 +1,14 @@
-//
-//  ViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 14/04/2021.
-//
+
 
 import UIKit
 
+
+/// class represent ViewController
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

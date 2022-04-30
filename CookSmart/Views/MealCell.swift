@@ -20,7 +20,6 @@ class MealCell: UITableViewCell {
         imageMeal.layer.cornerRadius = 15
         
         name.contentMode = .scaleToFill
-        //label.layer.cornerRadius = 15
         
         // Initialization code
     }

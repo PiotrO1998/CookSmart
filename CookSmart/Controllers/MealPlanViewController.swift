@@ -1,12 +1,12 @@
-//
-//  MealPlanViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
 
 import UIKit
 
+/// class represent MealPlanViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class MealPlanViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -16,9 +16,6 @@ class MealPlanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,18 +36,7 @@ class MealPlanViewController: UIViewController {
         vc.recipes = recipes
         navigationController?.pushViewController(vc, animated: true)
         }
-    
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -59,6 +45,7 @@ extension MealPlanViewController: UITableViewDataSource {
         return recipes.count
     }
     
+    ///Delegate method that populate table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.MealCellIndentifier, for: indexPath) as! MealCell
         
@@ -66,15 +53,11 @@ extension MealPlanViewController: UITableViewDataSource {
         cell.name.text = recipes[indexPath.row].name
         
         return cell
-        
     }
-    
-    
-    
-    
 }
 
 extension MealPlanViewController: UITableViewDelegate {
+    ///Delegate method that managed action when user click table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "RecipeViewController") as! RecipeViewController

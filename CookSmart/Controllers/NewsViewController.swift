@@ -1,13 +1,12 @@
-//
-//  NewsViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 5/04/2021.
-//
-//Class Represent Particular News View
 
 import UIKit
 
+/// class represent NewsViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class NewsViewController: UIViewController {
 
     
@@ -22,11 +21,12 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         
         imageNews.contentMode = .scaleToFill
+        imageNews.layer.cornerRadius = 5
         
         //additional setup after loading the view.
         imageNews.image = news?.image
         titleNews.text = news?.title
         body.text = "\n" + news!.body
-        source.text = "\n" + "source:" + news!.source + "\n"
+        source.text = "\n" + "source: " + news!.source + "\n"
     }
 }

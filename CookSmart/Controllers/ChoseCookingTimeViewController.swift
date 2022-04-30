@@ -1,12 +1,13 @@
-//
-//  ChoseLevelViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 21/04/2021.
-//
+
 
 import UIKit
 
+/// class represent ChoseCookingTimeViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class ChoseCookingTimeViewController: UIViewController {
     
     @IBOutlet weak var button30: UIButton!
@@ -48,6 +49,7 @@ class ChoseCookingTimeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    ///function is called when button 30 min or less is pressed
     @IBAction func button30Pressed(_ sender: UIButton) {
         if !b30Pressed {
             button30.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -60,6 +62,7 @@ class ChoseCookingTimeViewController: UIViewController {
         }
     }
     
+    ///function is called when button 1 h or less is pressed
     @IBAction func button1Pressed(_ sender: UIButton) {
         if !b1Pressed {
             button1.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -72,6 +75,7 @@ class ChoseCookingTimeViewController: UIViewController {
         }
     }
     
+    ///function is called when button 1.5 h or less is pressed
     @IBAction func button15Pressed(_ sender: UIButton) {
         if !b15Pressed {
             button15.backgroundColor = UIColor(named: Constants.AppNames.colorOrange)
@@ -84,6 +88,7 @@ class ChoseCookingTimeViewController: UIViewController {
         }
     }
     
+    ///function is called when button next  is pressed
     @IBAction func buttonNextPressed(_ sender: UIButton) {
         
         if !b30Pressed && !b1Pressed && !b15Pressed {

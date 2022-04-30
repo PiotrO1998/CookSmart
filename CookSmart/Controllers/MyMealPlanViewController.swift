@@ -1,12 +1,13 @@
-//
-//  MyMealPlanViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 17/04/2021.
-//
+
 
 import UIKit
 
+/// class represent MyMealPlanViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class MyMealPlanViewController: UIViewController {
     @IBOutlet weak var meMealPlansButton: UIButton!
     @IBOutlet weak var createMealPlanButton: UIButton!
@@ -24,7 +25,7 @@ class MyMealPlanViewController: UIViewController {
         createMealPlanButton.layer.borderWidth = 1
         createMealPlanButton.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
 
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func myMealsPlansButtonPressed(_ sender: UIButton) {
@@ -32,16 +33,4 @@ class MyMealPlanViewController: UIViewController {
     
     @IBAction func createMealPlanButtonPressed(_ sender: UIButton) {
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

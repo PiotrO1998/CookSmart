@@ -1,12 +1,12 @@
-//
-//  MyMealPlansViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 23/04/2021.
-//
 
 import UIKit
 
+/// class represent MyMealPlansViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class MyMealPlansViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,8 +19,6 @@ class MyMealPlansViewController: UIViewController {
         
         navigationItem.title = "My Meal Plans"
         navigationItem.hidesBackButton = true
-        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
-        
         
         if let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]] {
             mealPlans = recipesData.getRecipesByArrayOfNames(names: mealPlansData)
@@ -43,6 +41,7 @@ class MyMealPlansViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    /// function deleting array sting ffrom defaults if array is in defaults
     func deleteFromDefaults(at: Int) {
         let recipeToDelete: [String] = [mealPlans[at][0].name, mealPlans[at][1].name, mealPlans[at][2].name]
         if let mealPlansData = UserDefaults.standard.object(forKey: "savedMealPlans") as? [[String]] {
@@ -59,20 +58,7 @@ class MyMealPlansViewController: UIViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
-
 
 
 extension MyMealPlansViewController: UITableViewDataSource {
@@ -80,6 +66,7 @@ extension MyMealPlansViewController: UITableViewDataSource {
         return mealPlans.count
     }
     
+    ///Delegate method that populate table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.savedMealPlanCellIndentifier, for: indexPath) as! SavedMealPlanCell
         
@@ -100,7 +87,7 @@ extension MyMealPlansViewController: UITableViewDataSource {
 }
 
 extension MyMealPlansViewController: UITableViewDelegate {
-    
+    ///delegate method that take action when table view row is swipe
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         
@@ -121,10 +108,7 @@ extension MyMealPlansViewController: UITableViewDelegate {
         
     }
     
-   
-    
-    
-    
+    ///Delegate method that managed action when user click table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "MealPlanViewController") as! MealPlanViewController
         vc.recipes = mealPlans[indexPath.row]

@@ -1,12 +1,12 @@
-//
-//  NewspaperViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 24/04/2021.
-//
 
 import UIKit
 
+/// class represent NewspaperViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class NewspaperViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,12 +24,7 @@ class NewspaperViewController: UIViewController {
         
         //Register Table View
         tableView.register(UINib(nibName: Constants.AppNames.newspaperCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.newspaperCellIndentifier)
-        
     }
-    
-
-    
-
 }
 
 extension NewspaperViewController: UITableViewDataSource {
@@ -37,22 +32,19 @@ extension NewspaperViewController: UITableViewDataSource {
         newspapers.count
     }
     
+    ///Delegate method that populate table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.newspaperCellIndentifier, for: indexPath) as! NewspaperCell
         
         cell.imageNewspaper.image = newspapers[indexPath.row].image
         cell.title.text = newspapers[indexPath.row].title
-        //cell.body.text  = newspapers[indexPath.row].body
-        //cell.source.text = newspapers[indexPath.row].source
-        
         return cell
     }
-    
-    
-
 }
 
+
 extension NewspaperViewController: UITableViewDelegate {
+    ///Delegate method that managed action when user click table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "NewsViewController") as! NewsViewController
         vc.news = newspapers[indexPath.row]
@@ -62,8 +54,6 @@ extension NewspaperViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
-    
 }
 
 

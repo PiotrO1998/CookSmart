@@ -1,12 +1,13 @@
-//
-//  RecipesViewController.swift
-//  CookSmart
-//
-//  Created by Piotr Obara on 15/04/2021.
-//
+
 
 import UIKit
 
+/// class represent RecipesViewController object
+///
+///
+///  - Author: Piotr Obara
+///  - Version: 1.0
+///
 class RecipesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,22 +26,16 @@ class RecipesViewController: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }
+
 
 extension RecipesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipesData.recipes.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.AppNames.recipeCellIndentifier, for: indexPath) as! RecipeCell
