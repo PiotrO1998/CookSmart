@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func editProfileButtonTapped(_ sender: UIButton) {
         
+        performSegue(withIdentifier: sequeToEditProfile, sender: self)
     }
     
     @IBAction func createRecipeButtontapped(_ sender: UIButton) {
@@ -31,6 +32,8 @@ class ProfileViewController: UIViewController {
     @IBAction func myMealPlansButtonTapped(_ sender: UIButton) {
     }
     
+    @IBAction func signOutButtonTapped(_ sender: UIButton) {
+    }
     
     
 

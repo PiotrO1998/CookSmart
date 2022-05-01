@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="on9-ry-W4K">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -971,6 +970,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign out">
                                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="27"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signOutButtonTapped:" destination="APK-da-nKU" eventType="touchUpInside" id="t4p-eu-lx0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1031,6 +1033,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="SAVE">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="30"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonSaveTapped:" destination="eFL-zp-26z" eventType="touchUpInside" id="oBn-rE-cKE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCM-r8-7Mx">
                                 <rect key="frame" x="20" y="723" width="374" height="50"/>
@@ -1039,6 +1044,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="DELETE PROFILE">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="30"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteProfileButtonTapped:" destination="eFL-zp-26z" eventType="touchUpInside" id="R5u-IO-lgg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dyd-v5-VcL"/>
@@ -1059,6 +1067,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2JW-uo-mLg"/>
+                    <connections>
+                        <outlet property="firstNameTextField" destination="bdj-Bw-1uz" id="lrT-wD-SmD"/>
+                        <outlet property="surnameTextField" destination="hUB-YI-K75" id="Dj7-bw-GsD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3c-2k-1Q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

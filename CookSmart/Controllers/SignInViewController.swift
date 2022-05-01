@@ -42,6 +42,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     if success {
                     
                         print("Sucessfully login")
+                        self.getUserProfile()
                         self.performSegue(withIdentifier: Constants.AppNames.sequeToTabBarControllerFromSignIn, sender: self)
                     } else {
                         
@@ -75,17 +76,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: Constants.AppNames.sequeToRegisterIdentifier, sender: self)
     }
     
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    private func getUserProfile() {
+        
+        NetworkService().getUserProfile { user in
+            
+            if user != nil {
+                
+                CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
+            }
+        }
+    }
 }
