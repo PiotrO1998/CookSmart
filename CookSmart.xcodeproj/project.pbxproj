@@ -52,7 +52,6 @@
 		AE97F211281DB8CB000831E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F210281DB8CB000831E6 /* User.swift */; };
 		AE97F213281DCE1F000831E6 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */; };
 		AE97F215281E0C38000831E6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F214281E0C38000831E6 /* ProfileViewController.swift */; };
-		AE97F217281E0E52000831E6 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F216281E0E52000831E6 /* EditProfileViewController.swift */; };
 		EF7A62EBDFA6B7D1BE40A3C0 /* Pods_CookSmart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308C5827B6B91A8AB92691ED /* Pods_CookSmart.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +105,6 @@
 		AE97F210281DB8CB000831E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		AE97F214281E0C38000831E6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		AE97F216281E0E52000831E6 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B5255E37BF561A51322A9724 /* Pods-CookSmart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookSmart.release.xcconfig"; path = "Target Support Files/Pods-CookSmart/Pods-CookSmart.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,7 +236,6 @@
 				AE13E1C6281D8B6E00485A0A /* SignInViewController.swift */,
 				AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */,
 				AE97F214281E0C38000831E6 /* ProfileViewController.swift */,
-				AE97F216281E0E52000831E6 /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -388,7 +385,6 @@
 				AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */,
 				AE71934A2630E1F70064D59E /* SelectedMealPlansViewController.swift in Sources */,
 				AE13E1C7281D8B6E00485A0A /* SignInViewController.swift in Sources */,
-				AE97F217281E0E52000831E6 /* EditProfileViewController.swift in Sources */,
 				AE2264F1263234F7007B4B71 /* MealPlanCell.swift in Sources */,
 				AE2265092633999A007B4B71 /* ShopingListViewController.swift in Sources */,
 				AE97F213281DCE1F000831E6 /* RegisterUserViewController.swift in Sources */,

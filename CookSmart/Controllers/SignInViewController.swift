@@ -25,7 +25,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
         
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        checkIfUserLoggedIn()
     }
     
     @IBAction func butttonSignInTapped(_ sender: UIButton) {
@@ -35,7 +42,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             if passwordTextField.text!.count > 0 {
             
                 let user = User(email: emailTextField.text, password: passwordTextField.text, device_name: UIDevice.current.name)
-                user.device_name = "iphone-xr-piotr"
+                //user.device_name = "iphone-xr-piotr"
                 
                 NetworkService().signInUser(user: user) { success in
                     
@@ -85,5 +92,23 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
             }
         }
+    }
+    
+    private func checkIfUserLoggedIn() {
+        
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        
+        
+        if token != "" {
+            
+            let storyborad = UIStoryboard(name: "Main", bundle: nil)
+            let homeController = storyborad.instantiateViewController(withIdentifier: "Home")
+            homeController.modalPresentationStyle = .fullScreen
+            present(homeController, animated: true, completion: nil)
+        } else {
+            
+            print("no token")
+        }
+        
     }
 }

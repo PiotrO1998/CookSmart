@@ -157,7 +157,6 @@ struct Metrics {
         static let sequeToRegisterIdentifier = "sequeToRegisterIdentifier"
         static let sequeToTabBarControllerFromSignIn = "sequeToTabBarControllerFromSignIn"
         static let sequeToTabBarControllerFromRegister = "sequeToTabBarControllerFromRegister"
-        static let sequeToEditProfile = "SequeToEditProfile"
 
         static let colorOrange = "ColorOrange"
     }
