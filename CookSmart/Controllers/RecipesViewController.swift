@@ -22,12 +22,7 @@ class RecipesViewController: UIViewController {
         
         //Register Table View
         tableView.register(UINib(nibName: Constants.AppNames.recipeCellNibName, bundle: nil), forCellReuseIdentifier: Constants.AppNames.recipeCellIndentifier)
-
-        
     }
-    
-  
-
 }
 
 

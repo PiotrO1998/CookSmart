@@ -155,8 +155,8 @@ struct Metrics {
         static let sequeToSelectedRecipesIndentifier = "SequeToSelectedRecipesIndentifier"
         
         static let sequeToRegisterIdentifier = "sequeToRegisterIdentifier"
-        static let sequeToTabBarControllerFromSignIn = "sequeToTabBarControllerFromSignIn"
-        static let sequeToTabBarControllerFromRegister = "sequeToTabBarControllerFromRegister"
+        
+        
 
         static let colorOrange = "ColorOrange"
     }

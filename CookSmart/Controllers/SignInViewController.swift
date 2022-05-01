@@ -50,7 +50,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     
                         print("Sucessfully login")
                         self.getUserProfile()
-                        self.performSegue(withIdentifier: Constants.AppNames.sequeToTabBarControllerFromSignIn, sender: self)
+                        
+                        let storyborad = UIStoryboard(name: "Main", bundle: nil)
+                        let homeController = storyborad.instantiateViewController(withIdentifier: "Home")
+                        homeController.modalPresentationStyle = .fullScreen
+                        self.present(homeController, animated: true, completion: nil)
                     } else {
                         
                         let alert = UIAlertController(title: "Something went wrong, please try again.", message: nil, preferredStyle: .alert)

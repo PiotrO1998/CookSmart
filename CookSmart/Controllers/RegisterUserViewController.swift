@@ -63,7 +63,10 @@ class RegisterUserViewController: UIViewController {
                                     
                                     print("Sucessfully register")
                                     self.getUserProfile()
-                                    self.performSegue(withIdentifier: Constants.AppNames.sequeToTabBarControllerFromRegister, sender: self)
+                                    let storyborad = UIStoryboard(name: "Main", bundle: nil)
+                                    let homeController = storyborad.instantiateViewController(withIdentifier: "Home")
+                                    homeController.modalPresentationStyle = .fullScreen
+                                    self.present(homeController, animated: true, completion: nil)
                                     
                                 } else {
                                     
