@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 struct MealPlan: Codable {
     
@@ -21,3 +22,86 @@ struct MealPlan: Codable {
     var updated_at: String?
 }
 
+struct MealPlanToSend: Codable {
+    
+    var name: String?
+    var description: String?
+    var ids: [Int]?
+}
+
+extension NetworkService {
+    
+    func addMealPlan(mealplan: MealPlanToSend, completion: @escaping (_ success: MealPlan?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.addMealPlan.rawValue,
+                   method: .post,
+                   parameters: mealplan,
+                   encoder: JSONParameterEncoder.default as JSONParameterEncoder)
+            .response { response in
+                
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        do {
+                            
+                            let mealPlanReceived = try JSONDecoder().decode(MealPlan.self, from: response.data!)
+                            
+                            completion(mealPlanReceived)
+                            
+                        } catch {
+                            
+                            completion(nil)
+                        }
+                    } else {
+                        
+                        
+                        completion(nil)
+                    }
+                } else {
+                    
+                    completion(nil)
+                }
+            }
+    }
+    
+    func editMealPlan(mealPlan: MealPlanToSend, mealPlanID: String, completion: @escaping (_ success: MealPlan?) -> Void) {
+        
+        let url = baseUrl + Endpoints.editMealPlan.rawValue.replacingOccurrences(of: "{mealplan}", with: mealPlanID)
+        
+        AF.request(url,
+                   method: .patch,
+                   parameters: mealPlan,
+                   encoder: JSONParameterEncoder.default as JSONParameterEncoder,
+                   headers: headers)
+            .response { response in
+                debugPrint(response)
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        do {
+                            
+                            let mealPlanReceived = try JSONDecoder().decode(MealPlan.self, from: response.data!)
+                            
+                            completion(mealPlanReceived)
+                            
+                        } catch {
+                            
+                            completion(nil)
+                        }
+                    } else {
+                        
+                        completion(nil)
+                    }
+                    
+                } else {
+                    
+                    completion(nil)
+                }
+            }
+    }
+    
+    
+    
+}

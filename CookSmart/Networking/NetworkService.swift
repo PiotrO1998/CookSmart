@@ -42,7 +42,8 @@ struct NetworkService {
         
         // Meal Plan
         case addMealPlan = "meal-plans/store"
-        case editMealPlan = "mealplan/{mealplan/update"
+        case editMealPlan = "mealplan/{mealplan}/update"
+        case getMealPlan = "mealplan/{mealplan}"
         case getCurrentUserMealPlans = "meal-plans-all-user"
         case getAllMealPlans = "meal-plans-all"
         case deleteMealPlan = "mealplan/{mealplan}/delete"
