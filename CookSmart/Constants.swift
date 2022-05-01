@@ -149,11 +149,6 @@ struct Metrics {
         static let newspaperCellIndentifier = "NewspaperReusableCell"
         
         
-        
-        static let sequeToNumberOfServingsIndentifier = "SequeToNumberOfServingsIndentifier"
-        
-        
-        
         static let sequeToRegisterIdentifier = "sequeToRegisterIdentifier"
         
         
