@@ -102,6 +102,124 @@ extension NetworkService {
             }
     }
     
+    func getMealPlan(mealPlanID: String, completion: @escaping (_ success: MealPlan?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.getMealPlan.rawValue + mealPlanID,
+                   method: .get)
+            .response { response in
+                
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        do {
+                            
+                            let mealPlanReceived = try JSONDecoder().decode(MealPlan.self, from: response.data!)
+                            
+                            completion(mealPlanReceived)
+                        } catch {
+                            
+                            completion(nil)
+                        }
+                    } else {
+                        
+                        
+                        completion(nil)
+                    }
+                } else {
+                    
+                    completion(nil)
+                }
+            }
+    }
     
+    func getCurrentUserMealPlans(completion: @escaping (_ success: [MealPlan]?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.getCurrentUserMealPlans.rawValue,
+                   method: .get)
+            .response { response in
+                
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        do {
+                            
+                            let mealPlansReceived = try JSONDecoder().decode([MealPlan].self, from: response.data!)
+                            
+                            completion(mealPlansReceived)
+                            
+                        } catch {
+                            
+                            completion(nil)
+                        }
+                    } else {
+                        
+                        
+                        completion(nil)
+                    }
+                } else {
+                    
+                    completion(nil)
+                }
+            }
+    }
+    
+    func getAllMealPlans(completion: @escaping (_ success: [MealPlan]?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.getAllMealPlans.rawValue,
+                   method: .get)
+            .response { response in
+                
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        do {
+                            
+                            let mealPlansReceived = try JSONDecoder().decode([MealPlan].self, from: response.data!)
+                            
+                            completion(mealPlansReceived)
+                            
+                        } catch {
+                            
+                            completion(nil)
+                        }
+                    } else {
+                        
+                        
+                        completion(nil)
+                    }
+                } else {
+                    
+                    completion(nil)
+                }
+            }
+    }
+    
+    func deleteMealPlan(mealPlanID: String, completion: @escaping (_ success: Bool) -> Void) {
+        
+        let url = baseUrl + Endpoints.deleteMealPlan.rawValue.replacingOccurrences(of: "{mealplan}", with: mealPlanID)
+        
+        AF.request(url,
+                   method: .delete)
+            .response { response in
+                
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                            completion(true)
+                    } else {
+                        
+                        
+                        completion(false)
+                    }
+                } else {
+                    
+                    completion(false)
+                }
+            }
+    }
     
 }
