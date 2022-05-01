@@ -289,7 +289,7 @@
         <!--Cook Book-->
         <scene sceneID="DR1-Bb-u3V">
             <objects>
-                <viewController storyboardIdentifier="MyMealPlanViewController" id="NM5-3U-NWt" customClass="MyMealPlanViewController" customModule="CookSmart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyMealPlanViewController" id="NM5-3U-NWt" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNk-dx-fSC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j04-r9-kGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="1608"/>
+            <point key="canvasLocation" x="6" y="1657"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="LQP-pw-pBy">
@@ -457,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77n-lU-ws2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791" y="1608"/>
+            <point key="canvasLocation" x="657" y="1657"/>
         </scene>
         <!--Profile-->
         <scene sceneID="y5y-ub-fWG">

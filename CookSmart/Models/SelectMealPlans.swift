@@ -9,8 +9,12 @@ import Foundation
 ///  - Version: 1.7
 struct SelectMealPlans {
     
+    /*
     var recipes: [Recipe]
     var ingredietns: [String]
+    
+    
+    
     
     
     /// function returns up to 5 best evaluated meal plans
@@ -259,4 +263,6 @@ struct RecipeEvaluate {
 struct SetEvalaute {
     var set: (Int,Int,Int)
     var evaluation: Int
+     
+     */
 }

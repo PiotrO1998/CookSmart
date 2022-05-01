@@ -7,6 +7,10 @@ import UIKit
 ///
 ///  - Author: Piotr Obara
 ///  - Version: 1.0
+///
+///
+
+/*
 struct RecipesData {
 
 var recipes: [Recipe] = [
@@ -739,3 +743,4 @@ var recipes: [Recipe] = [
     }
     
 }
+*/

@@ -14,12 +14,6 @@ class NewspaperCell: UITableViewCell {
     @IBOutlet weak var body: UILabel!
     @IBOutlet weak var source: UILabel!
     
-    
-    
-    
-    
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         
