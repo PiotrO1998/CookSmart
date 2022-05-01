@@ -50,6 +50,9 @@
 		AE7C72BF2627B37500889E2A /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C72BD2627B37500889E2A /* RecipeCell.swift */; };
 		AE7C72C02627B37500889E2A /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7C72BE2627B37500889E2A /* RecipeCell.xib */; };
 		AE97F211281DB8CB000831E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F210281DB8CB000831E6 /* User.swift */; };
+		AE97F213281DCE1F000831E6 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */; };
+		AE97F215281E0C38000831E6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F214281E0C38000831E6 /* ProfileViewController.swift */; };
+		AE97F217281E0E52000831E6 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F216281E0E52000831E6 /* EditProfileViewController.swift */; };
 		EF7A62EBDFA6B7D1BE40A3C0 /* Pods_CookSmart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308C5827B6B91A8AB92691ED /* Pods_CookSmart.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +104,9 @@
 		AE7C72BD2627B37500889E2A /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		AE7C72BE2627B37500889E2A /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		AE97F210281DB8CB000831E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		AE97F214281E0C38000831E6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AE97F216281E0E52000831E6 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B5255E37BF561A51322A9724 /* Pods-CookSmart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookSmart.release.xcconfig"; path = "Target Support Files/Pods-CookSmart/Pods-CookSmart.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +236,9 @@
 				AE22651026345F5A007B4B71 /* NewspaperViewController.swift */,
 				AE4CD53B2634A44A0046919B /* NewsViewController.swift */,
 				AE13E1C6281D8B6E00485A0A /* SignInViewController.swift */,
+				AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */,
+				AE97F214281E0C38000831E6 /* ProfileViewController.swift */,
+				AE97F216281E0E52000831E6 /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -379,13 +388,16 @@
 				AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */,
 				AE71934A2630E1F70064D59E /* SelectedMealPlansViewController.swift in Sources */,
 				AE13E1C7281D8B6E00485A0A /* SignInViewController.swift in Sources */,
+				AE97F217281E0E52000831E6 /* EditProfileViewController.swift in Sources */,
 				AE2264F1263234F7007B4B71 /* MealPlanCell.swift in Sources */,
 				AE2265092633999A007B4B71 /* ShopingListViewController.swift in Sources */,
+				AE97F213281DCE1F000831E6 /* RegisterUserViewController.swift in Sources */,
 				AE22650D26345A73007B4B71 /* NewspaperCell.swift in Sources */,
 				AE22651426346209007B4B71 /* Newspaper.swift in Sources */,
 				AE09B4E1262FCC880065F9FF /* ConfigureMealPlan.swift in Sources */,
 				AE2264F526328A16007B4B71 /* MyMealPlansViewController.swift in Sources */,
 				AE22651726346320007B4B71 /* NewspaperData.swift in Sources */,
+				AE97F215281E0C38000831E6 /* ProfileViewController.swift in Sources */,
 				AE7C72AD262716AB00889E2A /* Recipe.swift in Sources */,
 				AE2264F926329946007B4B71 /* SavedMealPlanCell.swift in Sources */,
 			);
@@ -537,6 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CookSmart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,6 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CookSmart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

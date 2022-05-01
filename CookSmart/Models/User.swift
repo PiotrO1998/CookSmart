@@ -17,7 +17,7 @@ public class User: Codable {
     var password: String?
     var device_name: String?
     
-    init(id: Int?, first_name: String?, surname: String, username: String? ,email: String?, password: String?) {
+    init(id: Int?, first_name: String?, surname: String?, username: String? ,email: String?, password: String?) {
         
         self.id = id
         self.first_name = first_name
@@ -27,7 +27,7 @@ public class User: Codable {
         self.password = password
     }
     
-    init(first_name: String?, surname: String, username: String? ,email: String?, password: String?, device_name: String?) {
+    init(first_name: String?, surname: String?, username: String? ,email: String?, password: String?, device_name: String?) {
         
         self.first_name = first_name
         self.surname = surname
@@ -49,7 +49,7 @@ public class CurrentUserDefaults {
     
     static let shared = CurrentUserDefaults()
     
-    func saveCurrntUserToUserDefaults(user: User) {
+    func saveCurrentUserToUserDefaults(user: User) {
         
         let userData = try! JSONEncoder().encode(user)
         UserDefaults.standard.set(userData, forKey: "currentUser")
@@ -71,13 +71,14 @@ public class CurrentUserDefaults {
 
 extension NetworkService {
     
-    func registeruser(user: User, completion: @escaping (_ success: Bool) -> Void) {
+    func registerUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
         
         AF.request(baseUrl + Endpoints.registerUser.rawValue,
                    method: .post,
                    parameters: user,
                    encoder: JSONParameterEncoder.default as JSONParameterEncoder)
             .response { response in
+                debugPrint(response)
                 
                 if response.data != nil {
                     
@@ -89,6 +90,7 @@ extension NetworkService {
                             
                             UserDefaults.standard.set(data.token, forKey: "token")
                             //UserDefaults.standard.synchronize()
+                            //print(data.token)
                             completion(true)
                             
                         } catch {
@@ -97,12 +99,13 @@ extension NetworkService {
                         }
                     } else {
                         
-                        completion(true)
+                        
+                        completion(false)
                     }
                     
                 } else {
                     
-                    completion(true)
+                    completion(false)
                 }
             }
     }
@@ -114,7 +117,7 @@ extension NetworkService {
                    parameters: user,
                    encoder: JSONParameterEncoder.default as JSONParameterEncoder)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
@@ -124,6 +127,7 @@ extension NetworkService {
                             let data = try JSONDecoder().decode(Token.self, from: response.data!)
                             
                             UserDefaults.standard.set(data.token, forKey: "token")
+                            //print(data.token)
                             //UserDefaults.standard.synchronize()
                             completion(true)
                             
@@ -133,15 +137,124 @@ extension NetworkService {
                         }
                     } else {
                         
-                        completion(true)
+                        completion(false)
                     }
                     
                 } else {
                     
-                    completion(true)
+                    completion(false)
                 }
             }
     }
     
+    func signOutUser(user: User, completion: @escaping (_ success: Bool) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.signOut.rawValue,
+                   method: .post,
+                   headers: headers).response { response in
+            debugPrint(response)
+            if response.data != nil {
+                
+                if response.response!.statusCode < 400 {
+                    
+                    completion(true)
+                } else {
+                    
+                    completion(false)
+                }
+                
+            } else {
+                
+                completion(false)
+            }
+        }
+    }
+    
+    func getUserProfile(completion: @escaping (_ success: User?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.getUserProfile.rawValue,
+                   method: .get,
+                   headers: headers).response { response in
+            debugPrint(response)
+            if response.data != nil {
+                
+                if response.response!.statusCode < 400 {
+                    do {
+                        
+                        let user = try JSONDecoder().decode(User.self, from: response.data!)
+                        
+                        completion(user)
+                    } catch {
+                        
+                        completion(nil)
+                    }
+                } else {
+                    
+                    completion(nil)
+                }
+            } else {
+                
+                completion(nil)
+            }
+        }
+    }
+    
+    func updateUserProfile(user: User, completion: @escaping (_ success: User?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.updateUserProfile.rawValue,
+                   method: .patch,
+                   parameters: user,
+                   encoder: JSONParameterEncoder.default as JSONParameterEncoder,
+                   headers: headers)
+            .response { response in
+                debugPrint(response)
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        do {
+                            
+                            let user = try JSONDecoder().decode(User.self, from: response.data!)
+                            
+                            completion(user)
+                            
+                        } catch {
+                            
+                            completion(nil)
+                        }
+                    } else {
+                        
+                        completion(nil)
+                    }
+                    
+                } else {
+                    
+                    completion(nil)
+                }
+            }
+    }
+    
+    func deleteUserProfile(completion: @escaping (_ success: Bool?) -> Void) {
+        
+        AF.request(baseUrl + Endpoints.deleteUserProfile.rawValue,
+                   method: .delete,
+                   headers: headers)
+            .response { response in
+                debugPrint(response)
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                        completion(true)
+                    } else {
+                        
+                        completion(false)
+                    }
+                } else {
+                    
+                    completion(false)
+                }
+            }
+    }
     
 }

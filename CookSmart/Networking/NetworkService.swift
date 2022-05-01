@@ -53,3 +53,8 @@ struct Token: Codable {
     
     var token: String?
 }
+
+struct ErrorResponse: Codable {
+    
+    var errors: String?
+}
