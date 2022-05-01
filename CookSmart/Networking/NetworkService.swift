@@ -35,6 +35,7 @@ struct NetworkService {
         // Recipe
         case addRecipe = "recipe/store"
         case editRecipe = "recipe/{recipe}/update"
+        case getRecipe = "recipe/{recipe}"
         case getCurrentUserRecipes = "recipes-all-user"
         case getAllRecipes = "recipes-all"
         case deleteRecipe = "recipe/{recipe}/delete"
