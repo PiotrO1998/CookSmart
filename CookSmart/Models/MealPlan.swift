@@ -36,7 +36,8 @@ extension NetworkService {
         AF.request(baseUrl + Endpoints.addMealPlan.rawValue,
                    method: .post,
                    parameters: mealplan,
-                   encoder: JSONParameterEncoder.default as JSONParameterEncoder)
+                   encoder: JSONParameterEncoder.default as JSONParameterEncoder,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
@@ -105,7 +106,8 @@ extension NetworkService {
     func getMealPlan(mealPlanID: String, completion: @escaping (_ success: MealPlan?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getMealPlan.rawValue + mealPlanID,
-                   method: .get)
+                   method: .get,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
@@ -136,7 +138,8 @@ extension NetworkService {
     func getCurrentUserMealPlans(completion: @escaping (_ success: [MealPlan]?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getCurrentUserMealPlans.rawValue,
-                   method: .get)
+                   method: .get,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
@@ -168,7 +171,8 @@ extension NetworkService {
     func getAllMealPlans(completion: @escaping (_ success: [MealPlan]?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getAllMealPlans.rawValue,
-                   method: .get)
+                   method: .get,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
@@ -202,7 +206,8 @@ extension NetworkService {
         let url = baseUrl + Endpoints.deleteMealPlan.rawValue.replacingOccurrences(of: "{mealplan}", with: mealPlanID)
         
         AF.request(url,
-                   method: .delete)
+                   method: .delete,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {

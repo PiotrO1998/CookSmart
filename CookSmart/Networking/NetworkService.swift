@@ -9,7 +9,7 @@ import Alamofire
 
 struct NetworkService {
 
-    let baseUrl = "http://192.168.200.22/api/"
+    let baseUrl = "http://192.168.200.5/api/"
 
     var headers: HTTPHeaders = []
 

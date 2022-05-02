@@ -13,5 +13,5 @@ struct Ingredient: Codable {
     var name: String?
     var amount: Float?
     var metric: String?
-    var is_important: Bool?
+    var is_important: Int?
 }

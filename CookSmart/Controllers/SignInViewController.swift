@@ -93,7 +93,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             
             if user != nil {
                 
-                CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
+                //CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
             }
         }
     }

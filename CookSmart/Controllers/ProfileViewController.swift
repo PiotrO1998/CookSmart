@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController {
         
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "currentUser")
-        //UserDefaults.standard.synchronize()
+        UserDefaults.standard.synchronize()
         
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         let signInController = storyborad.instantiateViewController(withIdentifier: "SignIn")
@@ -79,7 +79,7 @@ class ProfileViewController: UIViewController {
                     
                     UserDefaults.standard.removeObject(forKey: "token")
                     UserDefaults.standard.removeObject(forKey: "currentUser")
-                    //UserDefaults.standard.synchronize()
+                    UserDefaults.standard.synchronize()
                     
                     let storyborad = UIStoryboard(name: "Main", bundle: nil)
                     let signInController = storyborad.instantiateViewController(withIdentifier: "SignIn")

@@ -13,15 +13,14 @@ class CreateRecipeStepThreeViewController: UIViewController {
     var recipeCookTime: Int!
     var recipeLevel: String!
     var recipeServings: Int!
-    var recipeImageString: String?
     var recipeDescription: String?
     var ingredients: [Ingredient] = []
     var editIngredient: Ingredient?
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     @IBOutlet weak var newIngredientButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +30,7 @@ class CreateRecipeStepThreeViewController: UIViewController {
         newIngredientButton.layer.cornerRadius = 5
         newIngredientButton.layer.borderWidth = 1
         newIngredientButton.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -39,6 +38,18 @@ class CreateRecipeStepThreeViewController: UIViewController {
         
         performSegue(withIdentifier: "segue-to-new-ingredient-view-controller", sender: self)
     }
+    
+    @IBAction func buttonNextPressed(_ sender: UIButton) {
+        
+        if ingredients.count > 0 {
+            
+            performSegue(withIdentifier: "segue-to-create-recipe-step-four", sender: self)
+        } else {
+            
+            showAlert(text: "Please select at least one ingredient.")
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -50,6 +61,15 @@ class CreateRecipeStepThreeViewController: UIViewController {
                 destinationVC.editIngredieent = self.editIngredient
                 editIngredient = nil
             }
+        } else if segue.identifier == "segue-to-create-recipe-step-four" {
+            
+            let destinationVC = segue.destination as! CreateRecipeStepFourViewController
+            destinationVC.recipeName = self.recipeName
+            destinationVC.recipeCookTime = self.recipeCookTime
+            destinationVC.recipeLevel = self.recipeLevel
+            destinationVC.recipeServings = self.recipeServings
+            destinationVC.recipeDescription = self.recipeDescription
+            destinationVC.ingredients = self.ingredients
         }
     }
     
@@ -68,7 +88,7 @@ class CreateRecipeStepThreeViewController: UIViewController {
 }
 
 extension CreateRecipeStepThreeViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         ingredients.count
@@ -91,5 +111,18 @@ extension CreateRecipeStepThreeViewController: UITableViewDelegate {
         ingredients.remove(at: indexPath.row)
         tableView.reloadData()
         performSegue(withIdentifier: "segue-to-new-ingredient-view-controller", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, completitionHandler) in
+            
+            self.ingredients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completitionHandler(true)
+        }
+        
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        return swipe
     }
 }

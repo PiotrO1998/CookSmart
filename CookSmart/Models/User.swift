@@ -45,6 +45,14 @@ public class User: Codable {
     
 }
 
+struct ReceivedUser: Codable {
+    var id: Int?
+    var first_name: String?
+    var surname: String?
+    var username: String?
+    var email: String?
+}
+
 public class CurrentUserDefaults {
     
     static let shared = CurrentUserDefaults()
@@ -53,7 +61,7 @@ public class CurrentUserDefaults {
         
         let userData = try! JSONEncoder().encode(user)
         UserDefaults.standard.set(userData, forKey: "currentUser")
-        //UserDefaults.standard.synchronize()
+        UserDefaults.standard.synchronize()
     }
     
     func getCurrentUser() -> User? {
@@ -89,7 +97,7 @@ extension NetworkService {
                             let data = try JSONDecoder().decode(Token.self, from: response.data!)
                             
                             UserDefaults.standard.set(data.token, forKey: "token")
-                            //UserDefaults.standard.synchronize()
+                            UserDefaults.standard.synchronize()
                             //print(data.token)
                             completion(true)
                             
@@ -128,7 +136,7 @@ extension NetworkService {
                             
                             UserDefaults.standard.set(data.token, forKey: "token")
                             //print(data.token)
-                            //UserDefaults.standard.synchronize()
+                            UserDefaults.standard.synchronize()
                             completion(true)
                             
                         } catch {
@@ -170,7 +178,7 @@ extension NetworkService {
         }
     }
     
-    func getUserProfile(completion: @escaping (_ success: User?) -> Void) {
+    func getUserProfile(completion: @escaping (_ success: ReceivedUser?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getUserProfile.rawValue,
                    method: .get,
@@ -181,7 +189,7 @@ extension NetworkService {
                 if response.response!.statusCode < 400 {
                     do {
                         
-                        let user = try JSONDecoder().decode(User.self, from: response.data!)
+                        let user = try JSONDecoder().decode(ReceivedUser.self, from: response.data!)
                         
                         completion(user)
                     } catch {

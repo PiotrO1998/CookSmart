@@ -34,9 +34,10 @@ class AddIngredientViewController: UIViewController {
             ingredientNameTextField.text = editIngredieent!.name
             ingredientAmountTextField.text = String(format: "%.f", editIngredieent!.amount as! CVarArg)
             ingredientUnitTextField.text = editIngredieent!.metric
-            if editIngredieent!.is_important! {
+            if editIngredieent!.is_important == 1 {
                 ingredinetImportantSwitch.setOn(true, animated: false)
             }
+            editIngredieent = nil
         }
         
     }
@@ -72,7 +73,12 @@ class AddIngredientViewController: UIViewController {
             ingredient.name = ingredientNameTextField.text
             ingredient.amount = Float(ingredientAmountTextField.text!)
             ingredient.metric = ingredientUnitTextField.text
-            ingredient.is_important = ingredinetImportantSwitch.isOn
+            if ingredinetImportantSwitch.isOn {
+                ingredient.is_important = 1
+            } else {
+                ingredient.is_important = 0
+            }
+            
             
             let destinationVC = segue.destination as! CreateRecipeStepThreeViewController
             destinationVC.ingredients.append(ingredient)

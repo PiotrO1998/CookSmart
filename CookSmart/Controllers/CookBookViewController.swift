@@ -46,6 +46,8 @@ class CookBookViewController: UIViewController {
     }
     
     @IBAction func myRecipesButtonTapped(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "segue-to-my-recipes", sender: self)
     }
     
     @IBAction func createMealPlanButtonTapped(_ sender: UIButton) {

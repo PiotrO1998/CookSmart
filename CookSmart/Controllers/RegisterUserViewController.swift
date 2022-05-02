@@ -61,6 +61,7 @@ class RegisterUserViewController: UIViewController {
                                 
                                 if success {
                                     
+                                    
                                     print("Sucessfully register")
                                     self.getUserProfile()
                                     let storyborad = UIStoryboard(name: "Main", bundle: nil)
@@ -115,7 +116,7 @@ class RegisterUserViewController: UIViewController {
             
             if user != nil {
                 
-                CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
+                //CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
             }
         }
     }

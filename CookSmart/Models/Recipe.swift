@@ -18,11 +18,12 @@ struct Recipe: Codable {
     var number_of_servings: Int?
     var image: String?
     var image_url: String?
+    var user: ReceivedUser?
     var ingredients: [Ingredient]?
     var instructions: [Instruction]?
-    var comments: [Comment]?
-    var tags: [Tag]?
-    var likes: [Like]?
+    //var comments: [Comment]?
+    //var tags: [Tag]?
+    //var likes: [Like]?
     var created_at: String?
     var updated_at: String?
 }
@@ -35,18 +36,20 @@ struct RecipeToSend: Codable {
     var level: String?
     var number_of_servings: Int?
     var image: String?
+    var ingredients: Ingredients?
+    var instructions: Instructions?
     
 }
 
-struct ingredients: Codable {
+struct Ingredients: Codable {
     
     var names: [String]?
-    var amounts: [Int]?
+    var amounts: [Float]?
     var metrics: [String]?
-    var is_important_array: [String]?
+    var is_important_array: [Int]?
 }
 
-struct instructions: Codable {
+struct Instructions: Codable {
     
     var titles: [String]?
     var descriptions: [String]?
@@ -55,14 +58,45 @@ struct instructions: Codable {
 
 extension NetworkService {
     
-    func addRecipe(recipe: RecipeToSend, completion: @escaping (_ success: Recipe?) -> Void) {
+    func addRecipe(recipe: Recipe, completion: @escaping (_ success: Recipe?) -> Void) {
+        
+        
+        var ingredients: Ingredients = Ingredients(names: [String](), amounts: [Float](), metrics: [String](), is_important_array: [Int]())
+        var instructions: Instructions = Instructions(titles: [String](), descriptions: [String](), step_numbers: [Int]())
+        var recipeToSend = RecipeToSend()
+        
+        for ingredient in recipe.ingredients! {
+            
+            ingredients.names!.append(ingredient.name!)
+            ingredients.amounts!.append(ingredient.amount!)
+            ingredients.metrics!.append(ingredient.metric!)
+            ingredients.is_important_array!.append(ingredient.is_important!)
+        }
+        
+        for instruction in recipe.instructions! {
+            
+            instructions.titles!.append(instruction.title!)
+            instructions.descriptions!.append(instruction.description!)
+            instructions.step_numbers!.append(instruction.step_number!)
+        }
+        
+        recipeToSend.name = recipe.name
+        recipeToSend.description = recipe.description
+        recipeToSend.cook_time = recipe.cook_time
+        recipeToSend.level = recipe.level
+        recipeToSend.number_of_servings = recipe.number_of_servings
+        recipeToSend.ingredients = ingredients
+        recipeToSend.instructions = instructions
+        
+        print(recipeToSend)
         
         AF.request(baseUrl + Endpoints.addRecipe.rawValue,
                    method: .post,
-                   parameters: recipe,
-                   encoder: JSONParameterEncoder.default as JSONParameterEncoder)
+                   parameters: recipeToSend,
+                   encoder: JSONParameterEncoder.default as JSONParameterEncoder,
+                   headers: headers)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
@@ -71,6 +105,7 @@ extension NetworkService {
                             
                             let recipeReceived = try JSONDecoder().decode(Recipe.self, from: response.data!)
                             
+                            print(recipeReceived)
                             completion(recipeReceived)
                             
                         } catch {
@@ -99,7 +134,8 @@ extension NetworkService {
                    encoder: JSONParameterEncoder.default as JSONParameterEncoder,
                    headers: headers)
             .response { response in
-                debugPrint(response)
+                print("ResponseDATA")
+                debugPrint(response.data)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
@@ -128,23 +164,20 @@ extension NetworkService {
     
     func getRecipe(recipeID: String, completion: @escaping (_ success: Recipe?) -> Void) {
         
-        AF.request(baseUrl + Endpoints.getRecipe.rawValue + recipeID,
-                   method: .get)
-            .response { response in
-                
+        AF.request(baseUrl + Endpoints.getRecipe.rawValue.replacingOccurrences(of: "{recipe}", with: recipeID),
+                   method: .get,
+                   headers: headers).response { response in
+                debugPrint(response)
                 if response.data != nil {
-                    
+                    print(response.data!)
                     if response.response!.statusCode < 400 {
                         
-                        do {
+                        
                             
-                            let recipeReceived = try JSONDecoder().decode(Recipe.self, from: response.data!)
-                            
-                            completion(recipeReceived)
-                        } catch {
-                            
-                            completion(nil)
-                        }
+                            let recipe = try! JSONDecoder().decode(Recipe.self, from: response.data!)
+                            print(recipe)
+                            completion(recipe)
+                        
                     } else {
                         
                         
@@ -160,7 +193,8 @@ extension NetworkService {
     func getCurrentUserRecipes(completion: @escaping (_ success: [Recipe]?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getCurrentUserRecipes.rawValue,
-                   method: .get)
+                   method: .get,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
@@ -192,7 +226,8 @@ extension NetworkService {
     func getAllRecipes(completion: @escaping (_ success: [Recipe]?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getAllRecipes.rawValue,
-                   method: .get)
+                   method: .get,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
@@ -226,7 +261,8 @@ extension NetworkService {
         let url = baseUrl + Endpoints.deleteRecipe.rawValue.replacingOccurrences(of: "{recipe}", with: recipeID)
         
         AF.request(url,
-                   method: .delete)
+                   method: .delete,
+                   headers: headers)
             .response { response in
                 
                 if response.data != nil {
