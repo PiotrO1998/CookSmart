@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
         surnameTextField.layer.cornerRadius = 5
         surnameTextField.layer.borderWidth = 1
         surnameTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
-
+        
     }
     
     
@@ -33,9 +33,17 @@ class ProfileViewController: UIViewController {
             
             if surnameTextField.text!.count > 0 {
                 
-            CurrentUserDefaults.shared.getCurrentUser()?.first_name = firstNameTextField.text
-            CurrentUserDefaults.shared.getCurrentUser()?.surname = surnameTextField.text
-            
+                var user = ReceivedUser()
+                
+                user.id = CurrentUserDefaults.shared.getCurrentUser()!.id
+                user.first_name = firstNameTextField.text
+                user.surname = surnameTextField.text
+                user.username = CurrentUserDefaults.shared.getCurrentUser()!.username
+                user.email = CurrentUserDefaults.shared.getCurrentUser()!.email
+                
+                UserDefaults.standard.removeObject(forKey: "currentUser")
+                CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user)
+                
                 NetworkService().updateUserProfile(user: CurrentUserDefaults.shared.getCurrentUser()!) { user in
                     
                     if user != nil {
@@ -98,6 +106,6 @@ class ProfileViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-   
-
+    
+    
 }

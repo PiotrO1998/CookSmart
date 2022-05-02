@@ -57,18 +57,18 @@ public class CurrentUserDefaults {
     
     static let shared = CurrentUserDefaults()
     
-    func saveCurrentUserToUserDefaults(user: User) {
+    func saveCurrentUserToUserDefaults(user: ReceivedUser) {
         
         let userData = try! JSONEncoder().encode(user)
         UserDefaults.standard.set(userData, forKey: "currentUser")
         UserDefaults.standard.synchronize()
     }
     
-    func getCurrentUser() -> User? {
+    func getCurrentUser() -> ReceivedUser? {
         
         if let currentUser = UserDefaults.standard.object(forKey: "currentUser") as? Data {
             
-            let decodeCurrentUser = try! JSONDecoder().decode(User.self, from: currentUser)
+            let decodeCurrentUser = try! JSONDecoder().decode(ReceivedUser.self, from: currentUser)
             
             return decodeCurrentUser
         }
@@ -187,15 +187,12 @@ extension NetworkService {
             if response.data != nil {
                 
                 if response.response!.statusCode < 400 {
-                    do {
+                    
                         
-                        let user = try JSONDecoder().decode(ReceivedUser.self, from: response.data!)
+                        let user = try! JSONDecoder().decode(ReceivedUser.self, from: response.data!)
                         
                         completion(user)
-                    } catch {
-                        
-                        completion(nil)
-                    }
+                    
                 } else {
                     
                     completion(nil)
@@ -207,7 +204,7 @@ extension NetworkService {
         }
     }
     
-    func updateUserProfile(user: User, completion: @escaping (_ success: User?) -> Void) {
+    func updateUserProfile(user: ReceivedUser, completion: @escaping (_ success: ReceivedUser?) -> Void) {
         
         AF.request(baseUrl + Endpoints.updateUserProfile.rawValue,
                    method: .patch,
@@ -222,7 +219,7 @@ extension NetworkService {
                         
                         do {
                             
-                            let user = try JSONDecoder().decode(User.self, from: response.data!)
+                            let user = try JSONDecoder().decode(ReceivedUser.self, from: response.data!)
                             
                             completion(user)
                             

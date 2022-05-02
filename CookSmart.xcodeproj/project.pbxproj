@@ -41,6 +41,7 @@
 		AE5DA274281F8E93008FA0DA /* AddInstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DA273281F8E93008FA0DA /* AddInstructionStepViewController.swift */; };
 		AE5DA278281F92D0008FA0DA /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DA277281F92D0008FA0DA /* StepTableViewCell.swift */; };
 		AE5DA27A281FD632008FA0DA /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DA279281FD631008FA0DA /* MyRecipesViewController.swift */; };
+		AE5DA27E282039F0008FA0DA /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5DA27D282039F0008FA0DA /* RecipeTableViewCell.swift */; };
 		AE7193472630D3F90064D59E /* SelectMealPlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7193462630D3F90064D59E /* SelectMealPlans.swift */; };
 		AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729326264D2F00889E2A /* AppDelegate.swift */; };
 		AE7C729626264D2F00889E2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C729526264D2F00889E2A /* SceneDelegate.swift */; };
@@ -94,6 +95,7 @@
 		AE5DA273281F8E93008FA0DA /* AddInstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionStepViewController.swift; sourceTree = "<group>"; };
 		AE5DA277281F92D0008FA0DA /* StepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
 		AE5DA279281FD631008FA0DA /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
+		AE5DA27D282039F0008FA0DA /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		AE7193462630D3F90064D59E /* SelectMealPlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealPlans.swift; sourceTree = "<group>"; };
 		AE7C729026264D2F00889E2A /* CookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7C729326264D2F00889E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				AE22650B26345A72007B4B71 /* NewspaperCell.swift */,
 				AE22650C26345A72007B4B71 /* NewspaperCell.xib */,
 				AE5DA26F281F67C6008FA0DA /* IngredientTableViewCell.swift */,
+				AE5DA27D282039F0008FA0DA /* RecipeTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				AE5DA272281F89E3008FA0DA /* CreateRecipeStepFourViewController.swift in Sources */,
 				AE09B4E1262FCC880065F9FF /* ConfigureMealPlan.swift in Sources */,
 				AE5DA25A281EFC03008FA0DA /* Comment.swift in Sources */,
+				AE5DA27E282039F0008FA0DA /* RecipeTableViewCell.swift in Sources */,
 				AE22651726346320007B4B71 /* NewspaperData.swift in Sources */,
 				AE5DA25E281EFC51008FA0DA /* Tag.swift in Sources */,
 				AE5DA27A281FD632008FA0DA /* MyRecipesViewController.swift in Sources */,

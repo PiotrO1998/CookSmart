@@ -57,7 +57,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                         self.present(homeController, animated: true, completion: nil)
                     } else {
                         
-                        let alert = UIAlertController(title: "Something went wrong, please try again.", message: nil, preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Incorrect credentials.", message: nil, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
                             NSLog("The \"OK\" alert occured.")
                         }))
@@ -93,7 +93,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             
             if user != nil {
                 
-                //CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
+                print("successfully store user")
+                CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
             }
         }
     }

@@ -16,8 +16,8 @@ struct Recipe: Codable {
     var cook_time: Int?
     var level: String?
     var number_of_servings: Int?
-    var image: String?
-    var image_url: String?
+    //var image: String?
+    //var image_url: String?
     var user: ReceivedUser?
     var ingredients: [Ingredient]?
     var instructions: [Instruction]?
@@ -26,6 +26,10 @@ struct Recipe: Codable {
     //var likes: [Like]?
     var created_at: String?
     var updated_at: String?
+}
+
+struct RecipeReceived: Codable {
+    var data: [Recipe]?
 }
 
 struct RecipeToSend: Codable {
@@ -190,27 +194,22 @@ extension NetworkService {
             }
     }
     
-    func getCurrentUserRecipes(completion: @escaping (_ success: [Recipe]?) -> Void) {
+    func getCurrentUserRecipes(completion: @escaping (_ success: RecipeReceived?) -> Void) {
         
         AF.request(baseUrl + Endpoints.getCurrentUserRecipes.rawValue,
                    method: .get,
                    headers: headers)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
                         
-                        do {
-                            
-                            let recipesReceived = try JSONDecoder().decode([Recipe].self, from: response.data!)
+                            let recipesReceived = try! JSONDecoder().decode(RecipeReceived.self, from: response.data!)
                             
                             completion(recipesReceived)
                             
-                        } catch {
-                            
-                            completion(nil)
-                        }
+                        
                     } else {
                         
                         
@@ -234,16 +233,13 @@ extension NetworkService {
                     
                     if response.response!.statusCode < 400 {
                         
-                        do {
+                        
                             
-                            let recipesReceived = try JSONDecoder().decode([Recipe].self, from: response.data!)
+                            let recipesReceived = try! JSONDecoder().decode([Recipe].self, from: response.data!)
                             
                             completion(recipesReceived)
                             
-                        } catch {
-                            
-                            completion(nil)
-                        }
+                        
                     } else {
                         
                         

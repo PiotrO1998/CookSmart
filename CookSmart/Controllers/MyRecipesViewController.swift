@@ -9,80 +9,87 @@ import UIKit
 
 class MyRecipesViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
     var recipes: [Recipe]?
+    
+    
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         getRecipes()
-        getUser()
-        getAllRecipes()
+    
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
     private func getRecipes() {
         
-        NetworkService().getRecipe(recipeID: "13") { recipe in
-            print(recipe)
-            if recipe != nil {
+        NetworkService().getCurrentUserRecipes { recipesData in
+            
+            if recipesData != nil {
                 
-                if recipe!.image_url != nil {
-                    print("hereeee")
-                    print("URL" + recipe!.image_url!)
-                    
-                    var urlll = NetworkService().baseUrl + recipe!.image_url!
-                    print(urlll)
-                    
-                    NetworkService().dimage(from: URL(string: recipe!.image_url!)!) { image in
-                        
-                        if image != nil {
-                            
-                            self.imageView.image = image!
-                        }
-                    }
-                }
-                
+                self.recipes = recipesData!.data
             }
+            
             
         }
     }
     
-    func getUser() {
+    func showAlert(text: String) {
         
-        NetworkService().getUserProfile { user in
-            
-            if user != nil {
-                
-                print("USER")
-                print(user!.username)
-            }
-            
-            
-        }
+        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
-    func getAllRecipes() {
+    
+}
+
+extension MyRecipesViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        NetworkService().getAllRecipes { recipes in
-            
-            if recipes != nil {
-                
-                print(recipes!.count)
-            }
-            
-        }
+        recipes!.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyRecipeCell", for: indexPath) as! RecipeTableViewCell
+        cell.recipeName.text = recipes![indexPath.row].name
+        cell.recipeCookTime.text = "\(recipes![indexPath.row].cook_time)"
+        cell.recipeCookTime.text = recipes![indexPath.row].level
+        return cell
+    }
+}
+
+extension MyRecipesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
+        editIngredient = ingredients[indexPath.row]
+        ingredients.remove(at: indexPath.row)
+        tableView.reloadData()
+        performSegue(withIdentifier: "segue-to-new-ingredient-view-controller", sender: self)
+         */
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, completitionHandler) in
+            /*
+            self.ingredients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completitionHandler(true)
+             */
+        }
+        
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        return swipe
+    }
 }

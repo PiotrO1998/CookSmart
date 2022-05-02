@@ -71,7 +71,7 @@ class RegisterUserViewController: UIViewController {
                                     
                                 } else {
                                     
-                                    self.showAlert(text: "Something went wrong, please try again.")
+                                    self.showAlert(text: "Incorrect credentials.")
                                 }
                                 
                             }
@@ -116,7 +116,8 @@ class RegisterUserViewController: UIViewController {
             
             if user != nil {
                 
-                //CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
+                print("successfully store user")
+                CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
             }
         }
     }
