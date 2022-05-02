@@ -47,6 +47,10 @@ class CreateRecipeStepTwoViewController: UIViewController, UIImagePickerControll
         if segue.identifier == "segue-to-create-recipe-step-three" {
             
             let destination = segue.destination as! CreateRecipeStepThreeViewController
+            destination.recipeName = recipeName
+            destination.recipeCookTime = recipeCookTime
+            destination.recipeLevel = recipeLevel
+            destination.recipeServings = recipeServings
             destination.recipeDescription = descriptionTextView.text
             
             if recipeImageString != nil {

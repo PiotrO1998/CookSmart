@@ -9,13 +9,24 @@ import UIKit
 
 class CreateRecipeStepThreeViewController: UIViewController {
     
+    var recipeName: String!
+    var recipeCookTime: Int!
+    var recipeLevel: String!
+    var recipeServings: Int!
     var recipeImageString: String?
     var recipeDescription: String?
+    var ingredients: [Ingredient] = []
+    var editIngredient: Ingredient?
     
+    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var newIngredientButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         newIngredientButton.layer.cornerRadius = 5
         newIngredientButton.layer.borderWidth = 1
@@ -26,6 +37,23 @@ class CreateRecipeStepThreeViewController: UIViewController {
     
     @IBAction func newIngredientButtonTapped(_ sender: UIButton) {
         
+        performSegue(withIdentifier: "segue-to-new-ingredient-view-controller", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segue-to-new-ingredient-view-controller" {
+            
+            if editIngredient != nil {
+                
+                let destinationVC = segue.destination as! AddIngredientViewController
+                destinationVC.editIngredieent = self.editIngredient
+                editIngredient = nil
+            }
+        }
+    }
+    
+    @IBAction func unwindToCreateRecipeStepThree( _ seg: UIStoryboardSegue) {
         
     }
     
@@ -37,15 +65,31 @@ class CreateRecipeStepThreeViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+}
 
-    /*
-    // MARK: - Navigation
+extension CreateRecipeStepThreeViewController: UITableViewDataSource {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        ingredients.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
+        cell.ingredientLabel.text = "\(ingredients[indexPath.row].amount!) \(ingredients[indexPath.row].metric!) \(ingredients[indexPath.row].name!)"
+        
+        return cell
+    }
+}
 
+extension CreateRecipeStepThreeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        editIngredient = ingredients[indexPath.row]
+        ingredients.remove(at: indexPath.row)
+        tableView.reloadData()
+        performSegue(withIdentifier: "segue-to-new-ingredient-view-controller", sender: self)
+    }
 }

@@ -1,16 +1,15 @@
-
+//
+//  IngredientTableViewCell.swift
+//  CookSmart
+//
+//  Created by Piotr Obara on 02/05/2022.
+//
 
 import UIKit
 
-// class represent IngredientCell
-///
-///  - Author: Piotr Obara
-///  - Version: 1.0
-///
-class IngredientCell: UITableViewCell {
+class IngredientTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var circle: UIImageView!
-    @IBOutlet weak var ingredientName: UILabel!
+    @IBOutlet weak var ingredientLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
