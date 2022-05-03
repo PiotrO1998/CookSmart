@@ -56,6 +56,8 @@
 		AE97F213281DCE1F000831E6 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */; };
 		AE97F215281E0C38000831E6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97F214281E0C38000831E6 /* ProfileViewController.swift */; };
 		AEB8AB0A28207FC100B99C99 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8AB0928207FC100B99C99 /* RecipeViewController.swift */; };
+		AEB8AB0C2820A90600B99C99 /* CreateMyMealPlanStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8AB0B2820A90500B99C99 /* CreateMyMealPlanStepOneViewController.swift */; };
+		AEB8AB0E2820A91F00B99C99 /* CreateMyMealPlanStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8AB0D2820A91F00B99C99 /* CreateMyMealPlanStepTwoViewController.swift */; };
 		EF7A62EBDFA6B7D1BE40A3C0 /* Pods_CookSmart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308C5827B6B91A8AB92691ED /* Pods_CookSmart.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +115,8 @@
 		AE97F212281DCE1E000831E6 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		AE97F214281E0C38000831E6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AEB8AB0928207FC100B99C99 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		AEB8AB0B2820A90500B99C99 /* CreateMyMealPlanStepOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyMealPlanStepOneViewController.swift; sourceTree = "<group>"; };
+		AEB8AB0D2820A91F00B99C99 /* CreateMyMealPlanStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMyMealPlanStepTwoViewController.swift; sourceTree = "<group>"; };
 		B5255E37BF561A51322A9724 /* Pods-CookSmart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookSmart.release.xcconfig"; path = "Target Support Files/Pods-CookSmart/Pods-CookSmart.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +252,8 @@
 				AE5DA273281F8E93008FA0DA /* AddInstructionStepViewController.swift */,
 				AE5DA279281FD631008FA0DA /* MyRecipesViewController.swift */,
 				AEB8AB0928207FC100B99C99 /* RecipeViewController.swift */,
+				AEB8AB0B2820A90500B99C99 /* CreateMyMealPlanStepOneViewController.swift */,
+				AEB8AB0D2820A91F00B99C99 /* CreateMyMealPlanStepTwoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				AE7193472630D3F90064D59E /* SelectMealPlans.swift in Sources */,
 				AE7C729426264D2F00889E2A /* AppDelegate.swift in Sources */,
 				AE22651126345F5A007B4B71 /* NewspaperViewController.swift in Sources */,
+				AEB8AB0C2820A90600B99C99 /* CreateMyMealPlanStepOneViewController.swift in Sources */,
 				AE97F211281DB8CB000831E6 /* User.swift in Sources */,
 				AE5DA264281F1A41008FA0DA /* CookBookViewController.swift in Sources */,
 				AE4CD53C2634A44A0046919B /* NewsViewController.swift in Sources */,
@@ -412,6 +419,7 @@
 				AE5DA256281EFB94008FA0DA /* Instruction.swift in Sources */,
 				AE2264F926329946007B4B71 /* SavedMealPlanCell.swift in Sources */,
 				AE5DA26C281F5A8B008FA0DA /* CreateRecipeStepThreeViewController.swift in Sources */,
+				AEB8AB0E2820A91F00B99C99 /* CreateMyMealPlanStepTwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

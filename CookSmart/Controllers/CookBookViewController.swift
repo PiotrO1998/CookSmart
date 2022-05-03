@@ -59,6 +59,14 @@ class CookBookViewController: UIViewController {
     }
     
     @IBAction func createMealPlanButtonTapped(_ sender: UIButton) {
+        NetworkService().getCurrentUserRecipes { recipesData in
+            
+            if recipesData != nil {
+
+                self.performSegue(withIdentifier: "segue=to-create-meal-plan", sender: self)
+                
+            }
+        }
     }
     
     @IBAction func myMealPlansButtonTapped(_ sender: UIButton) {
@@ -75,6 +83,10 @@ class CookBookViewController: UIViewController {
         if segue.identifier == "segue-to-my-recipes" {
             
             let vc = segue.destination as! MyRecipesViewController
+            vc.recipes = currentUserRecipes!
+        } else if segue.identifier == "segue=to-create-meal-plan" {
+            
+            let vc = segue.destination as! CreateMyMealPlanStepOneViewController
             vc.recipes = currentUserRecipes!
         }
     }
