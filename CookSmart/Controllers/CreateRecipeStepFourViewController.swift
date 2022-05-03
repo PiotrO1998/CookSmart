@@ -56,6 +56,7 @@ class CreateRecipeStepFourViewController: UIViewController {
                 NetworkService().addRecipe(recipe: recipe) { rec in
                     
                     if rec != nil {
+                        self.performSegue(withIdentifier: "unwind-to-cook-book", sender: self)
                         self.showAlert(text: "Successfully added recipe")
                     }
                 }

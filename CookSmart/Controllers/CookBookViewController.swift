@@ -17,9 +17,11 @@ class CookBookViewController: UIViewController {
     
     @IBOutlet weak var generateMealPlanButton: UIButton!
     
+    var currentUserRecipes: [Recipe]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         createRecipeButton.layer.cornerRadius = 5
         createRecipeButton.layer.borderWidth = 1
         createRecipeButton.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
@@ -47,7 +49,13 @@ class CookBookViewController: UIViewController {
     
     @IBAction func myRecipesButtonTapped(_ sender: UIButton) {
         
-        performSegue(withIdentifier: "segue-to-my-recipes", sender: self)
+        NetworkService().getCurrentUserRecipes { recipesData in
+            
+            if recipesData != nil {
+                self.currentUserRecipes = recipesData!.data
+                self.performSegue(withIdentifier: "segue-to-my-recipes", sender: self)
+            }
+        }
     }
     
     @IBAction func createMealPlanButtonTapped(_ sender: UIButton) {
@@ -59,15 +67,16 @@ class CookBookViewController: UIViewController {
     @IBAction func generateMealPlanButtonTapped(_ sender: UIButton) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func unwindToCookBook( _ seg: UIStoryboardSegue) {
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue-to-my-recipes" {
+            
+            let vc = segue.destination as! MyRecipesViewController
+            vc.recipes = currentUserRecipes!
+        }
+    }
+    
 }
