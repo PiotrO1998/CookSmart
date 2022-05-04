@@ -9,7 +9,7 @@ import Alamofire
 
 struct NetworkService {
 
-    let baseUrl = "http://192.168.0.21/api/"
+    let baseUrl = "http://172.20.10.12/api/"
 
     var headers: HTTPHeaders = []
 
@@ -47,6 +47,7 @@ struct NetworkService {
         case getCurrentUserMealPlans = "meal-plans-all-user"
         case getAllMealPlans = "meal-plans-all"
         case deleteMealPlan = "mealplan/{mealplan}/delete"
+        case deleteRecipeFromMealPlan = "mealplan/{mealplan}/delete/recipe/{recipe}"
         
     }
 }

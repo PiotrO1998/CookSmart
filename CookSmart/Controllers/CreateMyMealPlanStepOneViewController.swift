@@ -2,7 +2,6 @@
 //  CreateMyMealPlanStepOneViewController.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 03/05/2022.
 //
 
 import UIKit
@@ -12,12 +11,14 @@ class CreateMyMealPlanStepOneViewController: UIViewController {
     var recipes: [Recipe]?
     
     @IBOutlet weak var mealPlanNameTextField: UITextField!
-    
     @IBOutlet weak var mealPlanTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        mealPlanTextView.layer.cornerRadius = 5
+        mealPlanTextView.layer.borderWidth = 1
+        mealPlanTextView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     @IBAction func nextButttonTapped(_ sender: UIButton) {
@@ -42,6 +43,8 @@ class CreateMyMealPlanStepOneViewController: UIViewController {
             
             let vc = segue.destination as! CreateMyMealPlanStepTwoViewController
             vc.recipes = self.recipes
+            vc.mealPlanName = mealPlanNameTextField.text
+            vc.des = mealPlanTextView.text
             
         }
     }

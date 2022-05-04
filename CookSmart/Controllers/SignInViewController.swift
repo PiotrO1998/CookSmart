@@ -25,8 +25,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
         
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -102,7 +100,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     private func checkIfUserLoggedIn() {
         
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
-        
         
         if token != "" {
             

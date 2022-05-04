@@ -1,13 +1,14 @@
 //
-//  MyRecipesViewController.swift
+//  MealPlanRecipesViewController.swift
 //  CookSmart
 //
 //
 
 import UIKit
 
-class MyRecipesViewController: UIViewController {
-    
+class MealPlanRecipesViewController: UIViewController {
+
+    var mealPlan: MealPlan!
     var recipes: [Recipe]?
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,21 +16,18 @@ class MyRecipesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        recipes = mealPlan.recipes
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    func showAlert(text: String) {
-        
-        let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 }
 
-extension MyRecipesViewController: UITableViewDataSource {
+extension MealPlanRecipesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -46,9 +44,10 @@ extension MyRecipesViewController: UITableViewDataSource {
     }
 }
 
-extension MyRecipesViewController: UITableViewDelegate {
+extension MealPlanRecipesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "RecipeViewController") as! RecipeViewController
         vc.recipe = recipes![indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
@@ -59,11 +58,13 @@ extension MyRecipesViewController: UITableViewDelegate {
         
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, completitionHandler) in
             
-            NetworkService().deleteRecipe(recipeID: String(self.recipes![indexPath.row].id!)) { success in
+            // add endpoint
+            NetworkService().deleteRecipeFromMealPlan(mealPlanID: String(self.mealPlan!.id!), recipeID: String(self.recipes![indexPath.row].id!)) { success in
                 
                 if success {
                     self.recipes?.remove(at: indexPath.row)
-                    tableView.reloadData()
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    completitionHandler(true)
                 }
             }
             

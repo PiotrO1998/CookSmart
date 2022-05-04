@@ -2,7 +2,6 @@
 //  RecipeViewController.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 02/05/2022.
 //
 
 import UIKit

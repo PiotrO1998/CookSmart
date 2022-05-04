@@ -2,7 +2,6 @@
 //  CreateRecipeStepOneViewController.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 01/05/2022.
 //
 
 import UIKit

@@ -2,22 +2,20 @@
 //  CookBookViewController.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 01/05/2022.
 //
 
 import UIKit
 
 class CookBookViewController: UIViewController {
     
+    var currentUserRecipes: [Recipe]?
+    var currenttUserMealPlans: [MealPlan]?
+    
     @IBOutlet weak var createRecipeButton: UIButton!
     @IBOutlet weak var myRecipesButton: UIButton!
     
     @IBOutlet weak var createMealPlanButton: UIButton!
     @IBOutlet weak var myMealPlansButton: UIButton!
-    
-    @IBOutlet weak var generateMealPlanButton: UIButton!
-    
-    var currentUserRecipes: [Recipe]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +33,6 @@ class CookBookViewController: UIViewController {
         myMealPlansButton.layer.cornerRadius = 5
         myMealPlansButton.layer.borderWidth = 1
         myMealPlansButton.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
-        
-        generateMealPlanButton.layer.cornerRadius = 5
-        generateMealPlanButton.layer.borderWidth = 1
-        generateMealPlanButton.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
-        
     }
     
     @IBAction func createRecipeButtonTapped(_ sender: UIButton) {
@@ -63,20 +56,28 @@ class CookBookViewController: UIViewController {
             
             if recipesData != nil {
 
+                self.currentUserRecipes = recipesData!.data
                 self.performSegue(withIdentifier: "segue=to-create-meal-plan", sender: self)
-                
             }
         }
     }
     
     @IBAction func myMealPlansButtonTapped(_ sender: UIButton) {
+        
+        NetworkService().getCurrentUserMealPlans {
+            mealPlans in
+            
+            if (mealPlans != nil) {
+                self.currenttUserMealPlans = mealPlans
+                self.performSegue(withIdentifier: "seque-to-my-meal-plans", sender: self)
+            }
+        }
     }
-    
-    @IBAction func generateMealPlanButtonTapped(_ sender: UIButton) {
-    }
-    
     
     @IBAction func unwindToCookBook( _ seg: UIStoryboardSegue) {
+    }
+    
+    @IBAction func unwindToCookBookFromCreaateMyMealPlans( _ seg: UIStoryboardSegue) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +89,9 @@ class CookBookViewController: UIViewController {
             
             let vc = segue.destination as! CreateMyMealPlanStepOneViewController
             vc.recipes = currentUserRecipes!
+        } else if segue.identifier == "seque-to-my-meal-plans" {
+            let vc = segue.destination as! MyMealPlansViewController
+            vc.myMealPlans = currenttUserMealPlans!
         }
     }
     

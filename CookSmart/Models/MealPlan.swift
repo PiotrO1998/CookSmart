@@ -2,7 +2,6 @@
 //  MealPlan.swift
 //  CookSmart
 //
-//  Created by Piotr Obara on 01/05/2022.
 //
 
 import Foundation
@@ -14,7 +13,7 @@ struct MealPlan: Codable {
     var name: String?
     var description: String?
     var user: User?
-    var recipes: Recipe?
+    var recipes: [Recipe]?
     var comments: [Comment]?
     var tags: [Tag]?
     var likes: [Like]?
@@ -29,6 +28,11 @@ struct MealPlanToSend: Codable {
     var ids: [Int]?
 }
 
+struct ReceivedMealPlans: Codable {
+    
+    var data: [MealPlan]?
+}
+
 extension NetworkService {
     
     func addMealPlan(mealplan: MealPlanToSend, completion: @escaping (_ success: MealPlan?) -> Void) {
@@ -39,7 +43,7 @@ extension NetworkService {
                    encoder: JSONParameterEncoder.default as JSONParameterEncoder,
                    headers: headers)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
@@ -105,7 +109,7 @@ extension NetworkService {
     
     func getMealPlan(mealPlanID: String, completion: @escaping (_ success: MealPlan?) -> Void) {
         
-        AF.request(baseUrl + Endpoints.getMealPlan.rawValue + mealPlanID,
+        AF.request(baseUrl + Endpoints.getMealPlan.rawValue.replacingOccurrences(of: "{mealplan}", with: mealPlanID),
                    method: .get,
                    headers: headers)
             .response { response in
@@ -141,16 +145,16 @@ extension NetworkService {
                    method: .get,
                    headers: headers)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
                         
                         do {
                             
-                            let mealPlansReceived = try JSONDecoder().decode([MealPlan].self, from: response.data!)
+                            let mealPlansReceived = try JSONDecoder().decode(ReceivedMealPlans.self, from: response.data!)
                             
-                            completion(mealPlansReceived)
+                            completion(mealPlansReceived.data)
                             
                         } catch {
                             
@@ -174,16 +178,16 @@ extension NetworkService {
                    method: .get,
                    headers: headers)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
                         
                         do {
                             
-                            let mealPlansReceived = try JSONDecoder().decode([MealPlan].self, from: response.data!)
+                            let mealPlansReceived = try JSONDecoder().decode(ReceivedMealPlans.self, from: response.data!)
                             
-                            completion(mealPlansReceived)
+                            completion(mealPlansReceived.data)
                             
                         } catch {
                             
@@ -209,7 +213,7 @@ extension NetworkService {
                    method: .delete,
                    headers: headers)
             .response { response in
-                
+                debugPrint(response)
                 if response.data != nil {
                     
                     if response.response!.statusCode < 400 {
@@ -217,6 +221,31 @@ extension NetworkService {
                             completion(true)
                     } else {
                         
+                        
+                        completion(false)
+                    }
+                } else {
+                    
+                    completion(false)
+                }
+            }
+    }
+    
+    func deleteRecipeFromMealPlan(mealPlanID: String, recipeID: String, completion: @escaping (_ success: Bool) -> Void) {
+        
+        let url = baseUrl + Endpoints.deleteRecipeFromMealPlan.rawValue.replacingOccurrences(of: "{mealplan}", with: mealPlanID).replacingOccurrences(of: "{recipe}", with: recipeID)
+        
+        AF.request(url,
+                   method: .patch,
+                   headers: headers)
+            .response { response in
+                debugPrint(response)
+                if response.data != nil {
+                    
+                    if response.response!.statusCode < 400 {
+                        
+                            completion(true)
+                    } else {
                         
                         completion(false)
                     }
