@@ -6,13 +6,16 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameTextField.delegate = self
+        surnameTextField.delegate = self
         
         firstNameTextField.layer.cornerRadius = 5
         firstNameTextField.layer.borderWidth = 1
@@ -48,7 +51,7 @@ class ProfileViewController: UIViewController {
                     if user != nil {
                         
                         CurrentUserDefaults.shared.saveCurrentUserToUserDefaults(user: user!)
-                        self.dismiss(animated: true)
+                        //self.dismiss(animated: true)
                     }
                 }
             } else {
@@ -104,6 +107,11 @@ class ProfileViewController: UIViewController {
             NSLog("The \"OK\" alert occured.")
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     

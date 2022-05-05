@@ -6,7 +6,7 @@
 
 import UIKit
 
-class CreateMyMealPlanStepOneViewController: UIViewController {
+class CreateMyMealPlanStepOneViewController: UIViewController, UITextFieldDelegate {
     
     var recipes: [Recipe]?
     
@@ -15,6 +15,8 @@ class CreateMyMealPlanStepOneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mealPlanNameTextField.delegate = self
         
         mealPlanTextView.layer.cornerRadius = 5
         mealPlanTextView.layer.borderWidth = 1
@@ -58,5 +60,9 @@ class CreateMyMealPlanStepOneViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
 }

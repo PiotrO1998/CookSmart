@@ -17,6 +17,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         self.title = "Sign in"
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         emailTextField.layer.cornerRadius = 5
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.8146176558, blue: 0.3191613718, alpha: 1)
@@ -111,6 +114,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             
             print("no token")
         }
-        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }

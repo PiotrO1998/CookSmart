@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterUserViewController: UIViewController {
+class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -18,6 +18,12 @@ class RegisterUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameTextField.delegate = self
+        surnameTextField.delegate = self
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         
         firstNameTextField.layer.cornerRadius = 5
         firstNameTextField.layer.borderWidth = 1
@@ -121,5 +127,9 @@ class RegisterUserViewController: UIViewController {
             }
         }
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }
